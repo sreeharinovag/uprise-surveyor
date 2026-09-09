@@ -21,7 +21,7 @@
 <script src="./image-slot.js"></script>
 <style>
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: #fbfcfa; color: #14231a; font-family: Archivo, system-ui, sans-serif; overflow-x: hidden; }
+  body { margin: 0; background: #08110c; color: #14231a; font-family: Archivo, system-ui, sans-serif; overflow-x: hidden; }
   a { color: #1f5132; text-decoration: none; }
   a:hover { color: #2e7d4f; }
   ::selection { background: #dcefc9; color: #14231a; }
@@ -82,10 +82,12 @@
 </style>
 </helmet>
 
-<div style="background:#fbfcfa;color:#14231a;font-family:Archivo,system-ui,sans-serif;font-size:16px;line-height:1.6;min-height:100%">
+<div style="position:relative;background:#fbfcfa;color:#14231a;font-family:Archivo,system-ui,sans-serif;font-size:16px;line-height:1.6;min-height:100%">
 
-  <div style="position:sticky;top:0;z-index:95;padding:clamp(10px,1.2vw,16px) clamp(14px,3vw,40px);pointer-events:none">
-    <div ref="{{ capsule }}" style="pointer-events:auto;width:100%;max-width:1080px;margin:0 auto;background:linear-gradient(100deg,#1a4429,#22623b 58%,#2e7d4f);border-radius:999px;box-shadow:0 14px 38px rgba(0,0,0,.4);border:1px solid rgba(140,198,63,.26);display:flex;align-items:center;gap:16px;padding:9px 11px 9px 16px;transition:padding .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease,max-width .7s cubic-bezier(.16,.84,.28,1),background .6s ease">
+  <div aria-hidden="true" style="position:absolute;top:0;left:0;right:0;height:170px;background:#08110c;z-index:0"></div>
+
+  <div style="position:sticky;top:0;z-index:95;padding:clamp(10px,1.2vw,16px) clamp(16px,3vw,40px);pointer-events:none">
+    <div ref="{{ capsule }}" style="pointer-events:auto;width:100%;background:linear-gradient(100deg,#1a4429,#22623b 58%,#2e7d4f);border-radius:999px;box-shadow:0 14px 38px rgba(0,0,0,.4);border:1px solid rgba(140,198,63,.26);display:flex;align-items:center;gap:16px;padding:9px 11px 9px 16px;transition:padding .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease,max-width .7s cubic-bezier(.16,.84,.28,1),background .6s ease">
       <a href="#top" style="display:flex;align-items:center;gap:11px;flex:0 0 auto;color:#fff">
         <span ref="{{ mark }}" style="width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:width .6s cubic-bezier(.16,.84,.28,1),height .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease">
           <img src="assets/uprise-logo.png" alt="Uprise Land Survey Company logo" style="width:82%;height:82%;object-fit:contain">
@@ -123,7 +125,7 @@
     </div>
   </div>
 
-  <section id="top" ref="{{ heroRoot }}" style="position:relative;overflow:hidden;color:#eef2ec;margin-top:calc(-1 * (clamp(10px,1.2vw,16px) * 2 + 54px));padding-top:calc(clamp(10px,1.2vw,16px) * 2 + 54px);background:linear-gradient(180deg,#08110c 0%,#0d1710 52%,#101e15 100%)">
+  <section id="top" ref="{{ heroRoot }}" style="position:relative;overflow:hidden;color:#eef2ec;background:linear-gradient(180deg,#08110c 0%,#0d1710 52%,#101e15 100%)">
     <div ref="{{ heroGrid }}" style="position:absolute;inset:-70px;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(84% 78% at 68% 42%,#000,transparent 84%);mask-image:radial-gradient(84% 78% at 68% 42%,#000,transparent 84%);will-change:transform"></div>
     <div data-par="0.10" style="position:absolute;inset:0;background:radial-gradient(52% 46% at 78% 26%,rgba(140,198,63,.20),transparent 66%),radial-gradient(46% 44% at 6% 96%,rgba(46,125,79,.26),transparent 70%);will-change:transform"></div>
     <canvas ref="{{ cloud }}" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.9"></canvas>
@@ -317,13 +319,20 @@
   </section>
 
   <section id="field" style="overflow:hidden">
-    <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(26px,3.6vw,56px) clamp(16px,3vw,40px) clamp(16px,2.2vw,28px);display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;justify-content:space-between">
-      <h2 data-anim="curtain" style="margin:0;font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em">Field record</h2>
-      <span data-anim="fall" style="--d:200ms;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d">03 / Drag to scroll →</span>
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(26px,3.6vw,56px) clamp(16px,3vw,40px) clamp(16px,2.2vw,26px);display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between">
+      <div>
+        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d;margin-bottom:12px">03 / Field record</span>
+        <h2 data-anim="curtain" style="margin:0;font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em">Recent work</h2>
+      </div>
+      <div data-anim="rise" style="display:flex;align-items:center;gap:10px">
+        <button ref="{{ railPrev }}" type="button" onClick="{{ railBack }}" aria-label="Previous project" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(20,35,26,.18);background:#fff;color:#14231a;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:15px;transition:border-color .35s ease,background .35s ease,transform .35s cubic-bezier(.16,.84,.28,1),opacity .35s ease" style-hover="border-color:#1f5132;background:#f2f7ee;transform:translateY(-2px)">←</button>
+        <button ref="{{ railNext }}" type="button" onClick="{{ railFwd }}" aria-label="Next project" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(20,35,26,.18);background:#fff;color:#14231a;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:15px;transition:border-color .35s ease,background .35s ease,transform .35s cubic-bezier(.16,.84,.28,1),opacity .35s ease" style-hover="border-color:#1f5132;background:#f2f7ee;transform:translateY(-2px)">→</button>
+      </div>
     </div>
-    <div ref="{{ rail }}" class="rail" data-stagger="130" style="display:flex;gap:clamp(14px,1.6vw,20px);overflow-x:auto;padding:0 clamp(16px,3vw,40px) clamp(30px,4vw,54px);scroll-snap-type:x mandatory">
+
+    <div ref="{{ rail }}" class="rail" data-stagger="130" style="display:flex;gap:clamp(14px,1.6vw,20px);overflow-x:auto;padding:0 clamp(16px,3vw,40px) clamp(20px,2.6vw,32px);scroll-snap-type:x mandatory">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
-        <figure data-anim="lift" style="margin:0;flex:0 0 min(80vw,400px);scroll-snap-align:start;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:22px;overflow:hidden;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),box-shadow .5s ease;transition-delay:var(--d,0ms)" style-hover="box-shadow:0 30px 60px rgba(20,35,26,.14);transform:translateY(-8px)">
+        <figure data-anim="lift" data-card="1" style="margin:0;flex:0 0 min(80vw,400px);scroll-snap-align:start;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:22px;overflow:hidden;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),box-shadow .5s ease;transition-delay:var(--d,0ms)" style-hover="box-shadow:0 30px 60px rgba(20,35,26,.14);transform:translateY(-8px)">
           <div style="position:relative;aspect-ratio:4/3;overflow:hidden">
             <image-slot id="{{ p.slot }}" src="{{ p.src }}" shape="rect" fit="cover" placeholder="{{ p.ph }}"></image-slot>
             <div style="position:absolute;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;background:rgba(255,255,255,.92);color:#1f5132;padding:5px 11px;border-radius:999px;pointer-events:none">{{ p.no }}</div>
@@ -335,10 +344,15 @@
         </figure>
       </sc-for>
     </div>
-    <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(44px,5.4vw,84px)">
-      <a data-anim="rise" href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:999px;padding:18px 26px;color:#14231a;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .9s cubic-bezier(.16,.84,.28,1),border-color .4s ease,box-shadow .45s ease" style-hover="border-color:#1f5132;box-shadow:0 18px 40px rgba(20,35,26,.1);transform:translateY(-3px)">
-        <span>See what we're working on</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#2e7d4f">Facebook · UP-Rise →</span>
+
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(44px,5.4vw,84px);display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
+      <div style="flex:1 1 180px;min-width:140px;height:2px;background:rgba(20,35,26,.12);position:relative;border-radius:2px">
+        <div ref="{{ railProgress }}" style="position:absolute;left:0;top:0;height:2px;width:25%;background:#1f5132;border-radius:2px;transition:width .4s cubic-bezier(.16,.84,.28,1),left .4s cubic-bezier(.16,.84,.28,1)"></div>
+      </div>
+      <span ref="{{ railCounter }}" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#78867d">01 / 04</span>
+      <a data-anim="rise" href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="margin-left:auto;display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(20,35,26,.12);border-radius:999px;padding:13px 20px;color:#14231a;font-size:14px;transition:opacity 1s ease,transform .5s cubic-bezier(.16,.84,.28,1),border-color .4s ease,box-shadow .45s ease" style-hover="border-color:#1f5132;box-shadow:0 14px 32px rgba(20,35,26,.1);transform:translateY(-2px)">
+        See more on Facebook
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#2e7d4f">→</span>
       </a>
     </div>
   </section>
@@ -357,11 +371,12 @@
       </div>
       <div data-stagger="150" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(18px,2.2vw,30px)">
         <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
-          <div data-anim="rise" style="position:relative;padding-top:22px">
-            <div style="position:absolute;top:-3px;left:0;width:7px;height:7px;background:#8cc63f"></div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8cc63f;margin-bottom:10px">{{ st.no }}</div>
-            <h3 style="margin:0 0 8px;font-weight:600;font-size:16.5px;letter-spacing:.02em;text-transform:uppercase;color:#fff">{{ st.title }}</h3>
-            <p style="margin:0;color:#b6c5b8;font-size:14.5px">{{ st.body }}</p>
+          <div data-anim="rise" data-step-card="1" style="position:relative;overflow:hidden;padding:22px 20px 24px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.035);backdrop-filter:blur(10px);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1),background .45s ease,border-color .45s ease,box-shadow .45s ease" style-hover="background:rgba(140,198,63,.08);border-color:rgba(140,198,63,.45);box-shadow:0 22px 46px rgba(0,0,0,.4);transform:translateY(-6px)">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#8cc63f,rgba(140,198,63,0))"></div>
+            <div aria-hidden="true" style="position:absolute;top:8px;right:14px;font-weight:700;font-size:52px;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.1)">{{ st.no }}</div>
+            <div style="position:relative;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8cc63f;margin-bottom:10px">{{ st.no }}</div>
+            <h3 style="position:relative;margin:0 0 8px;font-weight:600;font-size:16.5px;letter-spacing:.02em;text-transform:uppercase;color:#fff">{{ st.title }}</h3>
+            <p style="position:relative;margin:0;color:#b6c5b8;font-size:14.5px">{{ st.body }}</p>
           </div>
         </sc-for>
       </div>
@@ -377,12 +392,13 @@
       <h2 data-anim="wipe" style="--d:120ms;margin:0 0 clamp(26px,3.6vw,50px);font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em;max-width:20ch">Built around precision and speed</h2>
       <div data-stagger="130" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:clamp(18px,2.4vw,36px)">
         <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4">
-          <div data-anim="lift">
-            <div style="width:36px;height:36px;border:1px solid rgba(31,81,50,.24);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <div data-anim="lift" style="position:relative;overflow:hidden;padding:24px 22px 26px;border:1px solid rgba(20,35,26,.12);border-radius:20px;background:#fff;color:#14231a;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1),background .5s ease,color .5s ease,border-color .5s ease,box-shadow .5s ease" style-hover="background:#14231a;color:#ffffff;border-color:#14231a;box-shadow:0 26px 52px rgba(20,35,26,.22);transform:translateY(-6px)">
+            <div aria-hidden="true" style="position:absolute;bottom:-14px;right:10px;font-weight:700;font-size:76px;line-height:1;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px currentColor;opacity:.12">{{ r.no }}</div>
+            <div style="position:relative;width:38px;height:38px;border:1px solid currentColor;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;opacity:.9">
               <span style="width:9px;height:9px;background:#8cc63f;border-radius:50%;display:block"></span>
             </div>
-            <h3 style="margin:0 0 8px;font-weight:600;font-size:17.5px;letter-spacing:-.015em">{{ r.title }}</h3>
-            <p style="margin:0;color:#3b4a41;font-size:14.5px">{{ r.body }}</p>
+            <h3 style="position:relative;margin:0 0 8px;font-weight:600;font-size:17.5px;letter-spacing:-.015em;color:inherit">{{ r.title }}</h3>
+            <p style="position:relative;margin:0;font-size:14.5px;color:inherit;opacity:.72">{{ r.body }}</p>
           </div>
         </sc-for>
       </div>
@@ -524,6 +540,13 @@
     </div>
   </section>
 
+  <button ref="{{ toTop }}" type="button" onClick="{{ scrollTop }}" aria-label="Back to top" style="position:fixed;right:clamp(16px,2.4vw,32px);bottom:clamp(16px,2.4vw,32px);z-index:90;width:52px;height:52px;border-radius:50%;border:1px solid rgba(140,198,63,.4);background:rgba(13,23,16,.86);backdrop-filter:blur(12px);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(0,0,0,.34);opacity:0;transform:translateY(18px) scale(.9);pointer-events:none;transition:opacity .5s ease,transform .6s cubic-bezier(.16,.84,.28,1),background .35s ease,border-color .35s ease" style-hover="background:#8cc63f;border-color:#8cc63f;color:#0b150e">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;overflow:visible">
+      <circle cx="12" cy="12" r="11" fill="none" stroke="rgba(140,198,63,.28)" stroke-width="1.5" stroke-dasharray="69.1" stroke-dashoffset="69.1" transform="rotate(-90 12 12)" ref="{{ toTopRing }}"></circle>
+      <path d="M12 17 V7.6 M7.4 12.2 L12 7.4 L16.6 12.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </button>
+
   <footer data-footer-root="1" style="position:relative;background:#08110c;color:#c5d2c6;overflow:hidden">
     <div data-par="0.04" aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(58% 50% at 50% 116%,rgba(46,125,79,.34),transparent 68%),radial-gradient(40% 40% at 88% 0%,rgba(140,198,63,.10),transparent 70%);will-change:transform"></div>
     <svg aria-hidden="true" viewBox="0 0 1440 420" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:72%;opacity:.6">
@@ -656,7 +679,7 @@ class Component extends DCLogic {
       this.q('[data-anim]').forEach(el => {
         if (el.classList.contains('in')) return;
         const r = el.getBoundingClientRect();
-        if (r.bottom > 0 && r.top < vh * 0.94) el.classList.add('in');
+        if (r.top < vh * 0.94) el.classList.add('in');
       });
     };
 
@@ -687,7 +710,6 @@ class Component extends DCLogic {
       if (this.deskNav) this.deskNav.style.display = d ? 'flex' : 'none';
       if (this.menuBtn) this.menuBtn.style.display = d ? 'none' : 'flex';
       if (this.magnet) this.magnet.style.display = d ? 'inline-flex' : 'none';
-      if (this.capsule) this.capsule.style.maxWidth = this.mqWide.matches ? '1160px' : '1080px';
       if (d && this.state.menu) this.setState({ menu: false });
       if (this.movePill) this.movePill();
     };
@@ -704,8 +726,9 @@ class Component extends DCLogic {
 
       if (this.capsule) {
         this.capsule.style.padding = shrunk ? '6px 9px 6px 13px' : '9px 11px 9px 16px';
-        this.capsule.style.boxShadow = shrunk ? '0 8px 26px rgba(20,50,30,.32)' : '0 14px 38px rgba(20,50,30,.22)';
-        this.capsule.style.maxWidth = shrunk ? '940px' : (this.mqWide.matches ? '1160px' : '1080px');
+        this.capsule.style.boxShadow = shrunk ? '0 8px 26px rgba(0,0,0,.42)' : '0 14px 38px rgba(0,0,0,.4)';
+        this.capsule.style.maxWidth = shrunk ? '1240px' : 'none';
+        this.capsule.style.margin = '0 auto';
       }
       if (this.mark) { const s = shrunk ? '31px' : '36px'; this.mark.style.width = s; this.mark.style.height = s; }
       if (this.wordmark) {
@@ -713,6 +736,17 @@ class Component extends DCLogic {
         this.wordmark.style.maxWidth = hide ? '0px' : '200px';
         this.wordmark.style.opacity = hide ? '0' : '1';
       }
+
+      const doc = document.documentElement;
+      const scrollable = Math.max(1, doc.scrollHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, this.scrollY / scrollable));
+      if (this.toTop) {
+        const show = this.scrollY > 520;
+        this.toTop.style.opacity = show ? '1' : '0';
+        this.toTop.style.transform = show ? 'none' : 'translateY(18px) scale(.9)';
+        this.toTop.style.pointerEvents = show ? 'auto' : 'none';
+      }
+      if (this.toTopRing) this.toTopRing.style.strokeDashoffset = (69.1 * (1 - progress)).toFixed(2);
 
       let act = null;
       this.sections.forEach(id => {
@@ -724,7 +758,7 @@ class Component extends DCLogic {
       if (!this.reduced.matches && this.start) this.start();
     };
     window.addEventListener('scroll', this.onScroll, { passive: true });
-    window.addEventListener('resize', () => { this.movePill(); this.onScroll(); });
+    window.addEventListener('resize', () => { this.movePill(); this.onScroll(); this.syncRail(); });
     this.onScroll();
 
     // ---- cursor-driven instrument + unified scroll transforms --------------
@@ -838,11 +872,6 @@ class Component extends DCLogic {
           this.methodProgress.style.width = (p * 100).toFixed(1) + '%';
         }
       }
-      if (this.rail) {
-        const r = this.rail.getBoundingClientRect();
-        const p = Math.max(-1, Math.min(1, (window.innerHeight / 2 - (r.top + r.height / 2)) / window.innerHeight));
-        if (!this.railTouched) this.rail.scrollLeft = Math.max(0, p * 90);
-      }
 
       if (moving) this.start();
     };
@@ -926,6 +955,52 @@ class Component extends DCLogic {
     draw();
   }
 
+  railMetrics() {
+    const el = this.rail;
+    if (!el) return null;
+    const cards = el.querySelectorAll('[data-card]');
+    if (!cards.length) return null;
+    const w = cards[0].getBoundingClientRect().width;
+    const gap = cards.length > 1
+      ? cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().right
+      : 0;
+    const pad = parseFloat(getComputedStyle(el).paddingLeft) || 0;
+    const max = el.scrollWidth - el.clientWidth;
+    return { el, cards, step: w + Math.max(0, gap), max, min: Math.min(pad, max) };
+  }
+
+  railStep(dir) {
+    const m = this.railMetrics();
+    if (!m) return;
+    m.el.scrollTo({ left: Math.max(0, Math.min(m.max, m.el.scrollLeft + dir * m.step)), behavior: this.reduced && this.reduced.matches ? 'auto' : 'smooth' });
+  }
+
+  syncRail() {
+    const m = this.railMetrics();
+    if (!m) return;
+    const total = m.cards.length;
+    const index = m.step ? Math.round(Math.max(0, m.el.scrollLeft - m.min) / m.step) : 0;
+    const shown = Math.max(1, Math.min(total, Math.round(m.el.clientWidth / m.step)));
+    const first = Math.min(total - shown, Math.max(0, index)) + 1;
+    const last = Math.min(total, first + shown - 1);
+    const pad2 = (n) => String(n).padStart(2, '0');
+    if (this.railCounter) {
+      this.railCounter.textContent =
+        (last > first ? pad2(first) + '–' + pad2(last) : pad2(first)) + ' / ' + pad2(total);
+    }
+    if (this.railProgress) {
+      const frac = Math.min(1, shown / total);
+      const travel = 1 - frac;
+      const span = m.max - m.min;
+      const pos = span > 0 ? Math.min(1, Math.max(0, (m.el.scrollLeft - m.min) / span)) : 0;
+      this.railProgress.style.width = (frac * 100).toFixed(2) + '%';
+      this.railProgress.style.left = (pos * travel * 100).toFixed(2) + '%';
+    }
+    const atStart = m.el.scrollLeft <= m.min + 2, atEnd = m.el.scrollLeft >= m.max - 2;
+    if (this.railPrev) { this.railPrev.style.opacity = atStart ? '.35' : '1'; this.railPrev.disabled = atStart; }
+    if (this.railNext) { this.railNext.style.opacity = atEnd ? '.35' : '1'; this.railNext.disabled = atEnd; }
+  }
+
   setService(i) {
     this.active = i;
     const data = this.svcData || [];
@@ -1006,13 +1081,29 @@ class Component extends DCLogic {
       seam2: (el) => { this.seam2 = el; },
       methodGrid: (el) => { this.methodGrid = el; },
       methodProgress: (el) => { this.methodProgress = el; },
-      rail: (el) => { this.rail = el; if (el) el.addEventListener('pointerdown', () => { this.railTouched = true; }); },
+      rail: (el) => {
+        this.rail = el;
+        if (el && !el.dataset.wired) {
+          el.dataset.wired = '1';
+          el.addEventListener('scroll', () => this.syncRail(), { passive: true });
+          setTimeout(() => this.syncRail(), 200);
+        }
+      },
+      railPrev: (el) => { this.railPrev = el; },
+      railNext: (el) => { this.railNext = el; },
+      railProgress: (el) => { this.railProgress = el; },
+      railCounter: (el) => { this.railCounter = el; },
+      railBack: () => this.railStep(-1),
+      railFwd: () => this.railStep(1),
       svcLabel: (el) => { this.svcLabel = el; },
       svcMeta: (el) => { this.svcMeta = el; },
+      toTop: (el) => { this.toTop = el; },
+      toTopRing: (el) => { this.toTopRing = el; },
+      scrollTop: () => window.scrollTo({ top: 0, behavior: (this.reduced && this.reduced.matches) ? 'auto' : 'smooth' }),
       toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
       closeMenu: () => this.setState({ menu: false }),
       drawerStyle: this.state.menu
-        ? 'pointer-events:auto;width:100%;max-width:1080px;margin:10px auto 0;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:28px;box-shadow:0 22px 54px rgba(20,35,26,.16);overflow:hidden'
+        ? 'pointer-events:auto;width:100%;margin:10px auto 0;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:28px;box-shadow:0 22px 54px rgba(20,35,26,.16);overflow:hidden'
         : 'display:none',
       contactGlow: (el) => { this.contactGlow = el; },
       submitBtn: (el) => { this.submitBtn = el; },
@@ -1072,10 +1163,10 @@ class Component extends DCLogic {
         { no: '05', title: 'Deliver', body: 'Drawings and coordinate data issued in the formats your team works in.' }
       ],
       reasons: [
-        { title: 'Highly accurate measurements', body: 'RTK positioning resolves points to centimetre level in the field, not back at the desk.' },
-        { title: 'New technology, modern equipment', body: 'Current satellite and optical instruments, maintained and checked before every job.' },
-        { title: 'Trusted service, professional team', body: 'Clear communication from brief to handover, with one point of contact throughout.' },
-        { title: 'Commitment to quality', body: 'Independent verification against control before anything is issued.' }
+        { no: '01', title: 'Highly accurate measurements', body: 'RTK positioning resolves points to centimetre level in the field, not back at the desk.' },
+        { no: '02', title: 'New technology, modern equipment', body: 'Current satellite and optical instruments, maintained and checked before every job.' },
+        { no: '03', title: 'Trusted service, professional team', body: 'Clear communication from brief to handover, with one point of contact throughout.' },
+        { no: '04', title: 'Commitment to quality', body: 'Independent verification against control before anything is issued.' }
       ]
     };
   }
