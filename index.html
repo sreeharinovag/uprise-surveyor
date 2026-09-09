@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Uprise Land Surveying Company | Precision Measurement, Idukki, Kerala</title>
+<meta name="description" content="Uprise Land Surveying Company, Vazhithala, Thodupuzha, Idukki, Kerala. RTK satellite survey experts. Boundary, contour, layout and digital mapping at centimetre-level accuracy. +91 97452 20712.">
+<meta property="og:title" content="Uprise Land Surveying Company | Precision Measurement">
+<meta property="og:description" content="RTK satellite survey, boundary, contour, layout and digital mapping. Call +91 97452 20712.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="_ds/modernist-d7af15a5-2ca3-4870-8404-d4f4ed88544c/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="_ds/modernist-d7af15a5-2ca3-4870-8404-d4f4ed88544c/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #fbfcfa; color: #14231a; font-family: Archivo, system-ui, sans-serif; overflow-x: hidden; }
+  a { color: #1f5132; text-decoration: none; }
+  a:hover { color: #2e7d4f; }
+  ::selection { background: #dcefc9; color: #14231a; }
+  :focus-visible { outline: 2px solid #2e7d4f; outline-offset: 3px; }
+  input, textarea, select, button { font: inherit; }
+
+  /* ---- motion system ---------------------------------------------------- */
+  [data-anim] {
+    opacity: 0;
+    will-change: transform, opacity, filter, clip-path;
+    transition:
+      opacity 1s cubic-bezier(.16,.84,.28,1),
+      transform 1.15s cubic-bezier(.16,.84,.28,1),
+      filter 1.15s cubic-bezier(.16,.84,.28,1),
+      clip-path 1.25s cubic-bezier(.16,.84,.28,1);
+    transition-delay: var(--d, 0ms);
+  }
+  [data-anim="rise"]    { transform: translateY(42px) }
+  [data-anim="fall"]    { transform: translateY(-26px) }
+  [data-anim="lift"]    { transform: translateY(70px) scale(.96) }
+  [data-anim="left"]    { transform: translateX(-52px) }
+  [data-anim="right"]   { transform: translateX(52px) }
+  [data-anim="zoom"]    { transform: scale(.9); filter: blur(10px) }
+  [data-anim="depth"]   { transform: translateY(56px) scale(1.06); filter: blur(16px) }
+  [data-anim="word"]    { display: inline-block; transform: translateY(.42em) rotate(1.4deg); clip-path: inset(0 0 108% 0) }
+  [data-anim="wipe"]    { clip-path: inset(0 100% 0 0); transform: translateX(-14px) }
+  [data-anim="curtain"] { clip-path: inset(102% 0 0 0); transform: translateY(30px) }
+  [data-anim="rule"]    { transform: scaleX(0); transform-origin: left center; opacity: 1 }
+
+  [data-anim].in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: inset(0 0 0 0);
+  }
+  [data-anim="rule"].in { transform: scaleX(1) }
+
+  @keyframes drift { to { stroke-dashoffset: -1600 } }
+  @keyframes pulse { 0%,100% { opacity: .85; transform: scale(1) } 50% { opacity: .28; transform: scale(1.45) } }
+  @keyframes sweepY { 0% { top: 6% } 100% { top: 94% } }
+  @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(6px) } }
+  @keyframes halo { 0%,100% { opacity: .5; transform: scale(1) } 50% { opacity: .85; transform: scale(1.06) } }
+  @keyframes trail { 0% { stroke-dashoffset: 1400 } 100% { stroke-dashoffset: -1400 } }
+  @keyframes orbit { to { transform: rotate(360deg) } }
+  @keyframes glowPulse { 0%,100% { opacity: .32 } 50% { opacity: .6 } }
+  @keyframes drawCheck { to { stroke-dashoffset: 0 } }
+  @keyframes ringIn { 0% { transform: scale(.6); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
+  @keyframes sweepX { 0% { transform: translateX(-100%) } 100% { transform: translateX(220%) } }
+  .rail::-webkit-scrollbar { height: 3px }
+  .rail::-webkit-scrollbar-thumb { background: #c6d2c8 }
+  .rail::-webkit-scrollbar-track { background: #eef1eb }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto }
+    [data-anim] { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; transition: none !important }
+    * { animation: none !important }
+  }
+</style>
+</helmet>
+
+<div style="background:#fbfcfa;color:#14231a;font-family:Archivo,system-ui,sans-serif;font-size:16px;line-height:1.6;min-height:100%">
+
+  <div style="position:sticky;top:0;z-index:95;padding:clamp(10px,1.2vw,16px) clamp(14px,3vw,40px);pointer-events:none">
+    <div ref="{{ capsule }}" style="pointer-events:auto;width:100%;max-width:1080px;margin:0 auto;background:linear-gradient(100deg,#1a4429,#22623b 58%,#2e7d4f);border-radius:999px;box-shadow:0 14px 38px rgba(0,0,0,.4);border:1px solid rgba(140,198,63,.26);display:flex;align-items:center;gap:16px;padding:9px 11px 9px 16px;transition:padding .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease,max-width .7s cubic-bezier(.16,.84,.28,1),background .6s ease">
+      <a href="#top" style="display:flex;align-items:center;gap:11px;flex:0 0 auto;color:#fff">
+        <span ref="{{ mark }}" style="width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:width .6s cubic-bezier(.16,.84,.28,1),height .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease">
+          <img src="assets/uprise-logo.png" alt="Uprise Land Survey Company logo" style="width:82%;height:82%;object-fit:contain">
+        </span>
+        <span ref="{{ wordmark }}" style="display:flex;flex-direction:column;line-height:1.08;overflow:hidden;transition:max-width .6s cubic-bezier(.16,.84,.28,1),opacity .5s ease">
+          <span style="font-weight:700;font-size:14.5px;letter-spacing:.11em;text-transform:uppercase;color:#fff;white-space:nowrap">Uprise</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#bfe0c8;white-space:nowrap">Land Surveying Co.</span>
+        </span>
+      </a>
+
+      <nav ref="{{ deskNav }}" style="margin:0 auto;display:none;align-items:center;gap:0;position:relative">
+        <span ref="{{ pill }}" style="position:absolute;left:0;top:50%;height:32px;margin-top:-16px;border-radius:999px;background:rgba(255,255,255,.17);opacity:0;transition:transform .62s cubic-bezier(.16,.84,.28,1),width .62s cubic-bezier(.16,.84,.28,1),opacity .45s ease;pointer-events:none"></span>
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+          <a href="{{ n.href }}" data-nav="{{ n.id }}" style="position:relative;color:#dcebe0;font-size:13px;letter-spacing:.005em;padding:9px 14px;border-radius:999px;white-space:nowrap;transition:color .35s ease,transform .45s cubic-bezier(.16,.84,.28,1)" style-hover="color:#fff;transform:translateY(-2px)">{{ n.label }}</a>
+        </sc-for>
+      </nav>
+
+      <a ref="{{ magnet }}" href="{{ waLink }}" target="_blank" rel="noopener" style="background:#fff;color:#1a4429;font-weight:600;font-size:12.5px;padding:11px 19px;border-radius:999px;min-height:44px;display:none;align-items:center;gap:8px;flex:0 0 auto;white-space:nowrap;transition:background .35s ease,box-shadow .45s ease" style-hover="background:#e9f5e0;box-shadow:0 10px 24px rgba(0,0,0,.16)">
+        <span ref="{{ magnetLabel }}" style="display:inline-flex;align-items:center;gap:8px;transition:transform .4s cubic-bezier(.16,.84,.28,1)">Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></span>
+      </a>
+
+      <button type="button" onClick="{{ toggleMenu }}" aria-label="Open menu" ref="{{ menuBtn }}" style="margin-left:auto;background:rgba(255,255,255,.14);border:0;color:#fff;width:44px;height:44px;border-radius:999px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;flex:0 0 auto;transition:background .35s ease" style-hover="background:rgba(255,255,255,.28)">
+        <span style="display:block;width:16px;height:1.5px;background:#fff"></span>
+        <span style="display:block;width:16px;height:1.5px;background:#fff"></span>
+      </button>
+    </div>
+
+    <div style="{{ drawerStyle }}">
+      <div style="display:flex;flex-direction:column;padding:6px">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+          <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="color:#14231a;font-weight:600;font-size:19px;padding:14px 16px;border-radius:18px;transition:background .35s ease,padding-left .35s cubic-bezier(.16,.84,.28,1)" style-hover="background:#f0f5ec;padding-left:22px">{{ n.label }}</a>
+        </sc-for>
+        <a href="tel:+919745220712" onClick="{{ closeMenu }}" style="margin:6px;background:#1f5132;color:#fff;font-weight:600;font-size:14px;padding:16px;text-align:center;border-radius:999px">Call +91 97452 20712</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="top" ref="{{ heroRoot }}" style="position:relative;overflow:hidden;color:#eef2ec;margin-top:calc(-1 * (clamp(10px,1.2vw,16px) * 2 + 54px));padding-top:calc(clamp(10px,1.2vw,16px) * 2 + 54px);background:linear-gradient(180deg,#08110c 0%,#0d1710 52%,#101e15 100%)">
+    <div ref="{{ heroGrid }}" style="position:absolute;inset:-70px;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(84% 78% at 68% 42%,#000,transparent 84%);mask-image:radial-gradient(84% 78% at 68% 42%,#000,transparent 84%);will-change:transform"></div>
+    <div data-par="0.10" style="position:absolute;inset:0;background:radial-gradient(52% 46% at 78% 26%,rgba(140,198,63,.20),transparent 66%),radial-gradient(46% 44% at 6% 96%,rgba(46,125,79,.26),transparent 70%);will-change:transform"></div>
+    <canvas ref="{{ cloud }}" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.9"></canvas>
+
+    <svg aria-hidden="true" viewBox="0 0 1440 520" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:64%;opacity:.7">
+      <g fill="none" stroke="#2e7d4f" stroke-width="1">
+        <path d="M-20 340 C 240 292 420 372 700 328 S 1180 266 1460 310" opacity=".48"></path>
+        <path d="M-20 386 C 240 336 420 420 700 374 S 1180 308 1460 356" opacity=".32"></path>
+        <path d="M-20 432 C 240 380 420 468 700 420 S 1180 350 1460 402" opacity=".2"></path>
+        <path d="M-20 478 C 240 424 420 516 700 466 S 1180 392 1460 448" opacity=".12"></path>
+      </g>
+      <path d="M-20 340 C 240 292 420 372 700 328 S 1180 266 1460 310" fill="none" stroke="#8cc63f" stroke-width="2" stroke-linecap="round" stroke-dasharray="90 1310" style="animation:trail 16s linear infinite;filter:drop-shadow(0 0 6px rgba(140,198,63,.7))"></path>
+      <g fill="#8cc63f">
+        <circle cx="286" cy="312" r="2.5" style="animation:pulse 5s ease-in-out infinite"></circle>
+        <circle cx="742" cy="330" r="2.5" style="animation:pulse 7s ease-in-out infinite"></circle>
+        <circle cx="1168" cy="284" r="2.5" style="animation:pulse 6s ease-in-out infinite"></circle>
+      </g>
+    </svg>
+
+    <div ref="{{ heroInner }}" style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(24px,3.4vw,50px) clamp(16px,3vw,40px) clamp(20px,2.8vw,38px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);align-items:center;will-change:transform">
+      <div style="max-width:580px">
+        <div data-anim="fall" style="--d:60ms;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(140,198,63,.32);border-radius:999px;padding:8px 15px;margin-bottom:clamp(14px,2.2vw,22px)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#8cc63f;display:inline-block;animation:pulse 2.6s ease-in-out infinite"></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a9bdae">RTK satellite survey · Idukki, Kerala</span>
+        </div>
+        <h1 style="margin:0;font-weight:700;font-size:clamp(36px,5.4vw,74px);line-height:1.02;letter-spacing:-.042em;max-width:13ch;color:#fff">
+          <span data-anim="word" style="--d:180ms">Ground</span> <span data-anim="word" style="--d:270ms">truth,</span><br>
+          <span data-anim="word" style="--d:360ms">measured</span> <span data-anim="word" style="--d:450ms">to</span><br>
+          <span data-anim="word" style="--d:540ms;color:#8cc63f">the</span> <span data-anim="word" style="--d:630ms;color:#8cc63f">centimetre.</span>
+        </h1>
+        <p data-anim="rise" style="--d:760ms;margin:clamp(14px,1.9vw,22px) 0 0;max-width:40ch;color:#a9bdae;font-size:clamp(15px,1.15vw,17.5px);text-wrap:pretty">RTK satellite positioning and robotic total station work across Kerala, measured in the field and delivered as data.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(18px,2.4vw,28px)">
+          <a data-anim="rise" href="{{ waLink }}" target="_blank" rel="noopener" style="--d:860ms;background:#8cc63f;color:#0b150e;font-weight:700;padding:17px 26px;font-size:14px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 16px 34px rgba(140,198,63,.22)" style-hover="background:#a4dc55;box-shadow:0 22px 44px rgba(140,198,63,.32);transform:translateY(-3px)">Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></a>
+          <a data-anim="rise" href="tel:+919745220712" style="--d:940ms;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;font-weight:500;padding:17px 26px;font-size:14px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;gap:10px;backdrop-filter:blur(10px)" style-hover="border-color:#8cc63f;background:rgba(140,198,63,.12);transform:translateY(-3px)">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8cc63f">CALL</span> +91 97452 20712
+          </a>
+        </div>
+        <div data-stagger="90" data-stagger-base="1040" style="display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:clamp(18px,2.4vw,30px);padding-top:18px;border-top:1px solid rgba(255,255,255,.1)">
+          <sc-for list="{{ trust }}" as="t" hint-placeholder-count="4">
+            <div data-anim="fall" style="display:flex;align-items:center;gap:9px">
+              <span style="width:5px;height:5px;background:#8cc63f;display:inline-block"></span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#93a596">{{ t }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div data-anim="depth" style="--d:340ms;position:relative;perspective:1700px">
+        <div ref="{{ machine }}" style="position:relative;width:100%;aspect-ratio:1/1.02;min-height:clamp(330px,38vw,540px);transform-style:preserve-3d;will-change:transform">
+          <div style="position:absolute;inset:4%;transform:translateZ(-130px);border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.3),rgba(140,198,63,0) 64%);animation:halo 9s ease-in-out infinite"></div>
+          <svg aria-hidden="true" viewBox="0 0 400 400" style="position:absolute;inset:0;width:100%;height:100%;transform:translateZ(-70px);opacity:.75">
+            <g fill="none" stroke="#8cc63f" stroke-width="1" opacity=".3" style="transform-origin:200px 200px;animation:orbit 120s linear infinite">
+              <circle cx="200" cy="200" r="176" stroke-dasharray="2 12"></circle>
+              <circle cx="200" cy="200" r="132"></circle>
+            </g>
+            <g fill="none" stroke="#2e7d4f" stroke-width="1" opacity=".45" style="transform-origin:200px 200px;animation:orbit 84s linear infinite reverse">
+              <circle cx="200" cy="200" r="92" stroke-dasharray="4 16"></circle>
+            </g>
+          </svg>
+
+          <div style="position:absolute;inset:0;transform:translateZ(10px);background:rgba(255,255,255,.045);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.13);border-radius:26px;box-shadow:0 40px 90px rgba(0,0,0,.45);overflow:hidden">
+            <div style="position:absolute;inset:0;background:radial-gradient(70% 50% at 82% 0%,rgba(140,198,63,.12),transparent 66%);pointer-events:none"></div>
+            <image-slot id="hero-instrument" src="assets/hero-instrument.png?v=3" shape="rect" fit="contain" placeholder="Drop a photo or render of your total station / RTK rover. A cut-out PNG works best"></image-slot>
+            <div style="position:absolute;inset:0;pointer-events:none">
+              <div style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-left:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
+              <div style="position:absolute;top:12px;right:12px;width:22px;height:22px;border-right:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
+              <div style="position:absolute;bottom:12px;left:12px;width:22px;height:22px;border-left:2px solid #8cc63f;border-bottom:2px solid #8cc63f"></div>
+              <div style="position:absolute;bottom:12px;right:12px;width:22px;height:22px;border-right:2px solid #8cc63f;border-bottom:2px solid #8cc63f"></div>
+              <div style="position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(140,198,63,.75),transparent);animation:sweepY 10s ease-in-out infinite alternate"></div>
+              <div ref="{{ reticle }}" style="position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;will-change:transform">
+                <div style="position:absolute;inset:34px;border:1px solid rgba(140,198,63,.6);border-radius:50%"></div>
+                <div style="position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.35)"></div>
+                <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,.35)"></div>
+                <div style="position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;background:#8cc63f"></div>
+              </div>
+              <div style="position:absolute;top:16px;left:46%;right:44px;display:flex;justify-content:flex-end;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8cc63f">
+                <span>SATS 18</span>
+              </div>
+              <div style="position:absolute;bottom:16px;left:44px;right:46%;display:flex;flex-wrap:wrap;gap:4px 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:#a9bdae">
+                <span style="color:#8cc63f">● RTK FIX</span>
+                <span>HZ <span ref="{{ hzRef }}">000.000</span>°</span>
+                <span>V <span ref="{{ vRef }}">090.000</span>°</span>
+              </div>
+            </div>
+          </div>
+
+          <div data-anim="zoom" style="--d:1000ms;position:absolute;top:0;left:0;max-width:80%;transform:translate(-6%,-48%) translateZ(120px);background:rgba(13,23,16,.82);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#7d8f82">Instrument</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8cc63f">ROBOTIC / RTK</div>
+          </div>
+          <div data-anim="zoom" style="--d:1120ms;position:absolute;bottom:5%;right:0;max-width:86%;transform:translate(4%,42%) translateZ(150px);background:rgba(13,23,16,.82);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#7d8f82">Positional accuracy</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8cc63f">CENTIMETRE LEVEL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-stagger="70" data-stagger-base="1200" style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(12px,1.8vw,24px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82">
+      <span data-anim="rise" style="color:#8cc63f">● GNSS / RTK</span>
+      <span data-anim="rise">Robotic total station</span>
+      <span data-anim="rise">Boundary</span>
+      <span data-anim="rise">Contour</span>
+      <span data-anim="rise">Layout</span>
+      <span data-anim="rise">Digital mapping</span>
+      <span data-anim="rise" style="margin-left:auto;display:inline-flex;align-items:center;gap:8px">Scroll <span style="display:inline-block;animation:bob 2.4s ease-in-out infinite">↓</span></span>
+    </div>
+
+    <svg ref="{{ seam1 }}" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="position:relative;display:block;width:106%;margin-left:-3%;height:clamp(60px,6.4vw,110px);will-change:transform">
+      <path d="M0 74 C 240 40 420 96 700 66 S 1180 18 1440 58" fill="none" stroke="#8cc63f" stroke-width="1" opacity=".4"></path>
+      <path d="M0 120 L0 74 C 240 40 420 96 700 66 S 1180 18 1440 58 L1440 120 Z" fill="#ffffff"></path>
+    </svg>
+  </section>
+
+  <section style="background:#fff;overflow:hidden">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(40px,5.4vw,86px) clamp(16px,3vw,40px) clamp(52px,7vw,108px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(26px,4.4vw,72px)">
+      <h2 data-anim="wipe" style="margin:0;font-weight:700;font-size:clamp(25px,3.5vw,50px);line-height:1.06;letter-spacing:-.038em;text-wrap:balance">Every boundary has a story. Every measurement has consequences.</h2>
+      <div data-stagger="140" style="align-self:end;max-width:50ch">
+        <p data-anim="rise" style="color:#3b4a41;margin:0 0 16px">A survey is the first line of a project's documentation and the last line of its defence. An error at the ground stage compounds through design, approval and construction.</p>
+        <p data-anim="rise" style="color:#3b4a41;margin:0">Field discipline, satellite positioning and digital drafting mean what leaves our office is a checked, referenced dataset.</p>
+        <div data-anim="rule" style="--d:420ms;height:2px;background:#8cc63f;margin-top:26px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities" style="position:relative;background:linear-gradient(180deg,#ffffff,#f5f9f2);overflow:hidden">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(44px,5.8vw,94px) clamp(16px,3vw,40px) clamp(16px,2.2vw,28px);display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;justify-content:space-between">
+      <h2 data-anim="curtain" style="margin:0;font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em">Capabilities</h2>
+      <span data-anim="fall" style="--d:200ms;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d">01 / What we measure</span>
+    </div>
+
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(52px,6.8vw,106px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,2.8vw,48px);align-items:start">
+      <div data-stagger="80" style="display:flex;flex-direction:column">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="7">
+          <button data-anim="left" type="button" onMouseEnter="{{ s.on }}" onFocus="{{ s.on }}" onClick="{{ s.on }}" data-svc-row="1" style="appearance:none;background:transparent;border:0;border-top:1px solid rgba(20,35,26,.12);text-align:left;cursor:pointer;padding:clamp(15px,1.8vw,23px) 4px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),padding-left .5s cubic-bezier(.16,.84,.28,1),background .5s ease;transition-delay:var(--d,0ms)">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#2e7d4f">{{ s.no }}</span>
+            <span style="display:flex;flex-direction:column;gap:4px">
+              <span style="font-weight:600;font-size:clamp(17px,1.85vw,24px);letter-spacing:-.025em;color:#14231a">{{ s.title }}</span>
+              <span data-svc-body="1" style="color:#3b4a41;font-size:14.5px;max-width:46ch;overflow:hidden;max-height:0;opacity:0;transform:translateY(-6px);transition:max-height .6s cubic-bezier(.16,.84,.28,1),opacity .5s ease,transform .6s cubic-bezier(.16,.84,.28,1)">{{ s.body }}</span>
+            </span>
+            <span data-svc-arrow="1" style="font-family:'IBM Plex Mono',monospace;color:#2e7d4f;opacity:.3;transition:opacity .45s ease,transform .5s cubic-bezier(.16,.84,.28,1)">→</span>
+          </button>
+        </sc-for>
+        <div style="border-top:1px solid rgba(20,35,26,.12)"></div>
+      </div>
+
+      <div data-anim="zoom" style="--d:220ms;position:relative;aspect-ratio:4/3.4;min-height:280px;border-radius:24px;overflow:hidden;background:#eef3ea;border:1px solid rgba(20,35,26,.1);box-shadow:0 26px 60px rgba(20,35,26,.1)">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="7">
+          <div data-svc-panel="1" style="position:absolute;inset:0;opacity:0;transform:scale(1.06);filter:blur(6px);transition:opacity .8s ease,transform 1.2s cubic-bezier(.16,.84,.28,1),filter .8s ease">
+            <image-slot id="{{ s.slot }}" src="{{ s.src }}" shape="rect" fit="cover" placeholder="{{ s.ph }}"></image-slot>
+          </div>
+        </sc-for>
+        <div style="position:absolute;inset:0;pointer-events:none">
+          <div style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#1f5132"><span ref="{{ svcLabel }}">Digital boundary survey</span></div>
+          <div style="position:absolute;bottom:14px;right:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#3b4a41"><span ref="{{ svcMeta }}">CORNERS · EXTENTS</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="technology" style="position:relative;background:#fff;border-top:1px solid rgba(20,35,26,.08);overflow:hidden">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(52px,6.4vw,104px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(26px,3.6vw,60px);align-items:center">
+      <div>
+        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d;margin-bottom:16px">02 / Instrumentation</span>
+        <h2 data-anim="zoom" style="--d:120ms;margin:0 0 18px;font-weight:700;font-size:clamp(25px,3.4vw,46px);letter-spacing:-.038em;line-height:1.05">Satellite positioning, corrected in real time.</h2>
+        <p data-anim="rise" style="--d:280ms;color:#3b4a41;max-width:48ch;margin:0 0 26px">RTK carries a correction stream from a reference station to the rover, resolving position to centimetre level as the point is taken. Robotic total station work covers the ground where tree cover or structure makes satellite observation unreliable.</p>
+        <div data-stagger="110" data-stagger-base="360" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+          <sc-for list="{{ kit }}" as="k" hint-placeholder-count="4">
+            <div data-anim="zoom" style="background:#f5f9f2;border:1px solid rgba(31,81,50,.12);border-radius:18px;padding:17px;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),filter 1.15s ease,border-color .45s ease,box-shadow .45s ease;transition-delay:var(--d,0ms)" style-hover="border-color:rgba(31,81,50,.45);transform:translateY(-6px);box-shadow:0 18px 36px rgba(20,35,26,.09)">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#2e7d4f;margin-bottom:6px">{{ k.label }}</div>
+              <div style="font-size:14px;color:#3b4a41">{{ k.note }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div data-anim="curtain" style="--d:180ms;position:relative;aspect-ratio:4/5;min-height:300px;border-radius:24px;overflow:hidden;border:1px solid rgba(20,35,26,.12);background:#f5f9f2;box-shadow:0 26px 60px rgba(20,35,26,.1)">
+        <div data-par="-0.06" style="position:absolute;inset:-8%;will-change:transform">
+          <image-slot id="tech-rover" src="assets/tech-rover.png" shape="rect" fit="cover" placeholder="Drop a photo of the RTK rover / total station in the field"></image-slot>
+        </div>
+        <div style="position:absolute;top:14px;left:14px;pointer-events:none;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#1f5132">● RTK FIX</div>
+        <div style="position:absolute;bottom:14px;right:14px;pointer-events:none;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#3b4a41">CM-LEVEL ACCURACY</div>
+      </div>
+    </div>
+    <svg ref="{{ seam2 }}" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="position:relative;display:block;width:106%;margin-left:-3%;height:clamp(56px,6vw,100px);will-change:transform">
+      <path d="M0 120 L0 68 C 260 104 460 44 720 72 S 1200 108 1440 66 L1440 120 Z" fill="#fbfcfa"></path>
+      <g fill="none" stroke="#1f5132" stroke-width="1" opacity=".18">
+        <path d="M0 68 C 260 104 460 44 720 72 S 1200 108 1440 66"></path>
+        <path d="M0 54 C 260 92 460 30 720 58 S 1200 96 1440 52" opacity=".6"></path>
+      </g>
+    </svg>
+  </section>
+
+  <section id="field" style="overflow:hidden">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(26px,3.6vw,56px) clamp(16px,3vw,40px) clamp(16px,2.2vw,28px);display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;justify-content:space-between">
+      <h2 data-anim="curtain" style="margin:0;font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em">Field record</h2>
+      <span data-anim="fall" style="--d:200ms;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d">03 / Drag to scroll →</span>
+    </div>
+    <div ref="{{ rail }}" class="rail" data-stagger="130" style="display:flex;gap:clamp(14px,1.6vw,20px);overflow-x:auto;padding:0 clamp(16px,3vw,40px) clamp(30px,4vw,54px);scroll-snap-type:x mandatory">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+        <figure data-anim="lift" style="margin:0;flex:0 0 min(80vw,400px);scroll-snap-align:start;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:22px;overflow:hidden;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),box-shadow .5s ease;transition-delay:var(--d,0ms)" style-hover="box-shadow:0 30px 60px rgba(20,35,26,.14);transform:translateY(-8px)">
+          <div style="position:relative;aspect-ratio:4/3;overflow:hidden">
+            <image-slot id="{{ p.slot }}" src="{{ p.src }}" shape="rect" fit="cover" placeholder="{{ p.ph }}"></image-slot>
+            <div style="position:absolute;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;background:rgba(255,255,255,.92);color:#1f5132;padding:5px 11px;border-radius:999px;pointer-events:none">{{ p.no }}</div>
+          </div>
+          <figcaption style="padding:18px;display:flex;flex-direction:column;gap:6px">
+            <span style="font-weight:600;font-size:17.5px;letter-spacing:-.015em">{{ p.title }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#78867d">{{ p.meta }}</span>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(44px,5.4vw,84px)">
+      <a data-anim="rise" href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:999px;padding:18px 26px;color:#14231a;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .9s cubic-bezier(.16,.84,.28,1),border-color .4s ease,box-shadow .45s ease" style-hover="border-color:#1f5132;box-shadow:0 18px 40px rgba(20,35,26,.1);transform:translateY(-3px)">
+        <span>See what we're working on</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#2e7d4f">Facebook · UP-Rise →</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="method" style="position:relative;background:#14231a;color:#eef2ec;overflow:hidden">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:106%;margin-left:-3%;height:clamp(46px,5.2vw,86px)">
+      <path d="M0 0 L1440 0 L1440 42 C 1180 78 980 22 720 50 S 240 88 0 46 Z" fill="#fbfcfa"></path>
+    </svg>
+    <div ref="{{ methodGrid }}" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:68px 68px;will-change:transform"></div>
+    <div data-par="0.05" style="position:absolute;inset:0;background:radial-gradient(46% 40% at 78% 18%,rgba(140,198,63,.14),transparent 70%);will-change:transform"></div>
+    <div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(26px,3.6vw,52px) clamp(16px,3vw,40px) clamp(52px,6.4vw,104px)">
+      <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#8cc63f;margin-bottom:14px">04 / Method</span>
+      <h2 data-anim="curtain" style="--d:120ms;margin:0 0 clamp(26px,3.6vw,52px);font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em;color:#fff">How a job runs</h2>
+      <div style="position:relative;height:1px;background:rgba(140,198,63,.18);margin-bottom:clamp(20px,2.4vw,30px)">
+        <div ref="{{ methodProgress }}" style="position:absolute;left:0;top:0;height:1px;width:0;background:#8cc63f;box-shadow:0 0 12px rgba(140,198,63,.8)"></div>
+      </div>
+      <div data-stagger="150" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(18px,2.2vw,30px)">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+          <div data-anim="rise" style="position:relative;padding-top:22px">
+            <div style="position:absolute;top:-3px;left:0;width:7px;height:7px;background:#8cc63f"></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8cc63f;margin-bottom:10px">{{ st.no }}</div>
+            <h3 style="margin:0 0 8px;font-weight:600;font-size:16.5px;letter-spacing:.02em;text-transform:uppercase;color:#fff">{{ st.title }}</h3>
+            <p style="margin:0;color:#b6c5b8;font-size:14.5px">{{ st.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:106%;margin-left:-3%;height:clamp(46px,5.2vw,86px)">
+      <path d="M0 100 L0 54 C 240 88 460 30 720 58 S 1200 94 1440 52 L1440 100 Z" fill="#ffffff"></path>
+    </svg>
+  </section>
+
+  <section style="background:#fff;overflow:hidden">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(24px,3.2vw,50px) clamp(16px,3vw,40px) clamp(52px,6.4vw,104px)">
+      <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d;margin-bottom:14px">05 / Why Uprise</span>
+      <h2 data-anim="wipe" style="--d:120ms;margin:0 0 clamp(26px,3.6vw,50px);font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em;max-width:20ch">Built around precision and speed</h2>
+      <div data-stagger="130" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:clamp(18px,2.4vw,36px)">
+        <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4">
+          <div data-anim="lift">
+            <div style="width:36px;height:36px;border:1px solid rgba(31,81,50,.24);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+              <span style="width:9px;height:9px;background:#8cc63f;border-radius:50%;display:block"></span>
+            </div>
+            <h3 style="margin:0 0 8px;font-weight:600;font-size:17.5px;letter-spacing:-.015em">{{ r.title }}</h3>
+            <p style="margin:0;color:#3b4a41;font-size:14.5px">{{ r.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="background:linear-gradient(180deg,#ffffff,#f5f9f2);overflow:hidden">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(52px,6.4vw,104px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(26px,3.6vw,64px)">
+      <div>
+        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d;margin-bottom:16px">06 / About</span>
+        <h2 style="margin:0;font-weight:700;font-size:clamp(27px,4vw,56px);line-height:1.03;letter-spacing:-.042em">
+          <span data-anim="word" style="--d:120ms">Uprise</span> <span data-anim="word" style="--d:210ms">Land</span><br>
+          <span data-anim="word" style="--d:300ms">Surveying</span> <span data-anim="word" style="--d:390ms;color:#2e7d4f">Company</span>
+        </h2>
+        <div data-anim="curtain" style="--d:480ms;margin-top:26px;position:relative;aspect-ratio:3/2;border-radius:24px;overflow:hidden;border:1px solid rgba(20,35,26,.12);background:#eef3ea;box-shadow:0 26px 60px rgba(20,35,26,.1)">
+          <div data-par="-0.05" style="position:absolute;inset:-7%;will-change:transform">
+            <image-slot id="about-team" src="assets/about-team.png" shape="rect" fit="cover" placeholder="Drop a team or field photo"></image-slot>
+          </div>
+        </div>
+      </div>
+      <div data-stagger="140" style="align-self:center;max-width:52ch">
+        <p data-anim="right" style="color:#3b4a41;margin:0 0 16px">A land surveying practice based in Vazhithala, Thodupuzha, Idukki, Kerala, built around RTK satellite positioning and digital deliverables: boundary determination, contour and topographic survey, construction layout and mapping.</p>
+        <p data-anim="right" style="color:#3b4a41;margin:0 0 16px">The approach is simple: measure carefully, check the measurement, and hand over data that can be opened, understood and used immediately.</p>
+        <p data-anim="right" style="color:#3b4a41;margin:0">High precision and fast service are not a trade-off here. Modern instruments remove the slow parts of the job, and the time saved goes back into verification.</p>
+        <div data-anim="rule" style="--d:560ms;height:2px;background:#8cc63f;margin-top:26px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-contact-root="1" style="position:relative;background:#0d1710;color:#eef2ec;overflow:hidden">
+    <svg viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:106%;margin-left:-3%;height:clamp(54px,6vw,104px)">
+      <path d="M0 0 L1440 0 L1440 52 C 1170 92 960 26 700 58 S 250 96 0 50 Z" fill="#f5f9f2"></path>
+      <path d="M0 50 C 250 96 700 58 700 58 S 1170 92 1440 52" fill="none" stroke="#8cc63f" stroke-width="1" opacity=".35"></path>
+    </svg>
+
+    <div data-par="0.05" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(80% 70% at 50% 40%,#000,transparent 84%);mask-image:radial-gradient(80% 70% at 50% 40%,#000,transparent 84%);will-change:transform"></div>
+    <div ref="{{ contactGlow }}" aria-hidden="true" style="position:absolute;width:min(58vw,720px);aspect-ratio:1/1;left:0;top:0;margin:-29vw 0 0 -29vw;border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.16),transparent 62%);pointer-events:none;will-change:transform;transition:opacity .8s ease;opacity:0"></div>
+    <svg aria-hidden="true" viewBox="0 0 800 800" style="position:absolute;top:50%;left:50%;width:min(120%,1100px);aspect-ratio:1/1;transform:translate(-50%,-50%);opacity:.5;pointer-events:none">
+      <g fill="none" stroke="#8cc63f" stroke-width="1" opacity=".22" style="transform-origin:400px 400px;animation:orbit 120s linear infinite">
+        <circle cx="400" cy="400" r="320" stroke-dasharray="2 12"></circle>
+        <circle cx="400" cy="400" r="238"></circle>
+      </g>
+      <g fill="none" stroke="#2e7d4f" stroke-width="1" opacity=".3" style="transform-origin:400px 400px;animation:orbit 90s linear infinite reverse">
+        <circle cx="400" cy="400" r="170" stroke-dasharray="4 16"></circle>
+      </g>
+    </svg>
+
+    <div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(30px,4vw,58px) clamp(16px,3vw,40px) clamp(52px,6.4vw,104px)">
+      <div data-anim="fall" style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(140,198,63,.32);border-radius:999px;padding:8px 15px;margin-bottom:clamp(16px,2.2vw,26px)">
+        <span style="width:7px;height:7px;border-radius:50%;background:#8cc63f;display:inline-block;animation:pulse 2.6s ease-in-out infinite"></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#a9bdae">07 / Open a channel</span>
+      </div>
+      <h2 style="margin:0 0 clamp(10px,1.4vw,18px);font-weight:700;font-size:clamp(28px,4.6vw,66px);line-height:1.02;letter-spacing:-.042em;max-width:17ch;color:#fff">
+        <span data-anim="word" style="--d:60ms">Ready</span> <span data-anim="word" style="--d:140ms">to</span> <span data-anim="word" style="--d:220ms">measure</span> <span data-anim="word" style="--d:300ms">with</span> <span data-anim="word" style="--d:380ms;color:#8cc63f">confidence?</span>
+      </h2>
+      <p data-anim="rise" style="--d:480ms;margin:0 0 clamp(26px,3.6vw,50px);max-width:44ch;color:#a9bdae">Send the site location and what the survey is for. We will come back with scope, method and timing.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,2.8vw,46px);align-items:start">
+        <div data-stagger="110" style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ channels }}" as="c" hint-placeholder-count="5">
+            <a data-anim="left" href="{{ c.href }}" target="{{ c.target }}" rel="noopener" style="position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:18px 20px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.03);color:#eef2ec;overflow:hidden;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .9s cubic-bezier(.16,.84,.28,1),background .45s ease,border-color .45s ease,box-shadow .45s ease;transition-delay:var(--d,0ms)" style-hover="background:rgba(140,198,63,.09);border-color:rgba(140,198,63,.4);box-shadow:0 18px 40px rgba(0,0,0,.34);transform:translateY(-3px)">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#8cc63f">{{ c.no }}</span>
+              <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82">{{ c.label }}</span>
+                <span style="font-size:16.5px;font-weight:500;word-break:break-word">{{ c.value }}</span>
+              </span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:#8cc63f;opacity:.55">{{ c.icon }}</span>
+            </a>
+          </sc-for>
+          <div data-anim="rise" style="--d:620ms;display:flex;align-items:center;gap:12px;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f8175">
+            <span style="width:6px;height:6px;background:#8cc63f;display:inline-block;animation:pulse 3s ease-in-out infinite"></span>
+            Mon–Sat · Site visits across Kerala
+          </div>
+        </div>
+
+        <form data-anim="zoom" style="--d:240ms;position:relative" onSubmit="{{ submit }}">
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="position:relative;border:1px solid rgba(140,198,63,.45);border-radius:26px;background:rgba(140,198,63,.06);padding:clamp(28px,3.4vw,44px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;overflow:hidden">
+              <div style="position:absolute;inset:0;background:radial-gradient(60% 60% at 80% 0%,rgba(140,198,63,.2),transparent 70%);animation:glowPulse 6s ease-in-out infinite"></div>
+              <svg viewBox="0 0 64 64" aria-hidden="true" style="position:relative;width:58px;height:58px;animation:ringIn .7s cubic-bezier(.16,.84,.28,1) both">
+                <circle cx="32" cy="32" r="29" fill="none" stroke="rgba(140,198,63,.35)" stroke-width="1.5"></circle>
+                <path d="M20 33.5 L28.5 42 L45 24" fill="none" stroke="#8cc63f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="46" stroke-dashoffset="46" style="animation:drawCheck .7s cubic-bezier(.16,.84,.28,1) .28s forwards"></path>
+              </svg>
+              <span style="position:relative;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#8cc63f">Request logged</span>
+              <span style="position:relative;font-size:21px;font-weight:600;color:#fff;letter-spacing:-.02em">Received. We will be in touch shortly.</span>
+              <span style="position:relative;color:#a9bdae;font-size:14.5px;max-width:38ch">For anything urgent, WhatsApp or call +91 97452 20712.</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+            <div style="position:relative;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:rgba(255,255,255,.045);backdrop-filter:blur(14px);padding:clamp(20px,2.4vw,34px);display:flex;flex-direction:column;gap:20px;box-shadow:0 30px 70px rgba(0,0,0,.36)">
+              <div style="position:absolute;inset:0;border-radius:26px;pointer-events:none;background:radial-gradient(70% 50% at 84% 0%,rgba(140,198,63,.12),transparent 66%)"></div>
+              <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82">
+                <span>Survey request</span><span style="color:#8cc63f">● SECURE</span>
+              </div>
+              <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:18px">
+                <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Name</span>
+                  <input name="name" required autoComplete="name" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                </label>
+                <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Phone or email</span>
+                  <input name="contact" required style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                </label>
+              </div>
+              <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:18px">
+                <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Survey type</span>
+                  <select name="type" style="background:#12211a;border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;font-size:16px;line-height:normal;padding:0 38px 0 14px;height:48px;min-height:48px;box-sizing:border-box;appearance:none;-webkit-appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 8"><path d="M1 1.5 L6 6.5 L11 1.5" fill="none" stroke="%238cc63f" stroke-width="1.6" stroke-linecap="round"/></svg>');background-repeat:no-repeat;background-position:right 14px center;background-size:12px 8px;outline:none;transition:border-color .4s ease,box-shadow .4s ease">
+                    <option style="background:#12211a;color:#ffffff">Boundary survey</option>
+                    <option style="background:#12211a;color:#ffffff">Contour / topographic</option>
+                    <option style="background:#12211a;color:#ffffff">Construction layout</option>
+                    <option style="background:#12211a;color:#ffffff">Digital mapping</option>
+                    <option style="background:#12211a;color:#ffffff">Other</option>
+                  </select>
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                </label>
+                <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Site location</span>
+                  <input name="location" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                </label>
+              </div>
+              <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
+                <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Message</span>
+                <textarea name="message" rows="4" placeholder="Plot size, purpose, deadline…" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:14px;color:#fff;padding:13px 14px;outline:none;resize:vertical;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease"></textarea>
+                <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+              </label>
+              <button ref="{{ submitBtn }}" type="submit" style="position:relative;overflow:hidden;background:#8cc63f;color:#0d1710;border:0;border-radius:999px;font-weight:700;font-size:14px;padding:18px 26px;min-height:50px;cursor:pointer;display:inline-flex;align-items:center;justify-content:space-between;gap:12px;transition:background .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),box-shadow .45s ease" style-hover="background:#a4dc55;transform:translateY(-3px);box-shadow:0 20px 40px rgba(140,198,63,.28)">
+                <span ref="{{ submitLabel }}" style="position:relative">Send request</span>
+                <span style="position:relative;font-family:'IBM Plex Mono',monospace">→</span>
+                <span ref="{{ submitSweep }}" style="position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:translateX(-100%);display:none"></span>
+              </button>
+            </div>
+          </sc-if>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer data-footer-root="1" style="position:relative;background:#08110c;color:#c5d2c6;overflow:hidden">
+    <div data-par="0.04" aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(58% 50% at 50% 116%,rgba(46,125,79,.34),transparent 68%),radial-gradient(40% 40% at 88% 0%,rgba(140,198,63,.10),transparent 70%);will-change:transform"></div>
+    <svg aria-hidden="true" viewBox="0 0 1440 420" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:72%;opacity:.6">
+      <g fill="none" stroke="#2e7d4f" stroke-width="1">
+        <path d="M-20 300 C 240 250 420 330 700 286 S 1180 224 1460 268" opacity=".5"></path>
+        <path d="M-20 340 C 240 292 420 372 700 328 S 1180 266 1460 310" opacity=".34"></path>
+        <path d="M-20 380 C 240 334 420 414 700 370 S 1180 308 1460 352" opacity=".2"></path>
+      </g>
+      <path d="M-20 300 C 240 250 420 330 700 286 S 1180 224 1460 268" fill="none" stroke="#8cc63f" stroke-width="2" stroke-linecap="round" stroke-dasharray="90 1310" style="animation:trail 14s linear infinite;filter:drop-shadow(0 0 6px rgba(140,198,63,.7))"></path>
+      <g fill="#8cc63f">
+        <circle cx="300" cy="268" r="2.5" style="animation:pulse 5s ease-in-out infinite"></circle>
+        <circle cx="820" cy="282" r="2.5" style="animation:pulse 7s ease-in-out infinite"></circle>
+        <circle cx="1180" cy="240" r="2.5" style="animation:pulse 6s ease-in-out infinite"></circle>
+      </g>
+    </svg>
+
+    <div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(46px,6vw,96px) clamp(16px,3vw,40px) clamp(20px,2.6vw,38px)">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(18px,2.4vw,36px);padding-bottom:clamp(26px,3.4vw,48px);border-bottom:1px solid rgba(255,255,255,.09)">
+        <div style="min-width:0">
+          <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#6d7e70;margin-bottom:clamp(8px,1vw,14px)">Vazhithala · Thodupuzha · Idukki</span>
+          <div data-anim="curtain" aria-hidden="true" style="font-weight:700;font-size:clamp(46px,11.5vw,168px);line-height:.82;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.26);text-transform:uppercase">Uprise</div>
+          <span data-anim="rise" style="--d:260ms;display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#8cc63f;margin-top:clamp(8px,1vw,14px)">Land Surveying Company</span>
+        </div>
+        <a data-anim="zoom" ref="{{ footMagnet }}" href="{{ waLink }}" target="_blank" rel="noopener" style="--d:200ms;flex:0 0 auto;display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(140,198,63,.34);border-radius:999px;padding:16px 24px;color:#fff;font-weight:600;transition:opacity 1s ease,transform .5s cubic-bezier(.16,.84,.28,1),background .4s ease,border-color .4s ease,box-shadow .45s ease" style-hover="background:rgba(140,198,63,.14);border-color:#8cc63f;box-shadow:0 18px 44px rgba(140,198,63,.2)">
+          <span ref="{{ footMagnetLabel }}" style="display:inline-flex;align-items:center;gap:12px;transition:transform .4s cubic-bezier(.16,.84,.28,1)">
+            <span style="width:8px;height:8px;border-radius:50%;background:#8cc63f;display:inline-block;animation:pulse 2.6s ease-in-out infinite"></span>
+            Start a survey request
+            <span style="font-family:'IBM Plex Mono',monospace;color:#8cc63f">→</span>
+          </span>
+        </a>
+      </div>
+
+      <div data-stagger="120" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:clamp(22px,2.8vw,44px);padding:clamp(26px,3.4vw,48px) 0">
+        <div data-anim="rise">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+            <span style="width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(140,198,63,.09)">
+              <img src="assets/uprise-logo.png" alt="Uprise Land Survey Company logo" style="width:82%;height:82%;object-fit:contain">
+            </span>
+            <span style="font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff">Uprise</span>
+          </div>
+          <p style="color:#93a596;font-size:14px;margin:0;max-width:32ch">RTK satellite survey, boundary, layout, contour and digital mapping, measured in the field and delivered as data.</p>
+        </div>
+        <div data-anim="rise" style="display:flex;flex-direction:column;gap:2px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70;margin-bottom:10px">Sections</span>
+          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+            <a href="{{ n.href }}" style="position:relative;color:#c5d2c6;font-size:14.5px;padding:6px 0 6px 0;display:inline-flex;align-items:center;gap:9px;transition:color .35s ease,padding-left .4s cubic-bezier(.16,.84,.28,1)" style-hover="color:#fff;padding-left:14px">
+              <span style="width:0;height:1px;background:#8cc63f;transition:width .4s cubic-bezier(.16,.84,.28,1)"></span>{{ n.label }}
+            </a>
+          </sc-for>
+        </div>
+        <div data-anim="rise" style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70;margin-bottom:6px">Services</span>
+          <span style="font-size:14.5px;color:#93a596">Boundary survey</span>
+          <span style="font-size:14.5px;color:#93a596">Contour survey</span>
+          <span style="font-size:14.5px;color:#93a596">Construction layout</span>
+          <span style="font-size:14.5px;color:#93a596">Digital mapping</span>
+          <span style="font-size:14.5px;color:#93a596">Property measurement</span>
+        </div>
+        <div data-anim="rise" style="display:flex;flex-direction:column;gap:9px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70;margin-bottom:6px">Direct</span>
+          <a href="tel:+919745220712" style="color:#fff;font-size:16px;font-weight:600;transition:color .35s ease" style-hover="color:#8cc63f">+91 97452 20712</a>
+          <a href="mailto:upriselandsurveying@gmail.com" style="color:#c5d2c6;font-size:14px;word-break:break-all;transition:color .35s ease" style-hover="color:#8cc63f">upriselandsurveying@gmail.com</a>
+          <span style="font-size:14px;color:#93a596">Vazhithala, Thodupuzha,<br>Idukki, Kerala</span>
+          <div style="display:flex;gap:10px;margin-top:6px">
+            <a href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;color:#c5d2c6;font-size:12.5px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)">Facebook</a>
+            <a href="https://www.instagram.com/uprise_surveyor/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;color:#c5d2c6;font-size:12.5px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:relative;border-top:1px solid rgba(255,255,255,.09)">
+      <div style="width:100%;max-width:1240px;margin:0 auto;padding:16px clamp(16px,3vw,40px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70">
+        <span style="color:#8cc63f">● Precision</span><span>Data</span><span>Terrain</span>
+        <span style="margin-left:auto">© {{ year }} Uprise Land Surveying Company</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;919745220712&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;}}">
+class Component extends DCLogic {
+  state = { menu: false, sent: false };
+
+  componentDidMount() {
+    try { this.mount(); } catch (err) { console.error('mount failed', err); }
+  }
+
+  mount() {
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.active = 0;
+    this.navEls = {};
+    this.svcRows = [];
+    this.pars = [];
+    this.q = (s) => Array.prototype.slice.call(document.querySelectorAll(s));
+
+    this.collect = () => {
+      const rows = this.q('[data-svc-row]'), bodies = this.q('[data-svc-body]'),
+        arrows = this.q('[data-svc-arrow]'), panels = this.q('[data-svc-panel]');
+      this.svcRows = rows.map((row, i) => ({ row, body: bodies[i], arrow: arrows[i], panel: panels[i] }));
+      this.navEls = {};
+      this.q('[data-nav]').forEach(el => { this.navEls[el.getAttribute('data-nav')] = el; });
+      this.pars = this.q('[data-par]').map(el => ({ el, k: parseFloat(el.getAttribute('data-par')) || 0 }));
+    };
+    this.collect();
+
+    // Stagger: give each animated child of a [data-stagger] group an increasing delay.
+    this.applyStagger = () => {
+      this.q('[data-stagger]').forEach(group => {
+        if (group.dataset.stagDone === '1') return;
+        const step = parseInt(group.getAttribute('data-stagger'), 10) || 100;
+        const base = parseInt(group.getAttribute('data-stagger-base'), 10) || 0;
+        const kids = Array.prototype.slice.call(group.children).filter(c => c.hasAttribute('data-anim'));
+        if (!kids.length) return;
+        kids.forEach((c, i) => { if (!c.style.getPropertyValue('--d')) c.style.setProperty('--d', (base + i * step) + 'ms'); });
+        group.dataset.stagDone = '1';
+      });
+    };
+
+    this.io = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); this.io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
+
+    // Rect-based sweep: authoritative reveal check. A self-clipping element
+    // (word/curtain/wipe) can report an empty intersection rect, so the
+    // observer alone cannot be trusted to un-clip it.
+    this.sweep = () => {
+      const vh = window.innerHeight || 800;
+      this.q('[data-anim]').forEach(el => {
+        if (el.classList.contains('in')) return;
+        const r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < vh * 0.94) el.classList.add('in');
+      });
+    };
+
+    this.scan = () => {
+      this.applyStagger();
+      this.q('[data-anim]').forEach(el => {
+        if (!el.dataset.obs) { el.dataset.obs = '1'; this.io.observe(el); }
+      });
+      this.sweep();
+    };
+    this.scan();
+    this.tScan = setInterval(this.scan, 700);
+    setTimeout(() => { this.collect(); this.setService(0); this.movePill(); }, 150);
+
+    this.movePill = () => {
+      if (!this.pill || !this.mq || !this.mq.matches) { if (this.pill) this.pill.style.opacity = '0'; return; }
+      const el = this.navEls[this.activeSection];
+      if (!el) { this.pill.style.opacity = '0'; return; }
+      this.pill.style.opacity = '1';
+      this.pill.style.width = el.offsetWidth + 'px';
+      this.pill.style.transform = 'translateX(' + el.offsetLeft + 'px)';
+    };
+
+    this.mq = window.matchMedia('(min-width: 900px)');
+    this.mqWide = window.matchMedia('(min-width: 1500px)');
+    this.applyMq = () => {
+      const d = this.mq.matches;
+      if (this.deskNav) this.deskNav.style.display = d ? 'flex' : 'none';
+      if (this.menuBtn) this.menuBtn.style.display = d ? 'none' : 'flex';
+      if (this.magnet) this.magnet.style.display = d ? 'inline-flex' : 'none';
+      if (this.capsule) this.capsule.style.maxWidth = this.mqWide.matches ? '1160px' : '1080px';
+      if (d && this.state.menu) this.setState({ menu: false });
+      if (this.movePill) this.movePill();
+    };
+    this.applyMq();
+    this.mq.addEventListener('change', this.applyMq);
+    this.mqWide.addEventListener('change', this.applyMq);
+
+    this.sections = ['capabilities', 'technology', 'field', 'method', 'about'];
+    this.scrollY = window.scrollY;
+    this.onScroll = () => {
+      this.scrollY = window.scrollY;
+      if (this.sweep) this.sweep();
+      const shrunk = this.scrollY > 60;
+
+      if (this.capsule) {
+        this.capsule.style.padding = shrunk ? '6px 9px 6px 13px' : '9px 11px 9px 16px';
+        this.capsule.style.boxShadow = shrunk ? '0 8px 26px rgba(20,50,30,.32)' : '0 14px 38px rgba(20,50,30,.22)';
+        this.capsule.style.maxWidth = shrunk ? '940px' : (this.mqWide.matches ? '1160px' : '1080px');
+      }
+      if (this.mark) { const s = shrunk ? '31px' : '36px'; this.mark.style.width = s; this.mark.style.height = s; }
+      if (this.wordmark) {
+        const hide = shrunk && this.mq.matches;
+        this.wordmark.style.maxWidth = hide ? '0px' : '200px';
+        this.wordmark.style.opacity = hide ? '0' : '1';
+      }
+
+      let act = null;
+      this.sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { const r = el.getBoundingClientRect(); if (r.top <= 150 && r.bottom > 150) act = id; }
+      });
+      if (act !== this.activeSection) { this.activeSection = act; this.movePill(); }
+
+      if (!this.reduced.matches && this.start) this.start();
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', () => { this.movePill(); this.onScroll(); });
+    this.onScroll();
+
+    // ---- cursor-driven instrument + unified scroll transforms --------------
+    this.scrollYaw = 0;
+    this.target = { yaw: 0, pitch: 0, gx: 0, gy: 0, rx: 0, ry: 0, px: 0, py: 0 };
+    this.cur = { yaw: 0, pitch: 0, gx: 0, gy: 0, rx: 0, ry: 0, px: 0, py: 0 };
+
+    this.aim = (cx, cy) => {
+      if (!this.heroRoot || this.reduced.matches) return;
+      const r = this.heroRoot.getBoundingClientRect();
+      const nx = Math.max(-0.5, Math.min(0.5, (cx - r.left) / r.width - 0.5));
+      const ny = Math.max(-0.5, Math.min(0.5, (cy - r.top) / r.height - 0.5));
+      const inside = cy > r.top - 60 && cy < r.bottom + 60;
+      this.target.yaw = inside ? nx * 24 : 0;
+      this.target.pitch = inside ? ny * -12 : 0;
+      this.target.gx = inside ? nx * -28 : 0;
+      this.target.gy = inside ? ny * -18 : 0;
+      this.target.rx = inside ? nx * 48 : 0;
+      this.target.ry = inside ? ny * 36 : 0;
+      this.target.px = inside ? nx * -20 : 0;
+      this.target.py = inside ? ny * -13 : 0;
+      this.start();
+    };
+    this.pullMagnet = (el, label, e, rx, ry) => {
+      if (!el || !label || this.reduced.matches) return;
+      const r = el.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      const near = Math.abs(dx) < rx && Math.abs(dy) < ry;
+      label.style.transform = near ? 'translate(' + (dx * 0.08).toFixed(1) + 'px,' + (dy * 0.08).toFixed(1) + 'px)' : 'none';
+    };
+
+    this.onMove = (e) => {
+      this.aim(e.clientX, e.clientY);
+      if (this.contactGlow && !this.reduced.matches) {
+        const root = document.querySelector('[data-contact-root]');
+        if (root) {
+          const r = root.getBoundingClientRect();
+          const inside = e.clientY > r.top && e.clientY < r.bottom;
+          this.contactGlow.style.opacity = inside ? '1' : '0';
+          if (inside) this.contactGlow.style.transform =
+            'translate3d(' + (e.clientX - r.left).toFixed(0) + 'px,' + (e.clientY - r.top).toFixed(0) + 'px,0)';
+        }
+      }
+      this.pullMagnet(this.footMagnet, this.footMagnetLabel, e, 190, 100);
+      if (this.magnet && this.magnetLabel && !this.reduced.matches) {
+        const r = this.magnet.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        const near = Math.abs(dx) < 170 && Math.abs(dy) < 95;
+        this.magnetLabel.style.transform = near
+          ? 'translate(' + (dx * 0.08).toFixed(1) + 'px,' + (dy * 0.08).toFixed(1) + 'px)'
+          : 'none';
+      }
+    };
+    this.onTouch = (e) => { const t = e.touches && e.touches[0]; if (t) this.aim(t.clientX, t.clientY); };
+    this.onLeave = () => {
+      Object.keys(this.target).forEach(k => { this.target[k] = 0; });
+      if (this.magnetLabel) this.magnetLabel.style.transform = 'none';
+      if (this.footMagnetLabel) this.footMagnetLabel.style.transform = 'none';
+      if (this.contactGlow) this.contactGlow.style.opacity = '0';
+      this.start();
+    };
+
+    this.tick = () => {
+      this.raf = null;
+      try { this.frame(); } catch (err) {
+        if (!this.frameErrLogged) { this.frameErrLogged = true; console.error('motion frame error', err); }
+        this.start();
+      }
+    };
+    this.frame = () => {
+      const c = this.cur, t = this.target, k = 0.062;
+      let moving = false;
+      Object.keys(t).forEach(key => {
+        const d = t[key] - c[key];
+        if (Math.abs(d) > 0.015) { c[key] += d * k; moving = true; } else { c[key] = t[key]; }
+      });
+
+      const y = this.scrollY;
+      const hero = this.heroRoot ? this.heroRoot.getBoundingClientRect() : null;
+      if (hero) {
+        const p = Math.max(0, Math.min(1, -hero.top / (hero.height || 1)));
+        this.scrollYaw = p * 11;
+        if (this.heroInner) {
+          this.heroInner.style.transform = 'translateY(' + (p * 60).toFixed(1) + 'px) scale(' + (1 - p * 0.05).toFixed(4) + ')';
+          this.heroInner.style.opacity = (1 - p * 0.75).toFixed(3);
+        }
+      }
+      const yaw = c.yaw + this.scrollYaw;
+      if (this.machine) this.machine.style.transform = 'rotateY(' + yaw.toFixed(2) + 'deg) rotateX(' + c.pitch.toFixed(2) + 'deg)';
+      if (this.heroGrid) this.heroGrid.style.transform = 'translate3d(' + c.gx.toFixed(1) + 'px,' + (c.gy + y * 0.08).toFixed(1) + 'px,0)';
+      if (this.reticle) this.reticle.style.transform = 'translate3d(' + c.rx.toFixed(1) + 'px,' + c.ry.toFixed(1) + 'px,60px)';
+      if (this.hzRef) this.hzRef.textContent = (((yaw / 24 + 0.5) * 360 + 360) % 360).toFixed(3).padStart(7, '0');
+      if (this.vRef) this.vRef.textContent = (90 + c.pitch * 2).toFixed(3).padStart(7, '0');
+      this.cloudOffset = { x: c.px, y: c.py };
+
+      if (this.seam1) this.seam1.style.transform = 'translateY(' + (y * 0.035).toFixed(1) + 'px)';
+      if (this.seam2) this.seam2.style.transform = 'translateY(' + (y * -0.018).toFixed(1) + 'px)';
+
+      this.pars.forEach(p => {
+        const r = p.el.getBoundingClientRect();
+        const mid = r.top + r.height / 2 - window.innerHeight / 2;
+        p.el.style.transform = 'translate3d(0,' + (-mid * p.k).toFixed(1) + 'px,0)';
+      });
+
+      const m = document.getElementById('method');
+      if (m) {
+        const r = m.getBoundingClientRect();
+        if (this.methodGrid) this.methodGrid.style.transform = 'translateY(' + (r.top * -0.06).toFixed(1) + 'px)';
+        if (this.methodProgress) {
+          const p = Math.max(0, Math.min(1, (window.innerHeight * 0.85 - r.top) / (r.height * 0.7)));
+          this.methodProgress.style.width = (p * 100).toFixed(1) + '%';
+        }
+      }
+      if (this.rail) {
+        const r = this.rail.getBoundingClientRect();
+        const p = Math.max(-1, Math.min(1, (window.innerHeight / 2 - (r.top + r.height / 2)) / window.innerHeight));
+        if (!this.railTouched) this.rail.scrollLeft = Math.max(0, p * 90);
+      }
+
+      if (moving) this.start();
+    };
+    this.start = () => { if (!this.raf && this.tick) this.raf = requestAnimationFrame(this.tick); };
+    this.loop = setInterval(() => { if (!this.reduced.matches) this.start(); }, 120);
+
+    window.addEventListener('pointermove', this.onMove, { passive: true });
+    window.addEventListener('touchmove', this.onTouch, { passive: true });
+    window.addEventListener('pointerleave', this.onLeave);
+    window.addEventListener('touchend', this.onLeave);
+    window.addEventListener('blur', this.onLeave);
+
+    // Field micro-interactions (delegated: the form remounts on submit).
+    this.onFocusIn = (e) => {
+      const f = e.target.closest && e.target.closest('[data-field]');
+      if (!f) return;
+      const lab = f.querySelector('[data-flabel]'), line = f.querySelector('[data-fline]');
+      if (lab) { lab.style.color = '#8cc63f'; lab.style.letterSpacing = '.26em'; lab.style.transform = 'translateX(3px)'; }
+      if (line) line.style.transform = 'scaleX(1)';
+      e.target.style.borderColor = 'rgba(140,198,63,.6)';
+      e.target.style.background = 'rgba(140,198,63,.07)';
+      e.target.style.boxShadow = '0 0 0 4px rgba(140,198,63,.12)';
+    };
+    this.onFocusOut = (e) => {
+      const f = e.target.closest && e.target.closest('[data-field]');
+      if (!f) return;
+      const lab = f.querySelector('[data-flabel]'), line = f.querySelector('[data-fline]');
+      const filled = e.target.value && e.target.value.length;
+      if (lab) { lab.style.color = filled ? '#a9bdae' : '#7d8f82'; lab.style.letterSpacing = '.2em'; lab.style.transform = 'none'; }
+      if (line) line.style.transform = filled ? 'scaleX(1)' : 'scaleX(0)';
+      e.target.style.borderColor = filled ? 'rgba(140,198,63,.3)' : 'rgba(255,255,255,.14)';
+      e.target.style.background = 'rgba(255,255,255,.04)';
+      e.target.style.boxShadow = 'none';
+    };
+    document.addEventListener('focusin', this.onFocusIn);
+    document.addEventListener('focusout', this.onFocusOut);
+
+    this.initCloud();
+    this.start();
+  }
+
+  initCloud() {
+    const cv = this.cloud;
+    if (!cv) { console.warn('point cloud: canvas ref missing'); return; }
+    const ctx = cv.getContext('2d');
+    this.cloudOffset = { x: 0, y: 0 };
+    const pts = [];
+    for (let i = 0; i < 70; i++) {
+      pts.push({ x: Math.random(), y: Math.random(), z: 0.3 + Math.random() * 0.7, vx: (Math.random() - 0.5) * 0.00008, vy: (Math.random() - 0.5) * 0.00006 });
+    }
+    const size = () => {
+      const r = cv.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.max(1, r.width * dpr);
+      cv.height = Math.max(1, r.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      this.cloudW = r.width; this.cloudH = r.height;
+    };
+    size();
+    this.onResizeCloud = size;
+    window.addEventListener('resize', this.onResizeCloud);
+
+    const draw = () => {
+      const w = this.cloudW, h = this.cloudH;
+      ctx.clearRect(0, 0, w, h);
+      const off = this.cloudOffset || { x: 0, y: 0 };
+      pts.forEach(p => {
+        if (!this.reduced.matches) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x += 1; if (p.x > 1) p.x -= 1;
+          if (p.y < 0) p.y += 1; if (p.y > 1) p.y -= 1;
+        }
+        const x = p.x * w + off.x * p.z, y = p.y * h + off.y * p.z;
+        ctx.beginPath();
+        ctx.arc(x, y, 1.15 * p.z + 0.4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(174,224,120,' + (0.14 + p.z * 0.3).toFixed(3) + ')';
+        ctx.fill();
+      });
+      if (!this.reduced.matches) this.cloudRaf = requestAnimationFrame(draw);
+    };
+    draw();
+  }
+
+  setService(i) {
+    this.active = i;
+    const data = this.svcData || [];
+    if (!this.svcRows || !this.svcRows.length || !this.svcRows[0].panel) this.collect();
+    this.svcRows.forEach((r, idx) => {
+      const on = idx === i;
+      if (r.row) {
+        r.row.style.paddingLeft = on ? '16px' : '4px';
+        r.row.style.background = on ? 'rgba(255,255,255,.78)' : 'transparent';
+      }
+      if (r.body) {
+        r.body.style.maxHeight = on ? '104px' : '0';
+        r.body.style.opacity = on ? '1' : '0';
+        r.body.style.transform = on ? 'none' : 'translateY(-6px)';
+      }
+      if (r.arrow) { r.arrow.style.opacity = on ? '1' : '.3'; r.arrow.style.transform = on ? 'translateX(6px)' : 'none'; }
+      if (r.panel) {
+        r.panel.style.opacity = on ? '1' : '0';
+        r.panel.style.transform = on ? 'scale(1)' : 'scale(1.06)';
+        r.panel.style.filter = on ? 'none' : 'blur(6px)';
+      }
+    });
+    const d = data[i];
+    if (d && this.svcLabel) this.svcLabel.textContent = d.title;
+    if (d && this.svcMeta) this.svcMeta.textContent = d.keys;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.tScan);
+    clearInterval(this.loop);
+    if (this.io) this.io.disconnect();
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.cloudRaf) cancelAnimationFrame(this.cloudRaf);
+    if (this.mq) this.mq.removeEventListener('change', this.applyMq);
+    if (this.mqWide) this.mqWide.removeEventListener('change', this.applyMq);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResizeCloud);
+    window.removeEventListener('pointermove', this.onMove);
+    window.removeEventListener('touchmove', this.onTouch);
+    window.removeEventListener('pointerleave', this.onLeave);
+    window.removeEventListener('touchend', this.onLeave);
+    window.removeEventListener('blur', this.onLeave);
+    document.removeEventListener('focusin', this.onFocusIn);
+    document.removeEventListener('focusout', this.onFocusOut);
+  }
+
+  renderVals() {
+    const wa = (this.props.whatsapp ?? '919745220712').replace(/[^0-9]/g, '');
+    const svc = [
+      { no: '01', title: 'Digital boundary survey', body: 'Property limits determined against survey control. Corners marked on the ground, extents defensible on paper.', keys: 'CORNERS · EXTENTS', slot: 'cap-boundary', src: 'assets/cap-boundary.png', ph: 'Drop a boundary survey photo' },
+      { no: '02', title: 'Contour & topographic survey', body: 'Ground levels, features and contours captured as a working surface model for design and drainage.', keys: 'LEVELS · CONTOURS', slot: 'cap-contour', src: 'assets/cap-contour.png', ph: 'Drop a contour / topographic survey photo' },
+      { no: '03', title: 'Construction layout', body: 'Setting out of grids, foundations, roads and structures directly from the approved drawings.', keys: 'SETTING OUT · GRID', slot: 'cap-layout', src: 'assets/cap-layout.png', ph: 'Drop a setting-out photo' },
+      { no: '04', title: 'GPS / GNSS survey', body: 'RTK satellite positioning for fast, centimetre-level coordinates across open ground.', keys: 'RTK · BASE · ROVER', slot: 'cap-gnss', src: 'assets/cap-gnss.png', ph: 'Drop an RTK rover photo' },
+      { no: '05', title: 'Robotic total station survey', body: 'Angle and distance observation where tree cover, structure or tolerance demands optical work.', keys: 'TRAVERSE · CONTROL', slot: 'cap-ts', src: 'assets/cap-ts.png', ph: 'Drop a total station photo' },
+      { no: '06', title: 'Digital mapping', body: 'Field data drafted into clean, layered CAD deliverables ready for design and approval.', keys: 'CAD · LAYERS', slot: 'cap-map', src: 'assets/cap-map.png', ph: 'Drop a map or CAD output' },
+      { no: '07', title: 'Property measurement', body: 'Area computation and measurement for sale, subdivision, valuation or record.', keys: 'AREA · SUBDIVISION', slot: 'cap-property', src: 'assets/cap-property.png', ph: 'Drop a property measurement photo' }
+    ];
+    this.svcData = svc;
+
+    return {
+      capsule: (el) => { this.capsule = el; },
+      mark: (el) => { this.mark = el; },
+      wordmark: (el) => { this.wordmark = el; },
+      pill: (el) => { this.pill = el; },
+      deskNav: (el) => { this.deskNav = el; if (el && this.mq) el.style.display = this.mq.matches ? 'flex' : 'none'; },
+      menuBtn: (el) => { this.menuBtn = el; if (el && this.mq) el.style.display = this.mq.matches ? 'none' : 'flex'; },
+      magnet: (el) => { this.magnet = el; if (el && this.mq) el.style.display = this.mq.matches ? 'inline-flex' : 'none'; },
+      magnetLabel: (el) => { this.magnetLabel = el; },
+      heroRoot: (el) => { this.heroRoot = el; },
+      heroInner: (el) => { this.heroInner = el; },
+      heroGrid: (el) => { this.heroGrid = el; },
+      cloud: (el) => { this.cloud = el; },
+      machine: (el) => { this.machine = el; },
+      reticle: (el) => { this.reticle = el; },
+      hzRef: (el) => { this.hzRef = el; },
+      vRef: (el) => { this.vRef = el; },
+      seam1: (el) => { this.seam1 = el; },
+      seam2: (el) => { this.seam2 = el; },
+      methodGrid: (el) => { this.methodGrid = el; },
+      methodProgress: (el) => { this.methodProgress = el; },
+      rail: (el) => { this.rail = el; if (el) el.addEventListener('pointerdown', () => { this.railTouched = true; }); },
+      svcLabel: (el) => { this.svcLabel = el; },
+      svcMeta: (el) => { this.svcMeta = el; },
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      closeMenu: () => this.setState({ menu: false }),
+      drawerStyle: this.state.menu
+        ? 'pointer-events:auto;width:100%;max-width:1080px;margin:10px auto 0;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:28px;box-shadow:0 22px 54px rgba(20,35,26,.16);overflow:hidden'
+        : 'display:none',
+      contactGlow: (el) => { this.contactGlow = el; },
+      submitBtn: (el) => { this.submitBtn = el; },
+      submitLabel: (el) => { this.submitLabel = el; },
+      submitSweep: (el) => { this.submitSweep = el; },
+      footMagnet: (el) => { this.footMagnet = el; },
+      footMagnetLabel: (el) => { this.footMagnetLabel = el; },
+      channels: [
+        { no: '01', label: 'WhatsApp', value: 'Message us, fastest reply', href: 'https://wa.me/' + wa, target: '_blank', icon: '↗' },
+        { no: '02', label: 'Call us today', value: '+91 97452 20712', href: 'tel:+919745220712', target: '_self', icon: '↗' },
+        { no: '03', label: 'Email', value: 'upriselandsurveying@gmail.com', href: 'mailto:upriselandsurveying@gmail.com', target: '_self', icon: '↗' },
+        { no: '04', label: 'Facebook', value: 'Uprise Surveyor - latest projects', href: 'https://www.facebook.com/people/UP-Rise/61581763645060/', target: '_blank', icon: '↗' },
+        { no: '05', label: 'Instagram', value: '@uprise_surveyor', href: 'https://www.instagram.com/uprise_surveyor/', target: '_blank', icon: '↗' }
+      ],
+      submit: (e) => {
+        e.preventDefault();
+        if (this.sending) return;
+        this.sending = true;
+        if (this.submitLabel) this.submitLabel.textContent = 'Transmitting…';
+        if (this.submitSweep && !this.reduced.matches) {
+          this.submitSweep.style.display = 'block';
+          this.submitSweep.style.animation = 'sweepX .85s cubic-bezier(.4,0,.2,1) 2';
+        }
+        if (this.submitBtn) { this.submitBtn.style.background = '#a4dc55'; this.submitBtn.disabled = true; }
+        setTimeout(() => { this.sending = false; this.setState({ sent: true }); }, this.reduced.matches ? 120 : 900);
+      },
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      waLink: 'https://wa.me/' + wa,
+      year: new Date().getFullYear(),
+      nav: [
+        { label: 'Capabilities', href: '#capabilities', id: 'capabilities' },
+        { label: 'Technology', href: '#technology', id: 'technology' },
+        { label: 'Field record', href: '#field', id: 'field' },
+        { label: 'Method', href: '#method', id: 'method' },
+        { label: 'About', href: '#about', id: 'about' }
+      ],
+      services: svc.map((s, i) => Object.assign({}, s, { on: () => this.setService(i) })),
+      trust: ['Highly accurate measurements', 'Modern equipment', 'Trusted professional team', 'Quality & satisfaction'],
+      kit: [
+        { label: 'RTK / GNSS', note: 'Real-time corrected satellite positioning' },
+        { label: 'Total station', note: 'Optical angle and distance observation' },
+        { label: 'Digital levels', note: 'Height transfer and verification' },
+        { label: 'CAD drafting', note: 'Field data into layered drawings' }
+      ],
+      projects: [
+        { no: '01', slot: 'proj-1', src: 'assets/proj-1.png', title: 'Topographic survey', meta: 'Contours · Site levels', ph: 'Drop a topographic survey photo' },
+        { no: '02', slot: 'proj-2', src: 'assets/proj-2.png', title: 'Construction setout', meta: 'Layout · Grid marking', ph: 'Drop a setting-out photo' },
+        { no: '03', slot: 'proj-3', src: 'assets/proj-3.png', title: 'Boundary demarcation', meta: 'Corners · Property limits', ph: 'Drop a boundary survey photo' },
+        { no: '04', slot: 'proj-4', src: 'assets/proj-4.png', title: 'Site mapping', meta: 'Digital map · CAD output', ph: 'Drop a map or CAD output' }
+      ],
+      steps: [
+        { no: '01', title: 'Brief', body: 'Site, purpose and the deliverable you need are agreed before mobilising.' },
+        { no: '02', title: 'Control', body: 'Reference points established and checked so every measurement shares one frame.' },
+        { no: '03', title: 'Capture', body: 'Field observation by RTK or total station, recorded as coded survey data.' },
+        { no: '04', title: 'Process', body: 'Data reduced, drafted and checked against control and independent measurements.' },
+        { no: '05', title: 'Deliver', body: 'Drawings and coordinate data issued in the formats your team works in.' }
+      ],
+      reasons: [
+        { title: 'Highly accurate measurements', body: 'RTK positioning resolves points to centimetre level in the field, not back at the desk.' },
+        { title: 'New technology, modern equipment', body: 'Current satellite and optical instruments, maintained and checked before every job.' },
+        { title: 'Trusted service, professional team', body: 'Clear communication from brief to handover, with one point of contact throughout.' },
+        { title: 'Commitment to quality', body: 'Independent verification against control before anything is issued.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
