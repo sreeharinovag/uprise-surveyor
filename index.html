@@ -150,12 +150,12 @@
       <nav ref="{{ deskNav }}" style="margin:0 auto;display:none;align-items:center;gap:0;position:relative">
         <span ref="{{ pill }}" style="position:absolute;left:0;top:50%;height:32px;margin-top:-16px;border-radius:999px;background:rgba(255,255,255,.18);opacity:0;transition:transform .62s cubic-bezier(.16,.84,.28,1),width .62s cubic-bezier(.16,.84,.28,1),opacity .45s ease;pointer-events:none"></span>
         <sc-for list="{{ nav }}" as="n" hint-placeholder-count="7">
-          <a href="{{ n.href }}" data-nav="{{ n.id }}" style="position:relative;color:#e4f2d5;font-size:14px;letter-spacing:.005em;padding:9px 14px;border-radius:999px;white-space:nowrap;transition:color .35s ease,transform .45s cubic-bezier(.16,.84,.28,1)" style-hover="color:#ffffff;transform:translateY(-2px)">{{ n.label }}</a>
+          <a href="{{ n.href }}" data-nav="{{ n.id }}" style="position:relative;color:#e4f2d5;font-size:14px;letter-spacing:.005em;padding:9px 14px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;transition:color .35s ease,transform .45s cubic-bezier(.16,.84,.28,1)" style-hover="color:#ffffff;transform:translateY(-2px)">{{ n.label }}</a>
         </sc-for>
       </nav>
 
       <a ref="{{ magnet }}" href="{{ waLink }}" target="_blank" rel="noopener" style="background:#ffffff;color:#2f5210;font-weight:600;font-size:13px;padding:0px 18px;border-radius:999px;min-height:42px;display:none;align-items:center;gap:8px;flex:0 0 auto;white-space:nowrap;transition:background .35s ease,box-shadow .45s ease" style-hover="background:#eef7e2;box-shadow:0 10px 24px rgba(0,0,0,.22)">
-        <span ref="{{ magnetLabel }}" style="display:inline-flex;align-items:center;gap:8px;transition:transform .4s cubic-bezier(.16,.84,.28,1)">Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></span>
+        <span ref="{{ magnetLabel }}" style="display:inline-flex;align-items:center;gap:8px;transition:transform .4s cubic-bezier(.16,.84,.28,1)"><svg viewBox="0 0 24 24" width="17" height="17" fill="#2f5210" aria-hidden="true" style="flex:none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 0 16.47Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.560c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></span>
       </a>
 
       <button type="button" onClick="{{ toggleMenu }}" aria-label="Open menu" ref="{{ menuBtn }}" style="margin-left:auto;background:rgba(255,255,255,.16);border:0;color:#ffffff;width:44px;height:44px;min-width:44px;border-radius:999px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;flex:0 0 auto;transition:background .35s ease" style-hover="background:rgba(255,255,255,.3)">
@@ -183,7 +183,7 @@
           </a>
           <a href="{{ waLink }}" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="display:flex;flex-direction:column;gap:3px;background:#8cc63f;color:#16200c;padding:14px 16px;border-radius:20px;transition:background .35s ease" style-hover="background:#9ad24d">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,32,12,.6)">WhatsApp</span>
-            <span style="font-weight:700;font-size:14px">Request a survey</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14px"><svg viewBox="0 0 24 24" width="17" height="17" fill="#16200c" aria-hidden="true" style="flex:none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 0 16.47Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.560c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>Request a survey</span>
           </a>
         </div>
         <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;padding:10px 18px 14px">Vazhithala · Thodupuzha · Idukki</span>
@@ -275,7 +275,7 @@
         </h1>
         <p data-anim="rise" style="--d:760ms;margin:clamp(14px,1.9vw,22px) 0 0;max-width:40ch;color:#a89e8f;font-size:clamp(15px,1.15vw,17.5px);text-wrap:pretty">RTK satellite positioning and robotic total station work across Kerala, measured in the field and delivered as data.</p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(18px,2.4vw,28px)">
-          <a data-anim="rise" href="{{ waLink }}" target="_blank" rel="noopener" style="--d:860ms;background:#8cc63f;color:#14180f;font-weight:700;padding:0px clamp(18px,5vw,26px);font-size:14px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 16px 34px rgba(140,198,63,.22)" style-hover="background:#a4dc55;box-shadow:0 22px 44px rgba(140,198,63,.32);transform:translateY(-3px)">Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></a>
+          <a data-anim="rise" href="{{ waLink }}" target="_blank" rel="noopener" style="--d:860ms;background:#8cc63f;color:#14180f;font-weight:700;padding:0px clamp(18px,5vw,26px);font-size:14px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 16px 34px rgba(140,198,63,.22)" style-hover="background:#a4dc55;box-shadow:0 22px 44px rgba(140,198,63,.32);transform:translateY(-3px)"><svg viewBox="0 0 24 24" width="17" height="17" fill="#14180f" aria-hidden="true" style="flex:none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 0 16.47Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.560c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></a>
           <a data-anim="rise" href="tel:+919745220712" style="--d:940ms;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;font-weight:500;padding:0px clamp(16px,4.5vw,26px);font-size:14px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;gap:10px;backdrop-filter:blur(10px)" style-hover="border-color:#8cc63f;background:rgba(140,198,63,.12);transform:translateY(-3px)">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8cc63f">CALL</span> +91 97452 20712
           </a>
@@ -511,7 +511,7 @@
           <div data-stagger="110" style="display:flex;flex-direction:column">
             <sc-for list="{{ channels }}" as="c" hint-placeholder-count="5">
               <a data-anim="left" href="{{ c.href }}" target="{{ c.target }}" rel="noopener" data-channel="1" style="position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:clamp(12px,3.2vw,18px);align-items:center;padding:clamp(14px,2vw,18px) 4px;border-top:1px solid rgba(35,31,25,.14);color:#231f19;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .9s cubic-bezier(.16,.84,.28,1),padding-left .45s cubic-bezier(.16,.84,.28,1),background .4s ease;transition-delay:var(--d,0ms)" style-hover="padding-left:14px;background:rgba(35,31,25,.035)">
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#6f675c">{{ c.no }}</span>
+                <span style="display:inline-flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#6f675c">{{ c.no }}<svg viewBox="{{ c.vb }}" width="18" height="18" fill="#3f6b12" aria-hidden="true" style="flex:none"><path d="{{ c.d }}"></path></svg></span>
                 <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
                   <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c">{{ c.label }}</span>
                   <span style="font-size:clamp(15px,4vw,17px);font-weight:500;word-break:break-word;letter-spacing:-.012em">{{ c.value }}</span>
@@ -527,7 +527,7 @@
           </div>
         </div>
 
-        <form data-anim="zoom" style="--d:240ms;position:relative" onSubmit="{{ submit }}">
+        <form data-anim="zoom" noValidate="{{ true }}" style="--d:240ms;position:relative" onSubmit="{{ submit }}">
           <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
             <div style="position:relative;border:1px solid rgba(63,107,18,.3);border-radius:24px;background:#fffdf8;padding:clamp(28px,3.4vw,44px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;overflow:hidden;box-shadow:0 26px 60px rgba(35,31,25,.1)">
               <svg viewBox="0 0 64 64" aria-hidden="true" style="position:relative;width:58px;height:58px;animation:ringIn .7s cubic-bezier(.16,.84,.28,1) both">
@@ -546,19 +546,31 @@
               </div>
               <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:clamp(13px,3.2vw,18px)">
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Name</span>
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Name <span aria-hidden="true" style="color:#a8341c">*</span></span>
                   <input name="name" required autoComplete="name" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+
+                  <sc-if value="{{ errName }}" hint-placeholder-val="{{ false }}">
+                    <span role="alert" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#a8341c;letter-spacing:-.005em">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#a8341c" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18M12 8v5M12 16h.01"></path></svg>{{ errNameMsg }}
+                    </span>
+                  </sc-if>
                   <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Phone or email</span>
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Phone or email <span aria-hidden="true" style="color:#a8341c">*</span></span>
                   <input name="contact" required style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+
+                  <sc-if value="{{ errContact }}" hint-placeholder-val="{{ false }}">
+                    <span role="alert" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#a8341c;letter-spacing:-.005em">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#a8341c" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18M12 8v5M12 16h.01"></path></svg>{{ errContactMsg }}
+                    </span>
+                  </sc-if>
                   <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
               </div>
               <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:clamp(13px,3.2vw,18px)">
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Survey type</span>
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Survey type <span aria-hidden="true" style="color:#a8341c">*</span></span>
                   <select name="type" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;padding:0 38px 0 14px;height:48px;min-height:48px;box-sizing:border-box;appearance:none;-webkit-appearance:none;background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2012%208%22%3E%3Cpath%20d=%22M1%201.5%20L6%206.5%20L11%201.5%22%20fill=%22none%22%20stroke=%22%231f5132%22%20stroke-width=%221.6%22%20stroke-linecap=%22round%22/%3E%3C/svg%3E);background-repeat:no-repeat;background-position:right 14px center;background-size:12px 8px;outline:none;transition:border-color .4s ease,box-shadow .4s ease">
                     <option>Boundary survey</option>
                     <option>Contour / topographic</option>
@@ -566,19 +578,55 @@
                     <option>Digital mapping</option>
                     <option>Other</option>
                   </select>
+
+                  <sc-if value="{{ errType }}" hint-placeholder-val="{{ false }}">
+                    <span role="alert" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#a8341c;letter-spacing:-.005em">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#a8341c" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18M12 8v5M12 16h.01"></path></svg>{{ errTypeMsg }}
+                    </span>
+                  </sc-if>
                   <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Site location</span>
-                  <input name="location" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Site location <span aria-hidden="true" style="color:#a8341c">*</span></span>
+                  <input name="location" required style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+
+                  <sc-if value="{{ errLocation }}" hint-placeholder-val="{{ false }}">
+                    <span role="alert" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#a8341c;letter-spacing:-.005em">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#a8341c" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18M12 8v5M12 16h.01"></path></svg>{{ errLocationMsg }}
+                    </span>
+                  </sc-if>
                   <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
               </div>
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Message</span>
-                <textarea name="message" rows="4" placeholder="Plot size, purpose, deadline…" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:14px;color:#231f19;font-size:16px;padding:13px 14px;outline:none;resize:vertical;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease"></textarea>
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Message <span aria-hidden="true" style="color:#a8341c">*</span></span>
+                <textarea name="message" rows="4" required placeholder="Plot size, purpose, deadline…" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:14px;color:#231f19;font-size:16px;padding:13px 14px;outline:none;resize:vertical;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease"></textarea>
+
+                  <sc-if value="{{ errMessage }}" hint-placeholder-val="{{ false }}">
+                    <span role="alert" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#a8341c;letter-spacing:-.005em">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#a8341c" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18M12 8v5M12 16h.01"></path></svg>{{ errMessageMsg }}
+                    </span>
+                  </sc-if>
                   <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
+              <div style="position:relative;display:flex;flex-direction:column;gap:9px;padding-top:14px;border-top:1px solid rgba(35,31,25,.1)">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c">Verify you are human <span aria-hidden="true" style="color:#a8341c">*</span></span>
+                <div style="display:flex;align-items:stretch;gap:10px">
+                  <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:0 0 auto;height:48px;box-sizing:border-box;font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:600;letter-spacing:.16em;color:#231f19;background:repeating-linear-gradient(-38deg,rgba(63,107,18,.07) 0 5px,transparent 5px 10px),#f4efe4;border:1px solid rgba(35,31,25,.16);border-radius:12px;padding:0 16px;user-select:none">{{ capQ }}</span>
+                  <label data-field="1" style="position:relative;display:flex;flex:1 1 110px;min-width:96px">
+                    <input name="captcha" required inputMode="numeric" autoComplete="off" aria-label="Answer" placeholder="?" style="width:100%;background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+                    <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                  </label>
+                  <button type="button" onClick="{{ newCaptcha }}" aria-label="New question" style="flex:0 0 auto;width:48px;height:48px;min-width:48px;box-sizing:border-box;border-radius:12px;border:1px solid rgba(35,31,25,.16);background:#fffdf8;color:#3f6b12;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .35s ease,transform .5s cubic-bezier(.16,.84,.28,1),border-color .35s ease" style-hover="background:#f2ece2;border-color:#3f6b12;transform:rotate(-90deg)">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"></path></svg>
+                  </button>
+                </div>
+                <sc-if value="{{ errCaptcha }}" hint-placeholder-val="{{ false }}">
+                  <span role="alert" style="display:flex;align-items:center;gap:6px;font-size:12px;color:#a8341c;letter-spacing:-.005em">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#a8341c" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18M12 8v5M12 16h.01"></path></svg>{{ errCaptchaMsg }}
+                  </span>
+                </sc-if>
+              </div>
               <button ref="{{ submitBtn }}" type="submit" style="position:relative;overflow:hidden;background:#3f6b12;color:#fffdf8;border:0;border-radius:999px;font-weight:700;font-size:14px;padding:18px 26px;min-height:50px;cursor:pointer;display:inline-flex;align-items:center;justify-content:space-between;gap:12px;transition:background .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),box-shadow .45s ease" style-hover="background:#4d8318;transform:translateY(-3px);box-shadow:0 20px 40px rgba(63,107,18,.24)">
                 <span ref="{{ submitLabel }}" style="position:relative">Send request</span>
                 <span style="position:relative;font-family:'IBM Plex Mono',monospace">→</span>
@@ -628,7 +676,7 @@
         <a data-anim="zoom" ref="{{ footMagnet }}" href="{{ waLink }}" target="_blank" rel="noopener" style="--d:200ms;flex:0 0 auto;display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(140,198,63,.34);border-radius:999px;padding:16px 24px;color:#fff;font-weight:600;transition:opacity 1s ease,transform .5s cubic-bezier(.16,.84,.28,1),background .4s ease,border-color .4s ease,box-shadow .45s ease" style-hover="background:rgba(140,198,63,.14);border-color:#8cc63f;box-shadow:0 18px 44px rgba(140,198,63,.2)">
           <span ref="{{ footMagnetLabel }}" style="display:inline-flex;align-items:center;gap:12px;transition:transform .4s cubic-bezier(.16,.84,.28,1)">
             <span style="width:8px;height:8px;border-radius:50%;background:#8cc63f;display:inline-block;animation:pulse 2.6s ease-in-out infinite"></span>
-            Start a survey request
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="#8cc63f" aria-hidden="true" style="flex:none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 0 16.47Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.560c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>Start a survey request
             <span style="font-family:'IBM Plex Mono',monospace;color:#8cc63f">→</span>
           </span>
         </a>
@@ -662,12 +710,13 @@
         </div>
         <div data-anim="rise" style="display:flex;flex-direction:column;gap:9px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#918a7e;margin-bottom:6px">Direct</span>
-          <a href="tel:+919745220712" style="color:#fff;font-size:16px;font-weight:600;transition:color .35s ease" style-hover="color:#8cc63f">+91 97452 20712</a>
-          <a href="mailto:upriselandsurveying@gmail.com" style="color:#c7bcab;font-size:14px;word-break:break-all;transition:color .35s ease" style-hover="color:#8cc63f">upriselandsurveying@gmail.com</a>
-          <span style="font-size:14px;color:#9c9284">Vazhithala, Thodupuzha,<br>Idukki, Kerala</span>
+          <a href="tel:+919745220712" style="display:inline-flex;align-items:center;gap:9px;color:#fff;font-size:16px;font-weight:600;transition:color .35s ease" style-hover="color:#8cc63f"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#8cc63f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M5 3h3.2l1.6 4-2 1.4a13 13 0 0 0 5.8 5.8l1.4-2 4 1.6V17a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.2 2 2 0 0 1 5 3z"></path></svg>+91 97452 20712</a>
+          <a href="{{ waLink }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;color:#c7bcab;font-size:14px;transition:color .35s ease" style-hover="color:#8cc63f"><svg viewBox="0 0 24 24" width="16" height="16" fill="#8cc63f" aria-hidden="true" style="flex:none"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 0 16.47Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"></path></svg>WhatsApp</a>
+          <a href="mailto:upriselandsurveying@gmail.com" style="display:inline-flex;align-items:flex-start;gap:9px;color:#c7bcab;font-size:14px;word-break:break-all;transition:color .35s ease" style-hover="color:#8cc63f"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#8cc63f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M3 6h18v12H3zM3.5 6.5l8.5 6 8.5-6"></path></svg><span>upriselandsurveying@gmail.com</span></a>
+          <span style="display:inline-flex;align-items:flex-start;gap:9px;font-size:14px;color:#9c9284"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#6f675c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path></svg><span>Vazhithala, Thodupuzha,<br>Idukki, Kerala</span></span>
           <div style="display:flex;gap:10px;margin-top:6px">
-            <a href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;color:#c7bcab;font-size:12.5px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)">Facebook</a>
-            <a href="https://www.instagram.com/uprise_surveyor/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;color:#c7bcab;font-size:12.5px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)">Instagram</a>
+            <a href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 15px;color:#c7bcab;font-size:12.5px;display:inline-flex;align-items:center;gap:7px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="flex:none"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5H16.7V4.6c-.29-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24v2.19H7.4V14h2.7v8z"></path></svg>Facebook</a>
+            <a href="https://www.instagram.com/uprise_surveyor/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 15px;color:#c7bcab;font-size:12.5px;display:inline-flex;align-items:center;gap:7px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true" style="flex:none"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path></svg>Instagram</a>
           </div>
         </div>
       </div>
@@ -685,7 +734,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;919745220712&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;}}">
 class Component extends DCLogic {
-  state = { menu: false, sent: false };
+  state = { menu: false, sent: false , errs: {}, cap: { a: 3 + Math.floor(Math.random() * 6), b: 2 + Math.floor(Math.random() * 6) } };
 
   componentDidMount() {
     try { this.mount(); } catch (err) { console.error('mount failed', err); }
@@ -1117,6 +1166,8 @@ class Component extends DCLogic {
     document.removeEventListener('focusout', this.onFocusOut);
   }
 
+  makeCap() { return { a: 3 + Math.floor(Math.random() * 6), b: 2 + Math.floor(Math.random() * 6) }; }
+
   renderVals() {
     const wa = (this.props.whatsapp ?? '919745220712').replace(/[^0-9]/g, '');
     const svc = [
@@ -1182,15 +1233,42 @@ class Component extends DCLogic {
       footMagnet: (el) => { this.footMagnet = el; },
       footMagnetLabel: (el) => { this.footMagnetLabel = el; },
       channels: [
-        { no: '01', label: 'WhatsApp', value: 'Message us, fastest reply', href: 'https://wa.me/' + wa, target: '_blank', icon: '↗' },
-        { no: '02', label: 'Call us today', value: '+91 97452 20712', href: 'tel:+919745220712', target: '_self', icon: '↗' },
-        { no: '03', label: 'Email', value: 'upriselandsurveying@gmail.com', href: 'mailto:upriselandsurveying@gmail.com', target: '_self', icon: '↗' },
-        { no: '04', label: 'Facebook', value: 'Uprise Surveyor - latest projects', href: 'https://www.facebook.com/people/UP-Rise/61581763645060/', target: '_blank', icon: '↗' },
-        { no: '05', label: 'Instagram', value: '@uprise_surveyor', href: 'https://www.instagram.com/uprise_surveyor/', target: '_blank', icon: '↗' }
+        { no: '01', label: 'WhatsApp', value: 'Message us, fastest reply', href: 'https://wa.me/' + wa, target: '_blank', icon: '↗', vb: '0 0 24 24', d: 'M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 0 16.47Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z' },
+        { no: '02', label: 'Call us today', value: '+91 97452 20712', href: 'tel:+919745220712', target: '_self', icon: '↗', vb: '0 0 24 24', d: 'M5.2 2.8h3.1l1.6 4-2 1.4a13 13 0 0 0 5.9 5.9l1.4-2 4 1.6v3.1a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 3.2 5a2 2 0 0 1 2-2.2Z' },
+        { no: '03', label: 'Email', value: 'upriselandsurveying@gmail.com', href: 'mailto:upriselandsurveying@gmail.com', target: '_self', icon: '↗', vb: '0 0 24 24', d: 'M2.6 5.4h18.8v13.2H2.6V5.4Zm1.7 1.7 7.7 5.4 7.7-5.4v-.2H4.3v.2Z' },
+        { no: '04', label: 'Facebook', value: 'Uprise Surveyor - latest projects', href: 'https://www.facebook.com/people/UP-Rise/61581763645060/', target: '_blank', icon: '↗', vb: '0 0 24 24', d: 'M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5H16.7V4.6c-.29-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24v2.19H7.4V14h2.7v8z' },
+        { no: '05', label: 'Instagram', value: '@uprise_surveyor', href: 'https://www.instagram.com/uprise_surveyor/', target: '_blank', icon: '↗', vb: '0 0 16 16', d: 'M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334' }
       ],
       submit: (e) => {
         e.preventDefault();
         if (this.sending) return;
+        const f = e.target.elements;
+        const val = k => (f[k] && f[k].value ? f[k].value.trim() : '');
+        const name = val('name'), contact = val('contact'), msg = val('message'), cap = val('captcha');
+        const digits = contact.replace(/[^0-9]/g, '');
+        const isPhone = /^[0-9+\-()\s]+$/.test(contact) && digits.length >= 7 && digits.length <= 15;
+        const isEmail = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(contact);
+        const errs = {};
+        if (name.length < 2) errs.name = 'Please enter your name.';
+        else if (!/[a-z]/i.test(name)) errs.name = 'Names need at least one letter.';
+        if (!contact) errs.contact = 'A phone number or email is required.';
+        else if (!isPhone && !isEmail) errs.contact = 'Enter a valid phone number or email address.';
+        if (!msg) errs.message = 'Tell us what the survey is for.';
+        else if (msg.length < 10) errs.message = 'Add a little more detail.';
+        const loc = val('location');
+        if (!loc) errs.location = 'Where is the site?';
+        if (!val('type')) errs.type = 'Choose a survey type.';
+        const c = this.state.cap;
+        if (!cap) errs.captcha = 'Answer the question above to continue.';
+        else if (Number(cap) !== c.a + c.b) errs.captcha = 'That is not the right answer. Try again.';
+        if (Object.keys(errs).length) {
+          this.setState({ errs: errs, cap: errs.captcha ? this.makeCap() : c });
+          if (errs.captcha && f.captcha) f.captcha.value = '';
+          const first = this.q('[role="alert"]')[0];
+          if (first) { const t = first.closest('label') || first; const inp = t.querySelector && t.querySelector('input,textarea'); if (inp) inp.focus({ preventScroll: true }); }
+          return;
+        }
+        this.setState({ errs: {} });
         this.sending = true;
         if (this.submitLabel) this.submitLabel.textContent = 'Transmitting…';
         if (this.submitSweep && !this.reduced.matches) {
@@ -1200,6 +1278,14 @@ class Component extends DCLogic {
         if (this.submitBtn) { this.submitBtn.style.background = '#a4dc55'; this.submitBtn.disabled = true; }
         setTimeout(() => { this.sending = false; this.setState({ sent: true }); }, this.reduced.matches ? 120 : 900);
       },
+      newCaptcha: () => this.setState({ cap: this.makeCap(), errs: Object.assign({}, this.state.errs, { captcha: null }) }),
+      capQ: this.state.cap.a + ' + ' + this.state.cap.b + ' =',
+      errName: !!this.state.errs.name, errNameMsg: this.state.errs.name,
+      errContact: !!this.state.errs.contact, errContactMsg: this.state.errs.contact,
+      errMessage: !!this.state.errs.message, errMessageMsg: this.state.errs.message,
+      errLocation: !!this.state.errs.location, errLocationMsg: this.state.errs.location,
+      errType: !!this.state.errs.type, errTypeMsg: this.state.errs.type,
+      errCaptcha: !!this.state.errs.captcha, errCaptchaMsg: this.state.errs.captcha,
       sent: this.state.sent,
       notSent: !this.state.sent,
       waLink: 'https://wa.me/' + wa,
