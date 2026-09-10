@@ -100,7 +100,7 @@
 
       <nav ref="{{ deskNav }}" style="margin:0 auto;display:none;align-items:center;gap:0;position:relative">
         <span ref="{{ pill }}" style="position:absolute;left:0;top:50%;height:32px;margin-top:-16px;border-radius:999px;background:rgba(255,255,255,.17);opacity:0;transition:transform .62s cubic-bezier(.16,.84,.28,1),width .62s cubic-bezier(.16,.84,.28,1),opacity .45s ease;pointer-events:none"></span>
-        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
           <a href="{{ n.href }}" data-nav="{{ n.id }}" style="position:relative;color:#dcebe0;font-size:14px;letter-spacing:.005em;padding:9px 14px;border-radius:999px;white-space:nowrap;transition:color .35s ease,transform .45s cubic-bezier(.16,.84,.28,1)" style-hover="color:#fff;transform:translateY(-2px)">{{ n.label }}</a>
         </sc-for>
       </nav>
@@ -117,7 +117,7 @@
 
     <div style="{{ drawerStyle }}">
       <div style="display:flex;flex-direction:column;padding:6px">
-        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
           <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="color:#14231a;font-weight:600;font-size:19px;padding:14px 16px;border-radius:18px;transition:background .35s ease,padding-left .35s cubic-bezier(.16,.84,.28,1)" style-hover="background:#f0f5ec;padding-left:22px">{{ n.label }}</a>
         </sc-for>
         <a href="tel:+919745220712" onClick="{{ closeMenu }}" style="margin:6px;background:#1f5132;color:#fff;font-weight:600;font-size:14px;padding:16px;text-align:center;border-radius:999px">Call +91 97452 20712</a>
@@ -591,7 +591,7 @@
         </div>
         <div data-anim="rise" style="display:flex;flex-direction:column;gap:2px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70;margin-bottom:10px">Sections</span>
-          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
             <a href="{{ n.href }}" style="position:relative;color:#c5d2c6;font-size:14.5px;padding:6px 0 6px 0;display:inline-flex;align-items:center;gap:9px;transition:color .35s ease,padding-left .4s cubic-bezier(.16,.84,.28,1)" style-hover="color:#fff;padding-left:14px">
               <span style="width:0;height:1px;background:#8cc63f;transition:width .4s cubic-bezier(.16,.84,.28,1)"></span>{{ n.label }}
             </a>
@@ -717,7 +717,7 @@ class Component extends DCLogic {
     this.mq.addEventListener('change', this.applyMq);
     this.mqWide.addEventListener('change', this.applyMq);
 
-    this.sections = ['capabilities', 'technology', 'field', 'method', 'about'];
+    this.sections = ['capabilities', 'technology', 'field', 'method', 'about', 'contact'];
     this.scrollY = window.scrollY;
     this.onScroll = () => {
       this.scrollY = window.scrollY;
@@ -1139,7 +1139,8 @@ class Component extends DCLogic {
         { label: 'Technology', href: '#technology', id: 'technology' },
         { label: 'Field record', href: '#field', id: 'field' },
         { label: 'Method', href: '#method', id: 'method' },
-        { label: 'About', href: '#about', id: 'about' }
+        { label: 'About', href: '#about', id: 'about' },
+        { label: 'Contact', href: '#contact', id: 'contact' }
       ],
       services: svc.map((s, i) => Object.assign({}, s, { on: () => this.setService(i) })),
       trust: ['Highly accurate measurements', 'Modern equipment', 'Trusted professional team', 'Quality & satisfaction'],
