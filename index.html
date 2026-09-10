@@ -122,7 +122,20 @@
   [data-drawer-item]:nth-child(7) { animation-delay: .31s }
   [data-drawer-item]:nth-child(8) { animation-delay: .36s }
   @media (max-width: 760px) {
-    #hero-instrument { width: min(84%, 400px) !important; right: -7% !important; top: auto !important; bottom: clamp(52px, 9vh, 96px) !important; transform: none !important }
+    #hero-instrument {
+      top: clamp(18px, 5vw, 30px) !important;
+      bottom: clamp(18px, 5vw, 30px) !important;
+      left: clamp(18px, 5vw, 30px) !important;
+      right: clamp(18px, 5vw, 30px) !important;
+      width: auto !important;
+      height: auto !important;
+      aspect-ratio: auto !important;
+      transform: none !important;
+      opacity: .42;
+    }
+    [data-hero-scrim] {
+      background: linear-gradient(180deg, rgba(27,24,20,.86) 0%, rgba(27,24,20,.68) 42%, rgba(27,24,20,.55) 72%, rgba(27,24,20,.8) 100%) !important;
+    }
   }
 
   @media (max-width: 820px) { [data-why-h] { white-space: normal !important; font-size: clamp(25px,5.4vw,34px) !important; max-width: 20ch !important } }
@@ -228,7 +241,7 @@
         <div style="position:absolute;inset:0;transform:translateZ(10px);background:rgba(255,255,255,.045);backdrop-filter:blur(12px);border:0;overflow:hidden">
           <div style="position:absolute;inset:0;background:radial-gradient(70% 50% at 82% 0%,rgba(140,198,63,.12),transparent 66%);pointer-events:none"></div>
           <image-slot id="hero-instrument" style="position:absolute;top:50%;right:max(clamp(20px,2.8vw,44px), (100vw - 1200px) * .45);width:min(56%,520px);aspect-ratio:1;height:auto;transform:translateY(-50%)" src="assets/hero-instrument.webp?v=4" shape="rect" fit="contain" placeholder="Drop a photo or render of your total station / RTK rover. A cut-out image works best"></image-slot>
-            <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(96deg,rgba(27,24,20,.9) 0%,rgba(27,24,20,.7) 40%,rgba(27,24,20,.24) 70%,rgba(27,24,20,0) 92%)"></div>
+            <div aria-hidden="true" data-hero-scrim="1" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(96deg,rgba(27,24,20,.9) 0%,rgba(27,24,20,.7) 40%,rgba(27,24,20,.24) 70%,rgba(27,24,20,0) 92%)"></div>
           <div style="position:absolute;inset:0;pointer-events:none">
             <div style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-left:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
             <div style="position:absolute;top:12px;right:12px;width:22px;height:22px;border-right:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
