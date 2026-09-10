@@ -20,8 +20,9 @@
 <script src="_ds/modernist-d7af15a5-2ca3-4870-8404-d4f4ed88544c/_ds_bundle.js"></script>
 <script src="./image-slot.js"></script>
 <style>
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: #08110c; color: #14231a; font-family: Archivo, system-ui, sans-serif; overflow-x: hidden; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body { margin: 0; width: 100%; max-width: 100%; background: #08110c; color: #14231a; font-family: Archivo, system-ui, sans-serif; overflow-x: hidden; overflow-x: clip; }
+  img, svg, canvas, video, image-slot { max-width: 100%; }
   a { color: #1f5132; text-decoration: none; }
   a:hover { color: #2e7d4f; }
   ::selection { background: #dcefc9; color: #14231a; }
@@ -622,6 +623,7 @@
       <div style="width:100%;max-width:1240px;margin:0 auto;padding:16px clamp(16px,3vw,40px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70">
         <span style="color:#8cc63f">● Precision</span><span>Data</span><span>Terrain</span>
         <span style="margin-left:auto">© {{ year }} Uprise Land Surveying Company</span>
+        <span style="color:#4d5b50">Build R3</span>
       </div>
     </div>
   </footer>
