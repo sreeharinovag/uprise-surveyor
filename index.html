@@ -22,12 +22,12 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; overflow-x: clip; }
-  body { margin: 0; width: 100%; max-width: 100%; background: #08110c; color: #14231a; font-family: Archivo, system-ui, sans-serif; overflow-x: hidden; overflow-x: clip; }
+  body { margin: 0; width: 100%; max-width: 100%; background: #1b1814; color: #231f19; font-family: Archivo, system-ui, sans-serif; overflow-x: hidden; overflow-x: clip; }
   img, svg, canvas, video, image-slot { max-width: 100%; }
-  a { color: #1f5132; text-decoration: none; }
-  a:hover { color: #2e7d4f; }
-  ::selection { background: #dcefc9; color: #14231a; }
-  :focus-visible { outline: 2px solid #2e7d4f; outline-offset: 3px; }
+  a { color: #3f6b12; text-decoration: none; }
+  a:hover { color: #6b6357; }
+  ::selection { background: #e7dcc8; color: #231f19; }
+  :focus-visible { outline: 2px solid #6b6357; outline-offset: 3px; }
   input, textarea, select, button { font: inherit; }
 
   /* ---- motion system ---------------------------------------------------- */
@@ -73,8 +73,8 @@
   @keyframes ringIn { 0% { transform: scale(.6); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
   @keyframes sweepX { 0% { transform: translateX(-100%) } 100% { transform: translateX(220%) } }
   .rail::-webkit-scrollbar { height: 3px }
-  .rail::-webkit-scrollbar-thumb { background: #c6d2c8 }
-  .rail::-webkit-scrollbar-track { background: #eef1eb }
+  .rail::-webkit-scrollbar-thumb { background: #c7bcab }
+  .rail::-webkit-scrollbar-track { background: #ece4d5 }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto }
@@ -84,56 +84,57 @@
 </style>
 </helmet>
 
-<div style="position:relative;background:#fbfcfa;color:#14231a;font-family:Archivo,system-ui,sans-serif;font-size:16px;line-height:1.6;min-height:100%">
+<div style="position:relative;background:#f6f2ea;color:#231f19;font-family:Archivo,system-ui,sans-serif;font-size:16px;line-height:1.6;min-height:100%">
 
-  <div aria-hidden="true" style="position:absolute;top:0;left:0;right:0;height:170px;background:#08110c;z-index:0"></div>
+  <div aria-hidden="true" style="position:absolute;top:0;left:0;right:0;height:170px;background:#1b1814;z-index:0"></div>
 
   <div style="position:sticky;top:0;z-index:95;padding:clamp(10px,1.2vw,16px) clamp(16px,3vw,40px);pointer-events:none">
-    <div ref="{{ capsule }}" style="pointer-events:auto;width:100%;background:linear-gradient(100deg,#1a4429,#22623b 58%,#2e7d4f);border-radius:999px;box-shadow:0 14px 38px rgba(0,0,0,.4);border:1px solid rgba(140,198,63,.26);display:flex;align-items:center;gap:16px;padding:7px 9px 7px 12px;transition:padding .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease,max-width .7s cubic-bezier(.16,.84,.28,1),background .6s ease">
+    <div ref="{{ capsule }}" style="pointer-events:auto;width:100%;background:linear-gradient(100deg,#34590f,#3f6b12 58%,#4b8016);border-radius:999px;box-shadow:0 14px 38px rgba(0,0,0,.4);border:1px solid rgba(140,198,63,.32);display:flex;align-items:center;gap:16px;padding:7px 9px 7px 12px;transition:padding .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease,max-width .7s cubic-bezier(.16,.84,.28,1),background .6s ease">
       <a href="#top" style="display:flex;align-items:center;gap:clamp(7px,2.6vw,11px);flex:0 1 auto;min-width:0;color:#fff">
         <span ref="{{ mark }}" style="width:clamp(38px,12vw,46px);height:clamp(38px,12vw,46px);border-radius:50%;background:#fff;aspect-ratio:1;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:width .6s cubic-bezier(.16,.84,.28,1),height .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease">
           <img src="assets/uprise-logo.webp" alt="Uprise Land Survey Company logo" style="width:82%;height:82%;object-fit:contain">
         </span>
         <span ref="{{ wordmark }}" style="display:flex;flex-direction:column;line-height:1.08;overflow:hidden;transition:max-width .6s cubic-bezier(.16,.84,.28,1),opacity .5s ease">
-          <span style="font-weight:700;font-size:clamp(13.5px,4.3vw,16.5px);letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap">Uprise Surveyor</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(7px,2.35vw,8.8px);letter-spacing:.14em;text-transform:uppercase;color:#bfe0c8;white-space:nowrap">Land Surveying Company</span>
+          <span style="font-weight:700;font-size:clamp(13.5px,4.3vw,16.5px);letter-spacing:.08em;text-transform:uppercase;color:#ffffff;white-space:nowrap">Uprise Surveyor</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:clamp(7px,2.35vw,8.8px);letter-spacing:.14em;text-transform:uppercase;color:#d9ecc0;white-space:nowrap">Land Surveying Company</span>
         </span>
       </a>
 
       <nav ref="{{ deskNav }}" style="margin:0 auto;display:none;align-items:center;gap:0;position:relative">
-        <span ref="{{ pill }}" style="position:absolute;left:0;top:50%;height:32px;margin-top:-16px;border-radius:999px;background:rgba(255,255,255,.17);opacity:0;transition:transform .62s cubic-bezier(.16,.84,.28,1),width .62s cubic-bezier(.16,.84,.28,1),opacity .45s ease;pointer-events:none"></span>
+        <span ref="{{ pill }}" style="position:absolute;left:0;top:50%;height:32px;margin-top:-16px;border-radius:999px;background:rgba(255,255,255,.18);opacity:0;transition:transform .62s cubic-bezier(.16,.84,.28,1),width .62s cubic-bezier(.16,.84,.28,1),opacity .45s ease;pointer-events:none"></span>
         <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
-          <a href="{{ n.href }}" data-nav="{{ n.id }}" style="position:relative;color:#dcebe0;font-size:14px;letter-spacing:.005em;padding:9px 14px;border-radius:999px;white-space:nowrap;transition:color .35s ease,transform .45s cubic-bezier(.16,.84,.28,1)" style-hover="color:#fff;transform:translateY(-2px)">{{ n.label }}</a>
+          <a href="{{ n.href }}" data-nav="{{ n.id }}" style="position:relative;color:#e4f2d5;font-size:14px;letter-spacing:.005em;padding:9px 14px;border-radius:999px;white-space:nowrap;transition:color .35s ease,transform .45s cubic-bezier(.16,.84,.28,1)" style-hover="color:#ffffff;transform:translateY(-2px)">{{ n.label }}</a>
         </sc-for>
       </nav>
 
-      <a ref="{{ magnet }}" href="{{ waLink }}" target="_blank" rel="noopener" style="background:#fff;color:#1a4429;font-weight:600;font-size:13px;padding:0px 18px;border-radius:999px;min-height:42px;display:none;align-items:center;gap:8px;flex:0 0 auto;white-space:nowrap;transition:background .35s ease,box-shadow .45s ease" style-hover="background:#e9f5e0;box-shadow:0 10px 24px rgba(0,0,0,.16)">
+      <a ref="{{ magnet }}" href="{{ waLink }}" target="_blank" rel="noopener" style="background:#ffffff;color:#2f5210;font-weight:600;font-size:13px;padding:0px 18px;border-radius:999px;min-height:42px;display:none;align-items:center;gap:8px;flex:0 0 auto;white-space:nowrap;transition:background .35s ease,box-shadow .45s ease" style-hover="background:#eef7e2;box-shadow:0 10px 24px rgba(0,0,0,.22)">
         <span ref="{{ magnetLabel }}" style="display:inline-flex;align-items:center;gap:8px;transition:transform .4s cubic-bezier(.16,.84,.28,1)">Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></span>
       </a>
 
-      <button type="button" onClick="{{ toggleMenu }}" aria-label="Open menu" ref="{{ menuBtn }}" style="margin-left:auto;background:rgba(255,255,255,.14);border:0;color:#fff;width:44px;height:44px;min-width:44px;border-radius:999px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;flex:0 0 auto;transition:background .35s ease" style-hover="background:rgba(255,255,255,.28)">
-        <span style="display:block;width:16px;height:1.5px;background:#fff"></span>
-        <span style="display:block;width:16px;height:1.5px;background:#fff"></span>
+      <button type="button" onClick="{{ toggleMenu }}" aria-label="Open menu" ref="{{ menuBtn }}" style="margin-left:auto;background:rgba(255,255,255,.16);border:0;color:#ffffff;width:44px;height:44px;min-width:44px;border-radius:999px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;flex:0 0 auto;transition:background .35s ease" style-hover="background:rgba(255,255,255,.3)">
+        <span style="display:block;width:16px;height:1.5px;background:#ffffff"></span>
+        <span style="display:block;width:16px;height:1.5px;background:#ffffff"></span>
       </button>
     </div>
 
     <div style="{{ drawerStyle }}">
       <div style="display:flex;flex-direction:column;padding:6px">
         <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
-          <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="color:#14231a;font-weight:600;font-size:19px;padding:14px 16px;border-radius:18px;transition:background .35s ease,padding-left .35s cubic-bezier(.16,.84,.28,1)" style-hover="background:#f0f5ec;padding-left:22px">{{ n.label }}</a>
+          <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="color:#231f19;font-weight:600;font-size:19px;padding:14px 16px;border-radius:18px;transition:background .35s ease,padding-left .35s cubic-bezier(.16,.84,.28,1)" style-hover="background:#f2ece2;padding-left:22px">{{ n.label }}</a>
         </sc-for>
-        <a href="tel:+919745220712" onClick="{{ closeMenu }}" style="margin:6px;background:#1f5132;color:#fff;font-weight:600;font-size:14px;padding:16px;text-align:center;border-radius:999px">Call +91 97452 20712</a>
+        <a href="tel:+919745220712" onClick="{{ closeMenu }}" style="margin:6px;background:#3f6b12;color:#fff;font-weight:600;font-size:14px;padding:16px;text-align:center;border-radius:999px">Call +91 97452 20712</a>
       </div>
     </div>
   </div>
 
-  <section id="top" ref="{{ heroRoot }}" style="position:relative;overflow:hidden;color:#eef2ec;background:linear-gradient(180deg,#08110c 0%,#0d1710 52%,#101e15 100%)">
+  <section id="top" ref="{{ heroRoot }}" data-glow-root="1" style="position:relative;overflow:hidden;color:#f2ece1;background:linear-gradient(180deg,#1b1814 0%,#221e18 52%,#282219 100%)">
     <div ref="{{ heroGrid }}" style="position:absolute;inset:-70px;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(84% 78% at 68% 42%,#000,transparent 84%);mask-image:radial-gradient(84% 78% at 68% 42%,#000,transparent 84%);will-change:transform"></div>
-    <div data-par="0.10" style="position:absolute;inset:0;background:radial-gradient(52% 46% at 78% 26%,rgba(140,198,63,.20),transparent 66%),radial-gradient(46% 44% at 6% 96%,rgba(46,125,79,.26),transparent 70%);will-change:transform"></div>
+    <div data-par="0.10" style="position:absolute;inset:0;background:radial-gradient(52% 46% at 78% 26%,rgba(140,198,63,.13),transparent 66%),radial-gradient(46% 44% at 6% 96%,rgba(214,196,160,.13),transparent 70%);will-change:transform"></div>
+    <div data-glow="1" aria-hidden="true" style="position:absolute;width:min(56vw,700px);aspect-ratio:1/1;left:0;top:0;margin:-28vw 0 0 -28vw;border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.10),transparent 62%);pointer-events:none;will-change:transform;transition:opacity .8s ease;opacity:0"></div>
     <canvas ref="{{ cloud }}" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;opacity:.9"></canvas>
 
     <svg aria-hidden="true" viewBox="0 0 1440 520" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:64%;opacity:.7">
-      <g fill="none" stroke="#2e7d4f" stroke-width="1">
+      <g fill="none" stroke="#6b6357" stroke-width="1">
         <path d="M-20 340 C 240 292 420 372 700 328 S 1180 266 1460 310" opacity=".48"></path>
         <path d="M-20 386 C 240 336 420 420 700 374 S 1180 308 1460 356" opacity=".32"></path>
         <path d="M-20 432 C 240 380 420 468 700 420 S 1180 350 1460 402" opacity=".2"></path>
@@ -147,20 +148,70 @@
       </g>
     </svg>
 
-    <div ref="{{ heroInner }}" style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(18px,3.4vw,50px) clamp(16px,3vw,40px) clamp(20px,2.8vw,38px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);align-items:center;will-change:transform">
+    <div data-anim="depth" style="--d:340ms;position:absolute;top:0;bottom:clamp(14px,2.4vh,26px);left:clamp(16px,3vw,40px);right:clamp(16px,3vw,40px);perspective:1700px">
+      <div ref="{{ machine }}" style="position:absolute;inset:0;transform-style:preserve-3d;will-change:transform">
+        <div style="position:absolute;inset:4%;transform:translateZ(-130px);border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.3),rgba(140,198,63,0) 64%);animation:halo 9s ease-in-out infinite"></div>
+        <svg aria-hidden="true" viewBox="0 0 400 400" preserveAspectRatio="none" style="position:absolute;top:0;height:100%;left:-2.1%;width:104.2%;max-width:none;transform:translateZ(-70px);opacity:.75">
+          <g fill="none" stroke="#8cc63f" stroke-width="1" opacity=".3" style="transform-origin:200px 200px;animation:orbit 120s linear infinite">
+            <circle cx="200" cy="200" r="176" stroke-dasharray="2 12"></circle>
+            <circle cx="200" cy="200" r="132"></circle>
+          </g>
+          <g fill="none" stroke="#6b6357" stroke-width="1" opacity=".45" style="transform-origin:200px 200px;animation:orbit 84s linear infinite reverse">
+            <circle cx="200" cy="200" r="92" stroke-dasharray="4 16"></circle>
+          </g>
+        </svg>
+
+        <div style="position:absolute;inset:0;transform:translateZ(10px);background:rgba(255,255,255,.045);backdrop-filter:blur(12px);border:0;overflow:hidden">
+          <div style="position:absolute;inset:0;background:radial-gradient(70% 50% at 82% 0%,rgba(140,198,63,.12),transparent 66%);pointer-events:none"></div>
+          <image-slot id="hero-instrument" style="position:absolute;top:50%;right:clamp(20px,2.8vw,44px);width:min(56%,520px);aspect-ratio:1;height:auto;transform:translateY(-50%)" src="assets/hero-instrument.webp?v=4" shape="rect" fit="contain" placeholder="Drop a photo or render of your total station / RTK rover. A cut-out image works best"></image-slot>
+            <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(96deg,rgba(27,24,20,.9) 0%,rgba(27,24,20,.7) 40%,rgba(27,24,20,.24) 70%,rgba(27,24,20,0) 92%)"></div>
+          <div style="position:absolute;inset:0;pointer-events:none">
+            <div style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-left:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
+            <div style="position:absolute;top:12px;right:12px;width:22px;height:22px;border-right:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
+            <div style="position:absolute;bottom:12px;left:12px;width:22px;height:22px;border-left:2px solid #8cc63f;border-bottom:2px solid #8cc63f"></div>
+            <div style="position:absolute;bottom:12px;right:12px;width:22px;height:22px;border-right:2px solid #8cc63f;border-bottom:2px solid #8cc63f"></div>
+            <div style="position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(140,198,63,.75),transparent);animation:sweepY 10s ease-in-out infinite alternate"></div>
+            <div ref="{{ reticle }}" style="position:absolute;left:50%;top:50%;width:clamp(72px,26%,120px);aspect-ratio:1;transform:translate(-50%,-50%);will-change:transform">
+              <div style="position:absolute;inset:28%;border:1px solid rgba(140,198,63,.6);border-radius:50%"></div>
+              <div style="position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.35)"></div>
+              <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,.35)"></div>
+              <div style="position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;background:#8cc63f"></div>
+            </div>
+            <div style="position:absolute;top:14px;left:46%;right:clamp(14px,4%,44px);display:flex;justify-content:flex-end;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8cc63f">
+              <span>SATS 18</span>
+            </div>
+            <div style="position:absolute;bottom:14px;left:clamp(14px,4%,44px);right:46%;display:flex;flex-wrap:wrap;gap:4px 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:#a89e8f">
+              <span style="color:#8cc63f">● RTK FIX</span>
+              <span>HZ <span ref="{{ hzRef }}">000.000</span>°</span>
+              <span>V <span ref="{{ vRef }}">090.000</span>°</span>
+            </div>
+          </div>
+        </div>
+
+        <div data-anim="zoom" style="--d:1000ms;position:absolute;top:clamp(96px,15vh,142px);right:clamp(30px,4.4vw,58px);max-width:min(60%,290px);transform:translateZ(clamp(0px,(100vw - 720px) * .5,120px));background:rgba(28,25,20,.84);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#968d80">Instrument</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8cc63f">ROBOTIC / RTK</div>
+        </div>
+        <div data-anim="zoom" style="--d:1120ms;position:absolute;bottom:clamp(78px,11vh,116px);right:clamp(30px,4.4vw,58px);max-width:min(72%,300px);transform:translateZ(clamp(0px,(100vw - 720px) * .5,150px));background:rgba(28,25,20,.84);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#968d80">Positional accuracy</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8cc63f">CENTIMETRE LEVEL</div>
+        </div>
+      </div>
+    </div>
+    <div ref="{{ heroInner }}" style="position:relative;width:100%;margin:0 auto;padding:clamp(40px,7vw,96px) calc(clamp(16px,3vw,40px) + clamp(20px,2.8vw,44px)) clamp(34px,5vw,74px);min-height:clamp(560px,84vh,880px);display:grid;grid-template-columns:minmax(0,580px);justify-content:start;align-content:center;will-change:transform">
       <div style="max-width:580px">
         <div data-anim="fall" style="--d:60ms;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(140,198,63,.32);border-radius:999px;padding:8px 15px;margin-bottom:clamp(14px,2.2vw,22px)">
           <span style="width:7px;height:7px;border-radius:50%;background:#8cc63f;display:inline-block;animation:pulse 2.6s ease-in-out infinite"></span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a9bdae">RTK satellite survey · Idukki, Kerala</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a89e8f">RTK satellite survey · Idukki, Kerala</span>
         </div>
         <h1 style="margin:0;font-weight:700;font-size:clamp(36px,5.4vw,74px);line-height:1.02;letter-spacing:-.042em;max-width:13ch;color:#fff">
           <span data-anim="word" style="--d:180ms">Ground</span> <span data-anim="word" style="--d:270ms">truth,</span><br>
           <span data-anim="word" style="--d:360ms">measured</span> <span data-anim="word" style="--d:450ms">to</span><br>
           <span data-anim="word" style="--d:540ms;color:#8cc63f">the</span> <span data-anim="word" style="--d:630ms;color:#8cc63f">centimetre.</span>
         </h1>
-        <p data-anim="rise" style="--d:760ms;margin:clamp(14px,1.9vw,22px) 0 0;max-width:40ch;color:#a9bdae;font-size:clamp(15px,1.15vw,17.5px);text-wrap:pretty">RTK satellite positioning and robotic total station work across Kerala, measured in the field and delivered as data.</p>
+        <p data-anim="rise" style="--d:760ms;margin:clamp(14px,1.9vw,22px) 0 0;max-width:40ch;color:#a89e8f;font-size:clamp(15px,1.15vw,17.5px);text-wrap:pretty">RTK satellite positioning and robotic total station work across Kerala, measured in the field and delivered as data.</p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(18px,2.4vw,28px)">
-          <a data-anim="rise" href="{{ waLink }}" target="_blank" rel="noopener" style="--d:860ms;background:#8cc63f;color:#0b150e;font-weight:700;padding:0px clamp(18px,5vw,26px);font-size:14px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 16px 34px rgba(140,198,63,.22)" style-hover="background:#a4dc55;box-shadow:0 22px 44px rgba(140,198,63,.32);transform:translateY(-3px)">Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></a>
+          <a data-anim="rise" href="{{ waLink }}" target="_blank" rel="noopener" style="--d:860ms;background:#8cc63f;color:#14180f;font-weight:700;padding:0px clamp(18px,5vw,26px);font-size:14px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 16px 34px rgba(140,198,63,.22)" style-hover="background:#a4dc55;box-shadow:0 22px 44px rgba(140,198,63,.32);transform:translateY(-3px)">Request a survey <span style="font-family:'IBM Plex Mono',monospace">→</span></a>
           <a data-anim="rise" href="tel:+919745220712" style="--d:940ms;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;font-weight:500;padding:0px clamp(16px,4.5vw,26px);font-size:14px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;gap:10px;backdrop-filter:blur(10px)" style-hover="border-color:#8cc63f;background:rgba(140,198,63,.12);transform:translateY(-3px)">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8cc63f">CALL</span> +91 97452 20712
           </a>
@@ -169,64 +220,14 @@
           <sc-for list="{{ trust }}" as="t" hint-placeholder-count="4">
             <div data-anim="fall" style="display:flex;align-items:center;gap:9px">
               <span style="width:5px;height:5px;background:#8cc63f;display:inline-block"></span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#93a596">{{ t }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#9c9284">{{ t }}</span>
             </div>
           </sc-for>
         </div>
       </div>
-
-      <div data-anim="depth" style="--d:340ms;position:relative;perspective:1700px">
-        <div ref="{{ machine }}" style="position:relative;width:100%;aspect-ratio:1/1;min-height:clamp(250px,38vw,540px);transform-style:preserve-3d;will-change:transform">
-          <div style="position:absolute;inset:4%;transform:translateZ(-130px);border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.3),rgba(140,198,63,0) 64%);animation:halo 9s ease-in-out infinite"></div>
-          <svg aria-hidden="true" viewBox="0 0 400 400" style="position:absolute;inset:0;width:100%;height:100%;transform:translateZ(-70px);opacity:.75">
-            <g fill="none" stroke="#8cc63f" stroke-width="1" opacity=".3" style="transform-origin:200px 200px;animation:orbit 120s linear infinite">
-              <circle cx="200" cy="200" r="176" stroke-dasharray="2 12"></circle>
-              <circle cx="200" cy="200" r="132"></circle>
-            </g>
-            <g fill="none" stroke="#2e7d4f" stroke-width="1" opacity=".45" style="transform-origin:200px 200px;animation:orbit 84s linear infinite reverse">
-              <circle cx="200" cy="200" r="92" stroke-dasharray="4 16"></circle>
-            </g>
-          </svg>
-
-          <div style="position:absolute;inset:0;transform:translateZ(10px);background:rgba(255,255,255,.045);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.13);border-radius:26px;box-shadow:0 40px 90px rgba(0,0,0,.45);overflow:hidden">
-            <div style="position:absolute;inset:0;background:radial-gradient(70% 50% at 82% 0%,rgba(140,198,63,.12),transparent 66%);pointer-events:none"></div>
-            <image-slot id="hero-instrument" src="assets/hero-instrument.webp?v=4" shape="rect" fit="contain" placeholder="Drop a photo or render of your total station / RTK rover. A cut-out image works best"></image-slot>
-            <div style="position:absolute;inset:0;pointer-events:none">
-              <div style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-left:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
-              <div style="position:absolute;top:12px;right:12px;width:22px;height:22px;border-right:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
-              <div style="position:absolute;bottom:12px;left:12px;width:22px;height:22px;border-left:2px solid #8cc63f;border-bottom:2px solid #8cc63f"></div>
-              <div style="position:absolute;bottom:12px;right:12px;width:22px;height:22px;border-right:2px solid #8cc63f;border-bottom:2px solid #8cc63f"></div>
-              <div style="position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(140,198,63,.75),transparent);animation:sweepY 10s ease-in-out infinite alternate"></div>
-              <div ref="{{ reticle }}" style="position:absolute;left:50%;top:50%;width:clamp(72px,26%,120px);aspect-ratio:1;transform:translate(-50%,-50%);will-change:transform">
-                <div style="position:absolute;inset:28%;border:1px solid rgba(140,198,63,.6);border-radius:50%"></div>
-                <div style="position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.35)"></div>
-                <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,.35)"></div>
-                <div style="position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;background:#8cc63f"></div>
-              </div>
-              <div style="position:absolute;top:14px;left:46%;right:clamp(14px,4%,44px);display:flex;justify-content:flex-end;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8cc63f">
-                <span>SATS 18</span>
-              </div>
-              <div style="position:absolute;bottom:14px;left:clamp(14px,4%,44px);right:46%;display:flex;flex-wrap:wrap;gap:4px 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:#a9bdae">
-                <span style="color:#8cc63f">● RTK FIX</span>
-                <span>HZ <span ref="{{ hzRef }}">000.000</span>°</span>
-                <span>V <span ref="{{ vRef }}">090.000</span>°</span>
-              </div>
-            </div>
-          </div>
-
-          <div data-anim="zoom" style="--d:1000ms;position:absolute;top:0;left:clamp(0px,(720px - 100vw) * 1,12px);max-width:min(80%,300px);margin-left:calc(-1 * clamp(0px,(100vw - 720px) * .06,20px));transform:translate(0,-46%) translateZ(clamp(0px,(100vw - 720px) * .5,120px));background:rgba(13,23,16,.82);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#7d8f82">Instrument</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8cc63f">ROBOTIC / RTK</div>
-          </div>
-          <div data-anim="zoom" style="--d:1120ms;position:absolute;bottom:5%;right:clamp(0px,(720px - 100vw) * 1,12px);max-width:min(86%,320px);margin-right:calc(-1 * clamp(0px,(100vw - 720px) * .05,16px));transform:translate(0,42%) translateZ(clamp(0px,(100vw - 720px) * .5,150px));background:rgba(13,23,16,.82);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#7d8f82">Positional accuracy</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8cc63f">CENTIMETRE LEVEL</div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <div data-stagger="70" data-stagger-base="1200" style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(12px,1.8vw,24px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82">
+    <div data-stagger="70" data-stagger-base="1200" style="position:relative;width:100%;margin:0 auto;padding:0 calc(clamp(16px,3vw,40px) + clamp(20px,2.8vw,44px)) clamp(12px,1.8vw,24px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#968d80">
       <span data-anim="rise" style="color:#8cc63f">● GNSS / RTK</span>
       <span data-anim="rise">Robotic total station</span>
       <span data-anim="rise">Boundary</span>
@@ -236,84 +237,80 @@
       <span data-anim="rise" style="margin-left:auto;display:inline-flex;align-items:center;gap:8px">Scroll <span style="display:inline-block;animation:bob 2.4s ease-in-out infinite">↓</span></span>
     </div>
 
-    <svg ref="{{ seam1 }}" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="position:relative;display:block;width:106%;margin-left:-3%;height:clamp(34px,6.4vw,110px);will-change:transform">
-      <path d="M0 74 C 240 40 420 96 700 66 S 1180 18 1440 58" fill="none" stroke="#8cc63f" stroke-width="1" opacity=".4"></path>
-      <path d="M0 120 L0 74 C 240 40 420 96 700 66 S 1180 18 1440 58 L1440 120 Z" fill="#ffffff"></path>
-    </svg>
   </section>
 
-  <section style="background:#fff;overflow:hidden">
+  <section style="background:#f6f2ea;overflow:hidden">
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(28px,5.4vw,86px) clamp(16px,3vw,40px) clamp(36px,7vw,108px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(26px,4.4vw,72px)">
       <h2 data-anim="wipe" style="margin:0;font-weight:700;font-size:clamp(25px,3.5vw,50px);line-height:1.06;letter-spacing:-.038em;text-wrap:balance">Every boundary has a story. Every measurement has consequences.</h2>
       <div data-stagger="140" style="align-self:end;max-width:50ch">
-        <p data-anim="rise" style="color:#3b4a41;margin:0 0 16px">A survey is the first line of a project's documentation and the last line of its defence. An error at the ground stage compounds through design, approval and construction.</p>
-        <p data-anim="rise" style="color:#3b4a41;margin:0">Field discipline, satellite positioning and digital drafting mean what leaves our office is a checked, referenced dataset.</p>
+        <p data-anim="rise" style="color:#4f4941;margin:0 0 16px">A survey is the first line of a project's documentation and the last line of its defence. An error at the ground stage compounds through design, approval and construction.</p>
+        <p data-anim="rise" style="color:#4f4941;margin:0">Field discipline, satellite positioning and digital drafting mean what leaves our office is a checked, referenced dataset.</p>
         <div data-anim="rule" style="--d:420ms;height:2px;background:#8cc63f;margin-top:26px"></div>
       </div>
     </div>
   </section>
 
-  <section id="capabilities" style="position:relative;background:linear-gradient(180deg,#ffffff,#f5f9f2);overflow:hidden">
+  <section id="capabilities" style="position:relative;background:#fffdf8;overflow:hidden">
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(30px,5.8vw,94px) clamp(16px,3vw,40px) clamp(16px,2.2vw,28px);display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;justify-content:space-between">
       <h2 data-anim="curtain" style="margin:0;font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em">Capabilities</h2>
-      <span data-anim="fall" style="--d:200ms;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d">01 / What we measure</span>
+      <span data-anim="fall" style="--d:200ms;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6f675c">01 / What we measure</span>
     </div>
 
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(34px,6.8vw,106px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,2.8vw,48px);align-items:start">
       <div data-stagger="80" style="display:flex;flex-direction:column">
         <sc-for list="{{ services }}" as="s" hint-placeholder-count="7">
-          <button data-anim="left" type="button" onMouseEnter="{{ s.on }}" onFocus="{{ s.on }}" onClick="{{ s.on }}" data-svc-row="1" style="appearance:none;background:transparent;border:0;border-top:1px solid rgba(20,35,26,.12);text-align:left;cursor:pointer;padding:clamp(15px,1.8vw,23px) 4px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),padding-left .5s cubic-bezier(.16,.84,.28,1),background .5s ease;transition-delay:var(--d,0ms)">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#2e7d4f">{{ s.no }}</span>
+          <button data-anim="left" type="button" onMouseEnter="{{ s.on }}" onFocus="{{ s.on }}" onClick="{{ s.on }}" data-svc-row="1" style="appearance:none;background:transparent;border:0;border-top:1px solid rgba(35,31,25,.12);text-align:left;cursor:pointer;padding:clamp(15px,1.8vw,23px) 4px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),padding-left .5s cubic-bezier(.16,.84,.28,1),background .5s ease;transition-delay:var(--d,0ms)">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#6b6357">{{ s.no }}</span>
             <span style="display:flex;flex-direction:column;gap:4px">
-              <span style="font-weight:600;font-size:clamp(17px,1.85vw,24px);letter-spacing:-.025em;color:#14231a">{{ s.title }}</span>
-              <span data-svc-body="1" style="color:#3b4a41;font-size:14.5px;max-width:46ch;overflow:hidden;max-height:0;opacity:0;transform:translateY(-6px);transition:max-height .6s cubic-bezier(.16,.84,.28,1),opacity .5s ease,transform .6s cubic-bezier(.16,.84,.28,1)">{{ s.body }}</span>
+              <span style="font-weight:600;font-size:clamp(17px,1.85vw,24px);letter-spacing:-.025em;color:#231f19">{{ s.title }}</span>
+              <span data-svc-body="1" style="color:#4f4941;font-size:14.5px;max-width:46ch;overflow:hidden;max-height:0;opacity:0;transform:translateY(-6px);transition:max-height .6s cubic-bezier(.16,.84,.28,1),opacity .5s ease,transform .6s cubic-bezier(.16,.84,.28,1)">{{ s.body }}</span>
             </span>
-            <span data-svc-arrow="1" style="font-family:'IBM Plex Mono',monospace;color:#2e7d4f;opacity:.3;transition:opacity .45s ease,transform .5s cubic-bezier(.16,.84,.28,1)">→</span>
+            <span data-svc-arrow="1" style="font-family:'IBM Plex Mono',monospace;color:#6b6357;opacity:.3;transition:opacity .45s ease,transform .5s cubic-bezier(.16,.84,.28,1)">→</span>
           </button>
         </sc-for>
-        <div style="border-top:1px solid rgba(20,35,26,.12)"></div>
+        <div style="border-top:1px solid rgba(35,31,25,.12)"></div>
       </div>
 
-      <div data-anim="zoom" style="--d:220ms;position:relative;aspect-ratio:4/3.4;min-height:280px;border-radius:24px;overflow:hidden;background:#eef3ea;border:1px solid rgba(20,35,26,.1);box-shadow:0 26px 60px rgba(20,35,26,.1)">
+      <div data-anim="zoom" style="--d:220ms;position:relative;aspect-ratio:4/3.4;min-height:280px;border-radius:24px;overflow:hidden;background:#ece4d5;border:1px solid rgba(35,31,25,.1);box-shadow:0 26px 60px rgba(35,31,25,.1)">
         <sc-for list="{{ services }}" as="s" hint-placeholder-count="7">
           <div data-svc-panel="1" style="position:absolute;inset:0;opacity:0;transform:scale(1.06);filter:blur(6px);transition:opacity .8s ease,transform 1.2s cubic-bezier(.16,.84,.28,1),filter .8s ease">
             <image-slot id="{{ s.slot }}" src="{{ s.src }}" shape="rect" fit="cover" placeholder="{{ s.ph }}"></image-slot>
           </div>
         </sc-for>
         <div style="position:absolute;inset:0;pointer-events:none">
-          <div style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#1f5132"><span ref="{{ svcLabel }}">Digital boundary survey</span></div>
-          <div style="position:absolute;bottom:14px;right:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#3b4a41"><span ref="{{ svcMeta }}">CORNERS · EXTENTS</span></div>
+          <div style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#3f6b12"><span ref="{{ svcLabel }}">Digital boundary survey</span></div>
+          <div style="position:absolute;bottom:14px;right:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#4f4941"><span ref="{{ svcMeta }}">CORNERS · EXTENTS</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="technology" style="position:relative;background:#fff;border-top:1px solid rgba(20,35,26,.08);overflow:hidden">
+  <section id="technology" style="position:relative;background:#f3eee4;border-top:1px solid rgba(35,31,25,.08);overflow:hidden">
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(34px,6.4vw,104px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(26px,3.6vw,60px);align-items:center">
       <div>
-        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d;margin-bottom:16px">02 / Instrumentation</span>
+        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6f675c;margin-bottom:16px">02 / Instrumentation</span>
         <h2 data-anim="zoom" style="--d:120ms;margin:0 0 18px;font-weight:700;font-size:clamp(25px,3.4vw,46px);letter-spacing:-.038em;line-height:1.05">Satellite positioning, corrected in real time.</h2>
-        <p data-anim="rise" style="--d:280ms;color:#3b4a41;max-width:48ch;margin:0 0 26px">RTK carries a correction stream from a reference station to the rover, resolving position to centimetre level as the point is taken. Robotic total station work covers the ground where tree cover or structure makes satellite observation unreliable.</p>
+        <p data-anim="rise" style="--d:280ms;color:#4f4941;max-width:48ch;margin:0 0 26px">RTK carries a correction stream from a reference station to the rover, resolving position to centimetre level as the point is taken. Robotic total station work covers the ground where tree cover or structure makes satellite observation unreliable.</p>
         <div data-stagger="110" data-stagger-base="360" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
           <sc-for list="{{ kit }}" as="k" hint-placeholder-count="4">
-            <div data-anim="zoom" style="background:#f5f9f2;border:1px solid rgba(31,81,50,.12);border-radius:18px;padding:17px;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),filter 1.15s ease,border-color .45s ease,box-shadow .45s ease;transition-delay:var(--d,0ms)" style-hover="border-color:rgba(31,81,50,.45);transform:translateY(-6px);box-shadow:0 18px 36px rgba(20,35,26,.09)">
-              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#2e7d4f;margin-bottom:6px">{{ k.label }}</div>
-              <div style="font-size:14px;color:#3b4a41">{{ k.note }}</div>
+            <div data-anim="zoom" style="background:#fffdf8;border:1px solid rgba(35,31,25,.1);border-radius:18px;padding:17px;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),filter 1.15s ease,border-color .45s ease,box-shadow .45s ease;transition-delay:var(--d,0ms)" style-hover="border-color:rgba(63,107,18,.45);transform:translateY(-6px);box-shadow:0 18px 36px rgba(35,31,25,.09)">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b6357;margin-bottom:6px">{{ k.label }}</div>
+              <div style="font-size:14px;color:#4f4941">{{ k.note }}</div>
             </div>
           </sc-for>
         </div>
       </div>
-      <div data-anim="curtain" style="--d:180ms;position:relative;aspect-ratio:4/5;min-height:300px;border-radius:24px;overflow:hidden;border:1px solid rgba(20,35,26,.12);background:#f5f9f2;box-shadow:0 26px 60px rgba(20,35,26,.1)">
+      <div data-anim="curtain" style="--d:180ms;position:relative;aspect-ratio:4/5;min-height:300px;border-radius:24px;overflow:hidden;border:1px solid rgba(35,31,25,.12);background:#f3eee4;box-shadow:0 26px 60px rgba(35,31,25,.1)">
         <div data-par="-0.06" style="position:absolute;inset:-8%;will-change:transform">
           <image-slot id="tech-rover" src="assets/tech-rover.webp" shape="rect" fit="cover" placeholder="Drop a photo of the RTK rover / total station in the field"></image-slot>
         </div>
-        <div style="position:absolute;top:14px;left:14px;pointer-events:none;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#1f5132">● RTK FIX</div>
-        <div style="position:absolute;bottom:14px;right:14px;pointer-events:none;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#3b4a41">CM-LEVEL ACCURACY</div>
+        <div style="position:absolute;top:14px;left:14px;pointer-events:none;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#3f6b12">● RTK FIX</div>
+        <div style="position:absolute;bottom:14px;right:14px;pointer-events:none;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#4f4941">CM-LEVEL ACCURACY</div>
       </div>
     </div>
     <svg ref="{{ seam2 }}" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" style="position:relative;display:block;width:106%;margin-left:-3%;height:clamp(32px,6vw,100px);will-change:transform">
-      <path d="M0 120 L0 68 C 260 104 460 44 720 72 S 1200 108 1440 66 L1440 120 Z" fill="#fbfcfa"></path>
-      <g fill="none" stroke="#1f5132" stroke-width="1" opacity=".18">
+      <path d="M0 120 L0 68 C 260 104 460 44 720 72 S 1200 108 1440 66 L1440 120 Z" fill="#f6f2ea"></path>
+      <g fill="none" stroke="#3f6b12" stroke-width="1" opacity=".18">
         <path d="M0 68 C 260 104 460 44 720 72 S 1200 108 1440 66"></path>
         <path d="M0 54 C 260 92 460 30 720 58 S 1200 96 1440 52" opacity=".6"></path>
       </g>
@@ -323,217 +320,206 @@
   <section id="field" style="overflow:hidden">
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(20px,3.6vw,56px) clamp(16px,3vw,40px) clamp(16px,2.2vw,26px);display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between">
       <div>
-        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d;margin-bottom:12px">03 / Field record</span>
+        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6f675c;margin-bottom:12px">03 / Field record</span>
         <h2 data-anim="curtain" style="margin:0;font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em">Recent work</h2>
       </div>
       <div data-anim="rise" style="display:flex;align-items:center;gap:10px">
-        <button ref="{{ railPrev }}" type="button" onClick="{{ railBack }}" aria-label="Previous project" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(20,35,26,.18);background:#fff;color:#14231a;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:15px;transition:border-color .35s ease,background .35s ease,transform .35s cubic-bezier(.16,.84,.28,1),opacity .35s ease" style-hover="border-color:#1f5132;background:#f2f7ee;transform:translateY(-2px)">←</button>
-        <button ref="{{ railNext }}" type="button" onClick="{{ railFwd }}" aria-label="Next project" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(20,35,26,.18);background:#fff;color:#14231a;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:15px;transition:border-color .35s ease,background .35s ease,transform .35s cubic-bezier(.16,.84,.28,1),opacity .35s ease" style-hover="border-color:#1f5132;background:#f2f7ee;transform:translateY(-2px)">→</button>
+        <button ref="{{ railPrev }}" type="button" onClick="{{ railBack }}" aria-label="Previous project" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(35,31,25,.18);background:#fff;color:#231f19;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:15px;transition:border-color .35s ease,background .35s ease,transform .35s cubic-bezier(.16,.84,.28,1),opacity .35s ease" style-hover="border-color:#3f6b12;background:#f3eee4;transform:translateY(-2px)">←</button>
+        <button ref="{{ railNext }}" type="button" onClick="{{ railFwd }}" aria-label="Next project" style="width:48px;height:48px;border-radius:50%;border:1px solid rgba(35,31,25,.18);background:#fff;color:#231f19;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:15px;transition:border-color .35s ease,background .35s ease,transform .35s cubic-bezier(.16,.84,.28,1),opacity .35s ease" style-hover="border-color:#3f6b12;background:#f3eee4;transform:translateY(-2px)">→</button>
       </div>
     </div>
 
     <div ref="{{ rail }}" class="rail" data-stagger="130" style="display:flex;gap:clamp(14px,1.6vw,20px);overflow-x:auto;padding:0 clamp(16px,3vw,40px) clamp(20px,2.6vw,32px);scroll-snap-type:x mandatory">
       <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
-        <figure data-anim="lift" data-card="1" style="margin:0;flex:0 0 min(80vw,400px);scroll-snap-align:start;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:22px;overflow:hidden;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),box-shadow .5s ease;transition-delay:var(--d,0ms)" style-hover="box-shadow:0 30px 60px rgba(20,35,26,.14);transform:translateY(-8px)">
+        <figure data-anim="lift" data-card="1" style="margin:0;flex:0 0 min(80vw,400px);scroll-snap-align:start;background:#fff;border:1px solid rgba(35,31,25,.1);border-radius:22px;overflow:hidden;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform 1.15s cubic-bezier(.16,.84,.28,1),box-shadow .5s ease;transition-delay:var(--d,0ms)" style-hover="box-shadow:0 30px 60px rgba(35,31,25,.14);transform:translateY(-8px)">
           <div style="position:relative;aspect-ratio:4/3;overflow:hidden">
             <image-slot id="{{ p.slot }}" src="{{ p.src }}" shape="rect" fit="cover" placeholder="{{ p.ph }}"></image-slot>
-            <div style="position:absolute;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;background:rgba(255,255,255,.92);color:#1f5132;padding:5px 11px;border-radius:999px;pointer-events:none">{{ p.no }}</div>
+            <div style="position:absolute;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;background:rgba(255,255,255,.92);color:#3f6b12;padding:5px 11px;border-radius:999px;pointer-events:none">{{ p.no }}</div>
           </div>
           <figcaption style="padding:18px;display:flex;flex-direction:column;gap:6px">
             <span style="font-weight:600;font-size:17.5px;letter-spacing:-.015em">{{ p.title }}</span>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#78867d">{{ p.meta }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6f675c">{{ p.meta }}</span>
           </figcaption>
         </figure>
       </sc-for>
     </div>
 
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(30px,5.4vw,84px);display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
-      <div style="flex:1 1 180px;min-width:140px;height:2px;background:rgba(20,35,26,.12);position:relative;border-radius:2px">
-        <div ref="{{ railProgress }}" style="position:absolute;left:0;top:0;height:2px;width:25%;background:#1f5132;border-radius:2px;transition:width .4s cubic-bezier(.16,.84,.28,1),left .4s cubic-bezier(.16,.84,.28,1)"></div>
+      <div style="flex:1 1 180px;min-width:140px;height:2px;background:rgba(35,31,25,.12);position:relative;border-radius:2px">
+        <div ref="{{ railProgress }}" style="position:absolute;left:0;top:0;height:2px;width:25%;background:#3f6b12;border-radius:2px;transition:width .4s cubic-bezier(.16,.84,.28,1),left .4s cubic-bezier(.16,.84,.28,1)"></div>
       </div>
-      <span ref="{{ railCounter }}" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#78867d">01 / 04</span>
-      <a data-anim="rise" href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="margin-left:auto;display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(20,35,26,.12);border-radius:999px;padding:13px 20px;color:#14231a;font-size:14px;transition:opacity 1s ease,transform .5s cubic-bezier(.16,.84,.28,1),border-color .4s ease,box-shadow .45s ease" style-hover="border-color:#1f5132;box-shadow:0 14px 32px rgba(20,35,26,.1);transform:translateY(-2px)">
+      <span ref="{{ railCounter }}" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#6f675c">01 / 04</span>
+      <a data-anim="rise" href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="margin-left:auto;display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(35,31,25,.12);border-radius:999px;padding:13px 20px;color:#231f19;font-size:14px;transition:opacity 1s ease,transform .5s cubic-bezier(.16,.84,.28,1),border-color .4s ease,box-shadow .45s ease" style-hover="border-color:#3f6b12;box-shadow:0 14px 32px rgba(35,31,25,.1);transform:translateY(-2px)">
         See more on Facebook
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#2e7d4f">→</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6b6357">→</span>
       </a>
     </div>
   </section>
 
-  <section id="method" style="position:relative;background:#14231a;color:#eef2ec;overflow:hidden">
+  <section id="method" data-glow-root="1" style="position:relative;background:#1f1b15;color:#f2ece1;overflow:hidden">
     <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:106%;margin-left:-3%;height:clamp(28px,5.2vw,86px)">
-      <path d="M0 0 L1440 0 L1440 42 C 1180 78 980 22 720 50 S 240 88 0 46 Z" fill="#fbfcfa"></path>
+      <path d="M0 0 L1440 0 L1440 42 C 1180 78 980 22 720 50 S 240 88 0 46 Z" fill="#f6f2ea"></path>
     </svg>
+    <div data-glow="1" aria-hidden="true" style="position:absolute;width:min(56vw,700px);aspect-ratio:1/1;left:0;top:0;margin:-28vw 0 0 -28vw;border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.11),transparent 62%);pointer-events:none;will-change:transform;transition:opacity .8s ease;opacity:0"></div>
     <div ref="{{ methodGrid }}" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:68px 68px;will-change:transform"></div>
     <div data-par="0.05" style="position:absolute;inset:0;background:radial-gradient(46% 40% at 78% 18%,rgba(140,198,63,.14),transparent 70%);will-change:transform"></div>
     <div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(20px,3.6vw,52px) clamp(16px,3vw,40px) clamp(34px,6.4vw,104px)">
       <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#8cc63f;margin-bottom:14px">04 / Method</span>
       <h2 data-anim="curtain" style="--d:120ms;margin:0 0 clamp(20px,3.6vw,52px);font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em;color:#fff">How a job runs</h2>
-      <div style="position:relative;height:1px;background:rgba(140,198,63,.18);margin-bottom:clamp(20px,2.4vw,30px)">
-        <div ref="{{ methodProgress }}" style="position:absolute;left:0;top:0;height:1px;width:0;background:#8cc63f;box-shadow:0 0 12px rgba(140,198,63,.8)"></div>
+      <div style="position:relative;height:1px;background:rgba(242,236,225,.14)">
+        <div ref="{{ methodProgress }}" style="position:absolute;left:0;top:0;height:1px;width:0;background:#8cc63f;box-shadow:0 0 12px rgba(140,198,63,.55)"></div>
       </div>
-      <div data-stagger="150" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(18px,2.2vw,30px)">
+      <div data-stagger="150" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(22px,2.6vw,38px)">
         <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
-          <div data-anim="rise" data-step-card="1" style="position:relative;overflow:hidden;padding:clamp(17px,4vw,22px) clamp(16px,4vw,20px) clamp(18px,4.2vw,24px);border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.035);backdrop-filter:blur(10px);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1),background .45s ease,border-color .45s ease,box-shadow .45s ease" style-hover="background:rgba(140,198,63,.08);border-color:rgba(140,198,63,.45);box-shadow:0 22px 46px rgba(0,0,0,.4);transform:translateY(-6px)">
-            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#8cc63f,rgba(140,198,63,0))"></div>
-            <div aria-hidden="true" style="position:absolute;top:8px;right:14px;font-weight:700;font-size:52px;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.1)">{{ st.no }}</div>
-            <div style="position:relative;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8cc63f;margin-bottom:10px">{{ st.no }}</div>
-            <h3 style="position:relative;margin:0 0 8px;font-weight:600;font-size:16.5px;letter-spacing:.02em;text-transform:uppercase;color:#fff">{{ st.title }}</h3>
-            <p style="position:relative;margin:0;color:#b6c5b8;font-size:14.5px">{{ st.body }}</p>
+          <div data-anim="rise" data-step-card="1" style="position:relative;padding:22px 0 0;border-top:1px solid rgba(242,236,225,.14);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1)" style-hover="transform:translateY(-4px)">
+            <span aria-hidden="true" style="position:absolute;top:-4px;left:0;width:7px;height:7px;background:#8cc63f"></span>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:#968d80;margin-bottom:14px">{{ st.no }}</div>
+            <h3 style="margin:0 0 9px;font-weight:600;font-size:clamp(16px,1.35vw,18.5px);letter-spacing:-.012em;color:#fff">{{ st.title }}</h3>
+            <p style="margin:0;color:#b5ab9b;font-size:14.5px;max-width:30ch">{{ st.body }}</p>
           </div>
         </sc-for>
       </div>
     </div>
     <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:106%;margin-left:-3%;height:clamp(28px,5.2vw,86px)">
-      <path d="M0 100 L0 54 C 240 88 460 30 720 58 S 1200 94 1440 52 L1440 100 Z" fill="#ffffff"></path>
+      <path d="M0 100 L0 54 C 240 88 460 30 720 58 S 1200 94 1440 52 L1440 100 Z" fill="#fffdf8"></path>
     </svg>
   </section>
 
-  <section style="background:#fff;overflow:hidden">
+  <section style="background:#fffdf8;overflow:hidden">
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(18px,3.2vw,50px) clamp(16px,3vw,40px) clamp(34px,6.4vw,104px)">
-      <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d;margin-bottom:14px">05 / Why Uprise</span>
+      <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6f675c;margin-bottom:14px">05 / Why Uprise</span>
       <h2 data-anim="wipe" style="--d:120ms;margin:0 0 clamp(20px,3.6vw,50px);font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em;max-width:20ch">Built around precision and speed</h2>
-      <div data-stagger="130" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:clamp(18px,2.4vw,36px)">
+      <div data-stagger="130" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 clamp(28px,4vw,72px);border-top:1px solid rgba(35,31,25,.14)">
         <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4">
-          <div data-anim="lift" style="position:relative;overflow:hidden;padding:clamp(18px,4.4vw,24px) clamp(17px,4.2vw,22px) clamp(19px,4.6vw,26px);border:1px solid rgba(20,35,26,.12);border-radius:20px;background:#fff;color:#14231a;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1),background .5s ease,color .5s ease,border-color .5s ease,box-shadow .5s ease" style-hover="background:#14231a;color:#ffffff;border-color:#14231a;box-shadow:0 26px 52px rgba(20,35,26,.22);transform:translateY(-6px)">
-            <div aria-hidden="true" style="position:absolute;bottom:-14px;right:10px;font-weight:700;font-size:76px;line-height:1;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px currentColor;opacity:.12">{{ r.no }}</div>
-            <div style="position:relative;width:38px;height:38px;border:1px solid currentColor;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;opacity:.9">
-              <span style="width:9px;height:9px;background:#8cc63f;border-radius:50%;display:block"></span>
+          <div data-anim="lift" style="position:relative;display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,30px) 6px;border-bottom:1px solid rgba(35,31,25,.14);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1),padding-left .45s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="padding-left:18px;background:rgba(35,31,25,.03)">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:#3f6b12;padding-top:4px">{{ r.no }}</span>
+            <div>
+              <h3 style="margin:0 0 7px;font-weight:600;font-size:clamp(17px,1.5vw,20px);letter-spacing:-.018em;color:#231f19">{{ r.title }}</h3>
+              <p style="margin:0;font-size:14.5px;color:#4f4941;max-width:40ch">{{ r.body }}</p>
             </div>
-            <h3 style="position:relative;margin:0 0 8px;font-weight:600;font-size:17.5px;letter-spacing:-.015em;color:inherit">{{ r.title }}</h3>
-            <p style="position:relative;margin:0;font-size:14.5px;color:inherit;opacity:.72">{{ r.body }}</p>
           </div>
         </sc-for>
       </div>
     </div>
   </section>
 
-  <section id="about" style="background:linear-gradient(180deg,#ffffff,#f5f9f2);overflow:hidden">
+  <section id="about" style="background:linear-gradient(180deg,#fffdf8,#f1ece1);overflow:hidden">
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(34px,6.4vw,104px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(26px,3.6vw,64px)">
       <div>
-        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#78867d;margin-bottom:16px">06 / About</span>
+        <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6f675c;margin-bottom:16px">06 / About</span>
         <h2 style="margin:0;font-weight:700;font-size:clamp(27px,4vw,56px);line-height:1.03;letter-spacing:-.042em">
           <span data-anim="word" style="--d:120ms">Uprise</span> <span data-anim="word" style="--d:210ms">Land</span><br>
-          <span data-anim="word" style="--d:300ms">Surveying</span> <span data-anim="word" style="--d:390ms;color:#2e7d4f">Company</span>
+          <span data-anim="word" style="--d:300ms">Surveying</span> <span data-anim="word" style="--d:390ms;color:#6b6357">Company</span>
         </h2>
-        <div data-anim="curtain" style="--d:480ms;margin-top:26px;position:relative;aspect-ratio:3/2;border-radius:24px;overflow:hidden;border:1px solid rgba(20,35,26,.12);background:#eef3ea;box-shadow:0 26px 60px rgba(20,35,26,.1)">
+        <div data-anim="curtain" style="--d:480ms;margin-top:26px;position:relative;aspect-ratio:3/2;border-radius:24px;overflow:hidden;border:1px solid rgba(35,31,25,.12);background:#ece4d5;box-shadow:0 26px 60px rgba(35,31,25,.1)">
           <div data-par="-0.05" style="position:absolute;inset:-7%;will-change:transform">
             <image-slot id="about-team" src="assets/about-team.webp" shape="rect" fit="cover" placeholder="Drop a team or field photo"></image-slot>
           </div>
         </div>
       </div>
       <div data-stagger="140" style="align-self:center;max-width:52ch">
-        <p data-anim="right" style="color:#3b4a41;margin:0 0 16px">A land surveying practice based in Vazhithala, Thodupuzha, Idukki, Kerala, built around RTK satellite positioning and digital deliverables: boundary determination, contour and topographic survey, construction layout and mapping.</p>
-        <p data-anim="right" style="color:#3b4a41;margin:0 0 16px">The approach is simple: measure carefully, check the measurement, and hand over data that can be opened, understood and used immediately.</p>
-        <p data-anim="right" style="color:#3b4a41;margin:0">High precision and fast service are not a trade-off here. Modern instruments remove the slow parts of the job, and the time saved goes back into verification.</p>
+        <p data-anim="right" style="color:#4f4941;margin:0 0 16px">A land surveying practice based in Vazhithala, Thodupuzha, Idukki, Kerala, built around RTK satellite positioning and digital deliverables: boundary determination, contour and topographic survey, construction layout and mapping.</p>
+        <p data-anim="right" style="color:#4f4941;margin:0 0 16px">The approach is simple: measure carefully, check the measurement, and hand over data that can be opened, understood and used immediately.</p>
+        <p data-anim="right" style="color:#4f4941;margin:0">High precision and fast service are not a trade-off here. Modern instruments remove the slow parts of the job, and the time saved goes back into verification.</p>
         <div data-anim="rule" style="--d:560ms;height:2px;background:#8cc63f;margin-top:26px"></div>
       </div>
     </div>
   </section>
 
-  <section id="contact" data-contact-root="1" style="position:relative;background:#0d1710;color:#eef2ec;overflow:hidden">
+  <section id="contact" data-contact-root="1" style="position:relative;background:#f6f2ea;color:#231f19;overflow:hidden">
     <svg viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:106%;margin-left:-3%;height:clamp(32px,6vw,104px)">
-      <path d="M0 0 L1440 0 L1440 52 C 1170 92 960 26 700 58 S 250 96 0 50 Z" fill="#f5f9f2"></path>
-      <path d="M0 50 C 250 96 700 58 700 58 S 1170 92 1440 52" fill="none" stroke="#8cc63f" stroke-width="1" opacity=".35"></path>
+      <path d="M0 0 L1440 0 L1440 52 C 1170 92 960 26 700 58 S 250 96 0 50 Z" fill="#f1ece1"></path>
+      <path d="M0 50 C 250 96 700 58 700 58 S 1170 92 1440 52" fill="none" stroke="rgba(35,31,25,.18)" stroke-width="1"></path>
     </svg>
 
-    <div data-par="0.05" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(80% 70% at 50% 40%,#000,transparent 84%);mask-image:radial-gradient(80% 70% at 50% 40%,#000,transparent 84%);will-change:transform"></div>
-    <div ref="{{ contactGlow }}" aria-hidden="true" style="position:absolute;width:min(58vw,720px);aspect-ratio:1/1;left:0;top:0;margin:-29vw 0 0 -29vw;border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.16),transparent 62%);pointer-events:none;will-change:transform;transition:opacity .8s ease;opacity:0"></div>
-    <svg aria-hidden="true" viewBox="0 0 800 800" style="position:absolute;top:50%;left:50%;width:min(120%,1100px);aspect-ratio:1/1;transform:translate(-50%,-50%);opacity:.5;pointer-events:none">
-      <g fill="none" stroke="#8cc63f" stroke-width="1" opacity=".22" style="transform-origin:400px 400px;animation:orbit 120s linear infinite">
-        <circle cx="400" cy="400" r="320" stroke-dasharray="2 12"></circle>
-        <circle cx="400" cy="400" r="238"></circle>
-      </g>
-      <g fill="none" stroke="#2e7d4f" stroke-width="1" opacity=".3" style="transform-origin:400px 400px;animation:orbit 90s linear infinite reverse">
-        <circle cx="400" cy="400" r="170" stroke-dasharray="4 16"></circle>
-      </g>
-    </svg>
+    <div data-par="0.05" aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(rgba(35,31,25,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(35,31,25,.045) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(78% 62% at 50% 42%,#000,transparent 82%);mask-image:radial-gradient(78% 62% at 50% 42%,#000,transparent 82%);will-change:transform"></div>
+    <div ref="{{ contactGlow }}" aria-hidden="true" style="position:absolute;width:min(52vw,640px);aspect-ratio:1/1;left:0;top:0;margin:-26vw 0 0 -26vw;border-radius:50%;background:radial-gradient(circle,rgba(63,107,18,.07),transparent 62%);pointer-events:none;will-change:transform;transition:opacity .8s ease;opacity:0"></div>
 
     <div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(22px,4vw,58px) clamp(16px,3vw,40px) clamp(34px,6.4vw,104px)">
-      <div data-anim="fall" style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(140,198,63,.32);border-radius:999px;padding:8px 15px;margin-bottom:clamp(16px,2.2vw,26px)">
-        <span style="width:7px;height:7px;border-radius:50%;background:#8cc63f;display:inline-block;animation:pulse 2.6s ease-in-out infinite"></span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#a9bdae">07 / Open a channel</span>
-      </div>
-      <h2 style="margin:0 0 clamp(10px,1.4vw,18px);font-weight:700;font-size:clamp(28px,4.6vw,66px);line-height:1.02;letter-spacing:-.042em;max-width:17ch;color:#fff">
-        <span data-anim="word" style="--d:60ms">Ready</span> <span data-anim="word" style="--d:140ms">to</span> <span data-anim="word" style="--d:220ms">measure</span> <span data-anim="word" style="--d:300ms">with</span> <span data-anim="word" style="--d:380ms;color:#8cc63f">confidence?</span>
-      </h2>
-      <p data-anim="rise" style="--d:480ms;margin:0 0 clamp(20px,3.6vw,50px);max-width:44ch;color:#a9bdae">Send the site location and what the survey is for. We will come back with scope, method and timing.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(26px,4vw,68px);align-items:start">
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,2.8vw,46px);align-items:start">
-        <div data-stagger="110" style="display:flex;flex-direction:column;gap:10px">
-          <sc-for list="{{ channels }}" as="c" hint-placeholder-count="5">
-            <a data-anim="left" href="{{ c.href }}" target="{{ c.target }}" rel="noopener" style="position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:clamp(11px,3.2vw,16px);align-items:center;padding:clamp(13px,3.4vw,18px) clamp(14px,3.8vw,20px);border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.03);color:#eef2ec;overflow:hidden;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .9s cubic-bezier(.16,.84,.28,1),background .45s ease,border-color .45s ease,box-shadow .45s ease;transition-delay:var(--d,0ms)" style-hover="background:rgba(140,198,63,.09);border-color:rgba(140,198,63,.4);box-shadow:0 18px 40px rgba(0,0,0,.34);transform:translateY(-3px)">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#8cc63f">{{ c.no }}</span>
-              <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82">{{ c.label }}</span>
-                <span style="font-size:clamp(15px,4vw,16.5px);font-weight:500;word-break:break-word">{{ c.value }}</span>
-              </span>
-              <span style="font-family:'IBM Plex Mono',monospace;color:#8cc63f;opacity:.55">{{ c.icon }}</span>
-            </a>
-          </sc-for>
-          <div data-anim="rise" style="--d:620ms;display:flex;align-items:center;gap:12px;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f8175">
-            <span style="width:6px;height:6px;background:#8cc63f;display:inline-block;animation:pulse 3s ease-in-out infinite"></span>
-            Mon–Sat · Site visits across Kerala
+        <div>
+          <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6f675c;margin-bottom:14px">07 / Open a channel</span>
+          <h2 style="margin:0 0 clamp(12px,1.6vw,20px);font-weight:700;font-size:clamp(28px,4.2vw,58px);line-height:1.03;letter-spacing:-.042em;max-width:15ch">
+            <span data-anim="word" style="--d:60ms">Ready</span> <span data-anim="word" style="--d:140ms">to</span> <span data-anim="word" style="--d:220ms">measure</span> <span data-anim="word" style="--d:300ms">with</span> <span data-anim="word" style="--d:380ms;color:#3f6b12">confidence?</span>
+          </h2>
+          <p data-anim="rise" style="--d:480ms;margin:0 0 clamp(22px,3.2vw,40px);max-width:42ch;color:#4f4941">Send the site location and what the survey is for. We will come back with scope, method and timing.</p>
+
+          <div data-stagger="110" style="display:flex;flex-direction:column">
+            <sc-for list="{{ channels }}" as="c" hint-placeholder-count="5">
+              <a data-anim="left" href="{{ c.href }}" target="{{ c.target }}" rel="noopener" data-channel="1" style="position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:clamp(12px,3.2vw,18px);align-items:center;padding:clamp(14px,2vw,18px) 4px;border-top:1px solid rgba(35,31,25,.14);color:#231f19;transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .9s cubic-bezier(.16,.84,.28,1),padding-left .45s cubic-bezier(.16,.84,.28,1),background .4s ease;transition-delay:var(--d,0ms)" style-hover="padding-left:14px;background:rgba(35,31,25,.035)">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#6f675c">{{ c.no }}</span>
+                <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c">{{ c.label }}</span>
+                  <span style="font-size:clamp(15px,4vw,17px);font-weight:500;word-break:break-word;letter-spacing:-.012em">{{ c.value }}</span>
+                </span>
+                <span style="font-family:'IBM Plex Mono',monospace;color:#3f6b12;opacity:.5">{{ c.icon }}</span>
+              </a>
+            </sc-for>
+            <div style="border-top:1px solid rgba(35,31,25,.14)"></div>
+            <div data-anim="rise" style="--d:620ms;display:flex;align-items:center;gap:12px;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c">
+              <span style="width:6px;height:6px;background:#8cc63f;display:inline-block;animation:pulse 3s ease-in-out infinite"></span>
+              Mon–Sat · Site visits across Kerala
+            </div>
           </div>
         </div>
 
         <form data-anim="zoom" style="--d:240ms;position:relative" onSubmit="{{ submit }}">
           <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-            <div style="position:relative;border:1px solid rgba(140,198,63,.45);border-radius:26px;background:rgba(140,198,63,.06);padding:clamp(28px,3.4vw,44px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;overflow:hidden">
-              <div style="position:absolute;inset:0;background:radial-gradient(60% 60% at 80% 0%,rgba(140,198,63,.2),transparent 70%);animation:glowPulse 6s ease-in-out infinite"></div>
+            <div style="position:relative;border:1px solid rgba(63,107,18,.3);border-radius:24px;background:#fffdf8;padding:clamp(28px,3.4vw,44px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;overflow:hidden;box-shadow:0 26px 60px rgba(35,31,25,.1)">
               <svg viewBox="0 0 64 64" aria-hidden="true" style="position:relative;width:58px;height:58px;animation:ringIn .7s cubic-bezier(.16,.84,.28,1) both">
-                <circle cx="32" cy="32" r="29" fill="none" stroke="rgba(140,198,63,.35)" stroke-width="1.5"></circle>
-                <path d="M20 33.5 L28.5 42 L45 24" fill="none" stroke="#8cc63f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="46" stroke-dashoffset="46" style="animation:drawCheck .7s cubic-bezier(.16,.84,.28,1) .28s forwards"></path>
+                <circle cx="32" cy="32" r="29" fill="none" stroke="rgba(63,107,18,.28)" stroke-width="1.5"></circle>
+                <path d="M20 33.5 L28.5 42 L45 24" fill="none" stroke="#3f6b12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="46" stroke-dashoffset="46" style="animation:drawCheck .7s cubic-bezier(.16,.84,.28,1) .28s forwards"></path>
               </svg>
-              <span style="position:relative;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#8cc63f">Request logged</span>
-              <span style="position:relative;font-size:21px;font-weight:600;color:#fff;letter-spacing:-.02em">Received. We will be in touch shortly.</span>
-              <span style="position:relative;color:#a9bdae;font-size:14.5px;max-width:38ch">For anything urgent, WhatsApp or call +91 97452 20712.</span>
+              <span style="position:relative;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#3f6b12">Request logged</span>
+              <span style="position:relative;font-size:21px;font-weight:600;color:#231f19;letter-spacing:-.02em">Received. We will be in touch shortly.</span>
+              <span style="position:relative;color:#4f4941;font-size:14.5px;max-width:38ch">For anything urgent, WhatsApp or call +91 97452 20712.</span>
             </div>
           </sc-if>
           <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-            <div style="position:relative;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:rgba(255,255,255,.045);backdrop-filter:blur(14px);padding:clamp(17px,2.4vw,34px);display:flex;flex-direction:column;gap:clamp(15px,3.4vw,20px);box-shadow:0 30px 70px rgba(0,0,0,.36)">
-              <div style="position:absolute;inset:0;border-radius:26px;pointer-events:none;background:radial-gradient(70% 50% at 84% 0%,rgba(140,198,63,.12),transparent 66%)"></div>
-              <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82">
-                <span>Survey request</span><span style="color:#8cc63f">● SECURE</span>
+            <div style="position:relative;border:1px solid rgba(35,31,25,.12);border-radius:24px;background:#fffdf8;padding:clamp(18px,2.4vw,34px);display:flex;flex-direction:column;gap:clamp(15px,3.4vw,20px);box-shadow:0 30px 70px rgba(35,31,25,.12)">
+              <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;padding-bottom:4px;border-bottom:1px solid rgba(35,31,25,.1)">
+                <span>Survey request</span><span style="color:#3f6b12">● SECURE</span>
               </div>
               <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:clamp(13px,3.2vw,18px)">
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Name</span>
-                  <input name="name" required autoComplete="name" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
-                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Name</span>
+                  <input name="name" required autoComplete="name" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Phone or email</span>
-                  <input name="contact" required style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
-                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Phone or email</span>
+                  <input name="contact" required style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
               </div>
               <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:clamp(13px,3.2vw,18px)">
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Survey type</span>
-                  <select name="type" style="background:#12211a;border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;font-size:16px;line-height:normal;padding:0 38px 0 14px;height:48px;min-height:48px;box-sizing:border-box;appearance:none;-webkit-appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 8"><path d="M1 1.5 L6 6.5 L11 1.5" fill="none" stroke="%238cc63f" stroke-width="1.6" stroke-linecap="round"/></svg>');background-repeat:no-repeat;background-position:right 14px center;background-size:12px 8px;outline:none;transition:border-color .4s ease,box-shadow .4s ease">
-                    <option style="background:#12211a;color:#ffffff">Boundary survey</option>
-                    <option style="background:#12211a;color:#ffffff">Contour / topographic</option>
-                    <option style="background:#12211a;color:#ffffff">Construction layout</option>
-                    <option style="background:#12211a;color:#ffffff">Digital mapping</option>
-                    <option style="background:#12211a;color:#ffffff">Other</option>
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Survey type</span>
+                  <select name="type" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;padding:0 38px 0 14px;height:48px;min-height:48px;box-sizing:border-box;appearance:none;-webkit-appearance:none;background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2012%208%22%3E%3Cpath%20d=%22M1%201.5%20L6%206.5%20L11%201.5%22%20fill=%22none%22%20stroke=%22%231f5132%22%20stroke-width=%221.6%22%20stroke-linecap=%22round%22/%3E%3C/svg%3E);background-repeat:no-repeat;background-position:right 14px center;background-size:12px 8px;outline:none;transition:border-color .4s ease,box-shadow .4s ease">
+                    <option>Boundary survey</option>
+                    <option>Contour / topographic</option>
+                    <option>Construction layout</option>
+                    <option>Digital mapping</option>
+                    <option>Other</option>
                   </select>
-                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
                 <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Site location</span>
-                  <input name="location" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:12px;color:#fff;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
-                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Site location</span>
+                  <input name="location" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:12px;color:#231f19;font-size:16px;line-height:normal;height:48px;min-height:48px;box-sizing:border-box;padding:0 14px;outline:none;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease">
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
                 </label>
               </div>
-              <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
-                <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#7d8f82;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Message</span>
-                <textarea name="message" rows="4" placeholder="Plot size, purpose, deadline…" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:14px;color:#fff;padding:13px 14px;outline:none;resize:vertical;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease"></textarea>
-                <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#8cc63f;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
-              </label>
-              <button ref="{{ submitBtn }}" type="submit" style="position:relative;overflow:hidden;background:#8cc63f;color:#0d1710;border:0;border-radius:999px;font-weight:700;font-size:14px;padding:18px 26px;min-height:50px;cursor:pointer;display:inline-flex;align-items:center;justify-content:space-between;gap:12px;transition:background .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),box-shadow .45s ease" style-hover="background:#a4dc55;transform:translateY(-3px);box-shadow:0 20px 40px rgba(140,198,63,.28)">
+                <label data-field="1" style="position:relative;display:flex;flex-direction:column;gap:7px">
+                  <span data-flabel="1" style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6f675c;transition:color .4s ease,letter-spacing .4s ease,transform .4s cubic-bezier(.16,.84,.28,1)">Message</span>
+                <textarea name="message" rows="4" placeholder="Plot size, purpose, deadline…" style="background:#fffdf8;border:1px solid rgba(35,31,25,.16);border-radius:14px;color:#231f19;font-size:16px;padding:13px 14px;outline:none;resize:vertical;transition:border-color .4s ease,background .4s ease,box-shadow .4s ease"></textarea>
+                  <span data-fline="1" style="position:absolute;left:14px;right:14px;bottom:0;height:1px;background:#3f6b12;transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.16,.84,.28,1)"></span>
+                </label>
+              <button ref="{{ submitBtn }}" type="submit" style="position:relative;overflow:hidden;background:#3f6b12;color:#fffdf8;border:0;border-radius:999px;font-weight:700;font-size:14px;padding:18px 26px;min-height:50px;cursor:pointer;display:inline-flex;align-items:center;justify-content:space-between;gap:12px;transition:background .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),box-shadow .45s ease" style-hover="background:#4d8318;transform:translateY(-3px);box-shadow:0 20px 40px rgba(63,107,18,.24)">
                 <span ref="{{ submitLabel }}" style="position:relative">Send request</span>
                 <span style="position:relative;font-family:'IBM Plex Mono',monospace">→</span>
-                <span ref="{{ submitSweep }}" style="position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:translateX(-100%);display:none"></span>
+                <span ref="{{ submitSweep }}" style="position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-100%);display:none"></span>
               </button>
             </div>
           </sc-if>
@@ -542,17 +528,21 @@
     </div>
   </section>
 
-  <button ref="{{ toTop }}" type="button" onClick="{{ scrollTop }}" aria-label="Back to top" style="position:fixed;right:clamp(16px,2.4vw,32px);bottom:clamp(16px,2.4vw,32px);z-index:90;width:52px;height:52px;border-radius:50%;border:1px solid rgba(140,198,63,.4);background:rgba(13,23,16,.86);backdrop-filter:blur(12px);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(0,0,0,.34);opacity:0;transform:translateY(18px) scale(.9);pointer-events:none;transition:opacity .5s ease,transform .6s cubic-bezier(.16,.84,.28,1),background .35s ease,border-color .35s ease" style-hover="background:#8cc63f;border-color:#8cc63f;color:#0b150e">
+  <button ref="{{ toTop }}" type="button" onClick="{{ scrollTop }}" aria-label="Back to top" style="position:fixed;right:clamp(16px,2.4vw,32px);bottom:clamp(16px,2.4vw,32px);z-index:90;width:52px;height:52px;border-radius:50%;border:1px solid rgba(140,198,63,.4);background:rgba(28,25,20,.88);backdrop-filter:blur(12px);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(0,0,0,.34);opacity:0;transform:translateY(18px) scale(.9);pointer-events:none;transition:opacity .5s ease,transform .6s cubic-bezier(.16,.84,.28,1),background .35s ease,border-color .35s ease" style-hover="background:#8cc63f;border-color:#8cc63f;color:#14180f">
     <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;overflow:visible">
       <circle cx="12" cy="12" r="11" fill="none" stroke="rgba(140,198,63,.28)" stroke-width="1.5" stroke-dasharray="69.1" stroke-dashoffset="69.1" transform="rotate(-90 12 12)" ref="{{ toTopRing }}"></circle>
       <path d="M12 17 V7.6 M7.4 12.2 L12 7.4 L16.6 12.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
     </svg>
   </button>
 
-  <footer data-footer-root="1" style="position:relative;background:#08110c;color:#c5d2c6;overflow:hidden">
-    <div data-par="0.04" aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(58% 50% at 50% 116%,rgba(46,125,79,.34),transparent 68%),radial-gradient(40% 40% at 88% 0%,rgba(140,198,63,.10),transparent 70%);will-change:transform"></div>
+  <footer data-footer-root="1" data-glow-root="1" style="position:relative;background:#1b1814;color:#c7bcab;overflow:hidden">
+    <svg viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true" style="position:relative;display:block;width:106%;margin-left:-3%;height:clamp(30px,5.4vw,88px)">
+      <path d="M0 0 L1440 0 L1440 46 C 1180 84 980 26 720 54 S 240 92 0 50 Z" fill="#f6f2ea"></path>
+    </svg>
+    <div data-glow="1" aria-hidden="true" style="position:absolute;width:min(56vw,700px);aspect-ratio:1/1;left:0;top:0;margin:-28vw 0 0 -28vw;border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.10),transparent 62%);pointer-events:none;will-change:transform;transition:opacity .8s ease;opacity:0"></div>
+    <div data-par="0.04" aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(58% 50% at 50% 116%,rgba(63,107,18,.20),transparent 68%),radial-gradient(40% 40% at 88% 0%,rgba(140,198,63,.10),transparent 70%);will-change:transform"></div>
     <svg aria-hidden="true" viewBox="0 0 1440 420" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:72%;opacity:.6">
-      <g fill="none" stroke="#2e7d4f" stroke-width="1">
+      <g fill="none" stroke="#6b6357" stroke-width="1">
         <path d="M-20 300 C 240 250 420 330 700 286 S 1180 224 1460 268" opacity=".5"></path>
         <path d="M-20 340 C 240 292 420 372 700 328 S 1180 266 1460 310" opacity=".34"></path>
         <path d="M-20 380 C 240 334 420 414 700 370 S 1180 308 1460 352" opacity=".2"></path>
@@ -568,7 +558,7 @@
     <div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(32px,6vw,96px) clamp(16px,3vw,40px) clamp(20px,2.6vw,38px)">
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(18px,2.4vw,36px);padding-bottom:clamp(20px,3.4vw,48px);border-bottom:1px solid rgba(255,255,255,.09)">
         <div style="min-width:0">
-          <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#6d7e70;margin-bottom:clamp(8px,1vw,14px)">Vazhithala · Thodupuzha · Idukki</span>
+          <span data-anim="fall" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#918a7e;margin-bottom:clamp(8px,1vw,14px)">Vazhithala · Thodupuzha · Idukki</span>
           <div data-anim="curtain" aria-hidden="true" style="font-weight:700;font-size:clamp(46px,11.5vw,168px);line-height:.82;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.26);text-transform:uppercase">Uprise</div>
           <span data-anim="rise" style="--d:260ms;display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#8cc63f;margin-top:clamp(8px,1vw,14px)">Land Surveying Company</span>
         </div>
@@ -589,42 +579,41 @@
             </span>
             <span style="font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff">Uprise Surveyor</span>
           </div>
-          <p style="color:#93a596;font-size:14px;margin:0;max-width:32ch">RTK satellite survey, boundary, layout, contour and digital mapping, measured in the field and delivered as data.</p>
+          <p style="color:#9c9284;font-size:14px;margin:0;max-width:32ch">RTK satellite survey, boundary, layout, contour and digital mapping, measured in the field and delivered as data.</p>
         </div>
         <div data-anim="rise" style="display:flex;flex-direction:column;gap:2px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70;margin-bottom:10px">Sections</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#918a7e;margin-bottom:10px">Sections</span>
           <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
-            <a href="{{ n.href }}" style="position:relative;color:#c5d2c6;font-size:14.5px;padding:6px 0 6px 0;display:inline-flex;align-items:center;gap:9px;transition:color .35s ease,padding-left .4s cubic-bezier(.16,.84,.28,1)" style-hover="color:#fff;padding-left:14px">
+            <a href="{{ n.href }}" style="position:relative;color:#c7bcab;font-size:14.5px;padding:6px 0 6px 0;display:inline-flex;align-items:center;gap:9px;transition:color .35s ease,padding-left .4s cubic-bezier(.16,.84,.28,1)" style-hover="color:#fff;padding-left:14px">
               <span style="width:0;height:1px;background:#8cc63f;transition:width .4s cubic-bezier(.16,.84,.28,1)"></span>{{ n.label }}
             </a>
           </sc-for>
         </div>
         <div data-anim="rise" style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70;margin-bottom:6px">Services</span>
-          <span style="font-size:14.5px;color:#93a596">Boundary survey</span>
-          <span style="font-size:14.5px;color:#93a596">Contour survey</span>
-          <span style="font-size:14.5px;color:#93a596">Construction layout</span>
-          <span style="font-size:14.5px;color:#93a596">Digital mapping</span>
-          <span style="font-size:14.5px;color:#93a596">Property measurement</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#918a7e;margin-bottom:6px">Services</span>
+          <span style="font-size:14.5px;color:#9c9284">Boundary survey</span>
+          <span style="font-size:14.5px;color:#9c9284">Contour survey</span>
+          <span style="font-size:14.5px;color:#9c9284">Construction layout</span>
+          <span style="font-size:14.5px;color:#9c9284">Digital mapping</span>
+          <span style="font-size:14.5px;color:#9c9284">Property measurement</span>
         </div>
         <div data-anim="rise" style="display:flex;flex-direction:column;gap:9px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70;margin-bottom:6px">Direct</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#918a7e;margin-bottom:6px">Direct</span>
           <a href="tel:+919745220712" style="color:#fff;font-size:16px;font-weight:600;transition:color .35s ease" style-hover="color:#8cc63f">+91 97452 20712</a>
-          <a href="mailto:upriselandsurveying@gmail.com" style="color:#c5d2c6;font-size:14px;word-break:break-all;transition:color .35s ease" style-hover="color:#8cc63f">upriselandsurveying@gmail.com</a>
-          <span style="font-size:14px;color:#93a596">Vazhithala, Thodupuzha,<br>Idukki, Kerala</span>
+          <a href="mailto:upriselandsurveying@gmail.com" style="color:#c7bcab;font-size:14px;word-break:break-all;transition:color .35s ease" style-hover="color:#8cc63f">upriselandsurveying@gmail.com</a>
+          <span style="font-size:14px;color:#9c9284">Vazhithala, Thodupuzha,<br>Idukki, Kerala</span>
           <div style="display:flex;gap:10px;margin-top:6px">
-            <a href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;color:#c5d2c6;font-size:12.5px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)">Facebook</a>
-            <a href="https://www.instagram.com/uprise_surveyor/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;color:#c5d2c6;font-size:12.5px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)">Instagram</a>
+            <a href="https://www.facebook.com/people/UP-Rise/61581763645060/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;color:#c7bcab;font-size:12.5px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)">Facebook</a>
+            <a href="https://www.instagram.com/uprise_surveyor/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 16px;color:#c7bcab;font-size:12.5px;transition:border-color .4s ease,color .35s ease,transform .4s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="border-color:#8cc63f;color:#fff;background:rgba(140,198,63,.12);transform:translateY(-2px)">Instagram</a>
           </div>
         </div>
       </div>
     </div>
 
     <div style="position:relative;border-top:1px solid rgba(255,255,255,.09)">
-      <div style="width:100%;max-width:1240px;margin:0 auto;padding:16px clamp(16px,3vw,40px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6d7e70">
+      <div style="width:100%;max-width:1240px;margin:0 auto;padding:16px clamp(16px,3vw,40px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#918a7e">
         <span style="color:#8cc63f">● Precision</span><span>Data</span><span>Terrain</span>
         <span style="margin-left:auto">© {{ year }} Uprise Land Surveying Company</span>
-        <span style="color:#4d5b50">Build R3</span>
       </div>
     </div>
   </footer>
@@ -805,6 +794,20 @@ class Component extends DCLogic {
             'translate3d(' + (e.clientX - r.left).toFixed(0) + 'px,' + (e.clientY - r.top).toFixed(0) + 'px,0)';
         }
       }
+      if (!this.reduced.matches) {
+        if (!this.glowPairs) this.glowPairs = Array.prototype.map.call(
+          document.querySelectorAll('[data-glow]'),
+          (g) => ({ g: g, root: g.closest('[data-glow-root]') })
+        );
+        this.glowPairs.forEach((p) => {
+          if (!p.root) return;
+          const r = p.root.getBoundingClientRect();
+          const inside = e.clientY > r.top && e.clientY < r.bottom;
+          p.g.style.opacity = inside ? '1' : '0';
+          if (inside) p.g.style.transform =
+            'translate3d(' + (e.clientX - r.left).toFixed(0) + 'px,' + (e.clientY - r.top).toFixed(0) + 'px,0)';
+        });
+      }
       this.pullMagnet(this.footMagnet, this.footMagnetLabel, e, 190, 100);
       if (this.magnet && this.magnetLabel && !this.reduced.matches) {
         const r = this.magnet.getBoundingClientRect();
@@ -821,6 +824,7 @@ class Component extends DCLogic {
       if (this.magnetLabel) this.magnetLabel.style.transform = 'none';
       if (this.footMagnetLabel) this.footMagnetLabel.style.transform = 'none';
       if (this.contactGlow) this.contactGlow.style.opacity = '0';
+      if (this.glowPairs) this.glowPairs.forEach((p) => { p.g.style.opacity = '0'; });
       this.start();
     };
 
@@ -892,21 +896,21 @@ class Component extends DCLogic {
       const f = e.target.closest && e.target.closest('[data-field]');
       if (!f) return;
       const lab = f.querySelector('[data-flabel]'), line = f.querySelector('[data-fline]');
-      if (lab) { lab.style.color = '#8cc63f'; lab.style.letterSpacing = '.26em'; lab.style.transform = 'translateX(3px)'; }
+      if (lab) { lab.style.color = '#3f6b12'; lab.style.letterSpacing = '.26em'; lab.style.transform = 'translateX(3px)'; }
       if (line) line.style.transform = 'scaleX(1)';
-      e.target.style.borderColor = 'rgba(140,198,63,.6)';
-      e.target.style.background = 'rgba(140,198,63,.07)';
-      e.target.style.boxShadow = '0 0 0 4px rgba(140,198,63,.12)';
+      e.target.style.borderColor = 'rgba(63,107,18,.6)';
+      e.target.style.background = '#ffffff';
+      e.target.style.boxShadow = '0 0 0 4px rgba(63,107,18,.1)';
     };
     this.onFocusOut = (e) => {
       const f = e.target.closest && e.target.closest('[data-field]');
       if (!f) return;
       const lab = f.querySelector('[data-flabel]'), line = f.querySelector('[data-fline]');
       const filled = e.target.value && e.target.value.length;
-      if (lab) { lab.style.color = filled ? '#a9bdae' : '#7d8f82'; lab.style.letterSpacing = '.2em'; lab.style.transform = 'none'; }
+      if (lab) { lab.style.color = filled ? '#4f4941' : '#6f675c'; lab.style.letterSpacing = '.2em'; lab.style.transform = 'none'; }
       if (line) line.style.transform = filled ? 'scaleX(1)' : 'scaleX(0)';
-      e.target.style.borderColor = filled ? 'rgba(140,198,63,.3)' : 'rgba(255,255,255,.14)';
-      e.target.style.background = 'rgba(255,255,255,.04)';
+      e.target.style.borderColor = filled ? 'rgba(63,107,18,.35)' : 'rgba(35,31,25,.16)';
+      e.target.style.background = '#fffdf8';
       e.target.style.boxShadow = 'none';
     };
     document.addEventListener('focusin', this.onFocusIn);
@@ -1106,7 +1110,7 @@ class Component extends DCLogic {
       toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
       closeMenu: () => this.setState({ menu: false }),
       drawerStyle: this.state.menu
-        ? 'pointer-events:auto;width:100%;margin:10px auto 0;background:#fff;border:1px solid rgba(20,35,26,.1);border-radius:28px;box-shadow:0 22px 54px rgba(20,35,26,.16);overflow:hidden'
+        ? 'pointer-events:auto;width:100%;margin:10px auto 0;background:#fff;border:1px solid rgba(35,31,25,.1);border-radius:28px;box-shadow:0 22px 54px rgba(35,31,25,.16);overflow:hidden'
         : 'display:none',
       contactGlow: (el) => { this.contactGlow = el; },
       submitBtn: (el) => { this.submitBtn = el; },
