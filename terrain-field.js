@@ -74,9 +74,9 @@
       c = mix(c, c * (0.62 + 0.85 * step(0.70, gb)), uBand);
       c += uAccent * uBand * smoothstep(0.88, 1.0, gb) * 0.22;
       if (uLight > 0.001){                          // paper ground: darker with elevation
-        vec3 l = mix(vec3(0.955, 0.955, 0.940), vec3(0.705, 0.725, 0.680), smoothstep(0.02, 0.90, vH));
-        l = mix(l, l * (0.90 + 0.10 * step(0.70, gb)), uBand);
-        l = mix(l, mix(l, uAccent, 0.35), uBand * smoothstep(0.88, 1.0, gb));
+        vec3 l = mix(vec3(0.945, 0.945, 0.928), vec3(0.605, 0.635, 0.575), smoothstep(0.02, 0.90, vH));
+        l = mix(l, l * (0.86 + 0.14 * step(0.70, gb)), uBand);
+        l = mix(l, mix(l, uAccent, 0.45), uBand * smoothstep(0.88, 1.0, gb));
         c = mix(c, l, uLight);
       }
       c = mix(c, mix(vec3(0.06, 0.10, 0.11), vec3(0.72, 0.80, 0.84), uLight), vWater * 0.8);
@@ -84,7 +84,7 @@
       float band = abs(fract(vH * uContour) - 0.5) * 2.0;
       float line = smoothstep(0.55, 1.0, band);
       c = mix(uInk * 3.4, uAccent, 0.3 + 0.6 * line);
-      c = mix(c, mix(vec3(0.40, 0.43, 0.38), uAccent, 0.25 + 0.7 * line), uLight);
+      c = mix(c, mix(vec3(0.26, 0.29, 0.24), uAccent, 0.25 + 0.7 * line), uLight);
       float parcel = max(abs(fract(vP.x * 2.2) - 0.5), abs(fract(vP.y * 2.2) - 0.5));
       c = mix(c, uAccent, uParcel * smoothstep(0.44, 0.5, parcel) * 0.5);
       a *= 0.22 + 0.78 * line;
@@ -94,7 +94,7 @@
     float scan = exp(-d * d * 9.0);
     c += mix(uAccent, uAccent * 0.55, uLight) * scan * (uMode < 0.5 ? 0.16 : 0.85);
     a += scan * (uMode < 0.5 ? 0.0 : 0.25);
-    o = vec4(c * mix(fog, 1.0, uLight * 0.55), clamp(a * fog, 0.0, 1.0));
+    o = vec4(c * mix(fog, 1.0, uLight * 0.35), clamp(a * mix(fog, min(1.0, fog + 0.25), uLight), 0.0, 1.0));
   }`;
 
   /* Environment presets. Each names a different place, a different viewpoint and a
