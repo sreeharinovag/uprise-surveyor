@@ -155,6 +155,8 @@
     --c129: #8cc63f;
     --c130: #14180f;
     --c131: transparent;
+    --v24: transparent;
+    --v25: none;
     --v1: rgba(5,8,7,.74);
     --v2: rgba(5,8,7,.5);
     --v3: rgba(5,8,7,.8);
@@ -334,6 +336,8 @@
     --v21: rgba(220,224,211,.94);
     --v22: rgba(220,224,211,.97);
     --v23: #d9ddce;
+    --v24: rgba(23,26,20,.2);
+    --v25: 0 18px 44px rgba(23,26,20,.1);
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; overflow-x: clip; }
@@ -576,7 +580,7 @@
           </g>
         </svg>
 
-        <div style="position:absolute;inset:0;transform:translateZ(10px);background:var(--c30);backdrop-filter:blur(12px);border:0;overflow:hidden">
+        <div style="position:absolute;inset:0;transform:translateZ(10px);background:var(--c30);backdrop-filter:blur(12px);border:1px solid var(--v24);box-shadow:var(--v25);overflow:hidden">
           <div style="position:absolute;inset:0;background:radial-gradient(70% 50% at 82% 0%,var(--c37),transparent 66%);pointer-events:none"></div>
           <image-slot id="hero-instrument" style="position:absolute;top:50%;right:max(clamp(20px,2.8vw,44px), (100vw - 1200px) * .45);width:min(56%,520px);aspect-ratio:1;height:auto;transform:translateY(-50%)" src="assets/hero-instrument.webp?v=5" shape="rect" fit="contain" placeholder="Drop a photo or render of your total station / RTK rover. A cut-out image works best"></image-slot>
             <div aria-hidden="true" data-hero-scrim="1" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(96deg,var(--c38) 0%,var(--c39) 40%,var(--c40) 70%,var(--c41) 92%)"></div>
