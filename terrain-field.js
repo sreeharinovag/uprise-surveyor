@@ -74,7 +74,7 @@
       c = mix(c, c * (0.62 + 0.85 * step(0.70, gb)), uBand);
       c += uAccent * uBand * smoothstep(0.88, 1.0, gb) * 0.22;
       if (uLight > 0.001){                          // paper ground: darker with elevation
-        vec3 l = mix(vec3(0.945, 0.945, 0.928), vec3(0.605, 0.635, 0.575), smoothstep(0.02, 0.90, vH));
+        vec3 l = mix(vec3(0.965, 0.965, 0.950), vec3(0.795, 0.815, 0.765), smoothstep(0.02, 0.90, vH));
         l = mix(l, l * (0.86 + 0.14 * step(0.70, gb)), uBand);
         l = mix(l, mix(l, uAccent, 0.45), uBand * smoothstep(0.88, 1.0, gb));
         c = mix(c, l, uLight);

@@ -157,6 +157,13 @@
     --c131: transparent;
     --v24: transparent;
     --v25: none;
+    --v26: rgba(5,8,7,.9);
+    --v27: rgba(5,8,7,.7);
+    --v28: rgba(5,8,7,.24);
+    --v29: rgba(5,8,7,0);
+    --vp1: 40%;
+    --vp2: 70%;
+    --vp3: 92%;
     --v1: rgba(5,8,7,.74);
     --v2: rgba(5,8,7,.5);
     --v3: rgba(5,8,7,.8);
@@ -204,14 +211,14 @@
     --c20: rgba(23,26,20,.33);
     --c21: rgba(255,255,255,.72);
     --c22: rgba(63,107,18,.136);
-    --c23: #585f54;
+    --c23: #4c5348;
     --c24: rgba(23,26,20,.09);
     --c25: rgba(63,107,18,.085);
     --c26: rgba(255,255,255,.74);
     --c27: rgba(23,26,20,.15);
     --c28: rgba(23,26,20,.15);
     --c29: #4f7f16;
-    --c30: rgba(255,255,255,.71);
+    --c30: rgba(255,255,255,.3);
     --c31: rgba(63,107,18,.111);
     --c32: rgba(176,152,106,.2);
     --c33: rgba(63,107,18,.085);
@@ -236,7 +243,7 @@
     --c52: rgba(63,107,18,.272);
     --c53: rgba(23,26,20,.23);
     --c54: rgba(23,26,20,.12);
-    --c55: #585f54;
+    --c55: #4c5348;
     --c56: rgba(236,238,229,.518);
     --c57: rgba(236,238,229,.35);
     --c58: rgba(236,238,229,.56);
@@ -338,6 +345,13 @@
     --v23: #d9ddce;
     --v24: rgba(23,26,20,.2);
     --v25: 0 18px 44px rgba(23,26,20,.1);
+    --v26: rgba(248,249,245,.92);
+    --v27: rgba(248,249,245,.6);
+    --v28: rgba(248,249,245,.05);
+    --v29: rgba(248,249,245,0);
+    --vp1: 24%;
+    --vp2: 38%;
+    --vp3: 48%;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; overflow-x: clip; }
@@ -583,7 +597,7 @@
         <div style="position:absolute;inset:0;transform:translateZ(10px);background:var(--c30);backdrop-filter:blur(12px);border:1px solid var(--v24);box-shadow:var(--v25);overflow:hidden">
           <div style="position:absolute;inset:0;background:radial-gradient(70% 50% at 82% 0%,var(--c37),transparent 66%);pointer-events:none"></div>
           <image-slot id="hero-instrument" style="position:absolute;top:50%;right:max(clamp(20px,2.8vw,44px), (100vw - 1200px) * .45);width:min(56%,520px);aspect-ratio:1;height:auto;transform:translateY(-50%)" src="assets/hero-instrument.webp?v=5" shape="rect" fit="contain" placeholder="Drop a photo or render of your total station / RTK rover. A cut-out image works best"></image-slot>
-            <div aria-hidden="true" data-hero-scrim="1" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(96deg,var(--c38) 0%,var(--c39) 40%,var(--c40) 70%,var(--c41) 92%)"></div>
+            <div aria-hidden="true" data-hero-scrim="1" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(96deg,var(--v26) 0%,var(--v27) var(--vp1),var(--v28) var(--vp2),var(--v29) var(--vp3))"></div>
           <div style="position:absolute;inset:0;pointer-events:none">
             <div style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-left:2px solid var(--c42);border-top:2px solid var(--c42)"></div>
             <div style="position:absolute;top:12px;right:12px;width:22px;height:22px;border-right:2px solid var(--c42);border-top:2px solid var(--c42)"></div>
