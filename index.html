@@ -165,7 +165,7 @@
     <div ref="{{ capsule }}" style="pointer-events:auto;width:100%;background:linear-gradient(100deg,rgba(9,13,11,.86),rgba(13,18,15,.74));border-radius:999px;box-shadow:0 14px 38px rgba(0,0,0,.4);border:1px solid rgba(140,198,63,.32);display:flex;align-items:center;gap:16px;padding:7px 9px 7px 12px;transition:padding .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease,max-width .7s cubic-bezier(.16,.84,.28,1),background .6s ease">
       <a href="#top" style="display:flex;align-items:center;gap:clamp(7px,2.6vw,11px);flex:0 1 auto;min-width:0;color:#fff">
         <span ref="{{ mark }}" style="width:clamp(38px,12vw,46px);height:clamp(38px,12vw,46px);border-radius:50%;background:#fff;aspect-ratio:1;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:width .6s cubic-bezier(.16,.84,.28,1),height .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease">
-          <img src="assets/uprise-logo.webp" alt="Uprise Land Survey Company logo" style="width:82%;height:82%;object-fit:contain">
+          <img src="assets/uprise-logo.webp?v=5" alt="Uprise Land Survey Company logo" style="width:82%;height:82%;object-fit:contain">
         </span>
         <span ref="{{ wordmark }}" style="display:flex;flex-direction:column;gap:3px;line-height:1.08;overflow:hidden;transition:max-width .6s cubic-bezier(.16,.84,.28,1),opacity .5s ease">
           <span style="font-weight:700;font-size:clamp(13.5px,4.3vw,16.5px);letter-spacing:.08em;text-transform:uppercase;color:#ffffff;white-space:nowrap">Uprise Surveyor</span>
@@ -238,7 +238,7 @@
       </g>
     </svg>
 
-    <div data-anim="depth" style="--d:340ms;position:absolute;top:0;bottom:clamp(54px,8vh,90px);left:clamp(16px,3vw,40px);right:clamp(16px,3vw,40px);perspective:1700px">
+    <div data-anim="depth" style="--d:340ms;position:absolute;top:0;bottom:clamp(40px,5.6vh,66px);left:max(clamp(16px,3vw,40px),calc((100vw - 1560px) / 2));right:max(clamp(16px,3vw,40px),calc((100vw - 1560px) / 2));perspective:1700px">
       <div ref="{{ machine }}" style="position:absolute;inset:0;transform-style:preserve-3d;will-change:transform">
         <div style="position:absolute;inset:4%;transform:translateZ(-130px);border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.3),rgba(140,198,63,0) 64%);animation:halo 9s ease-in-out infinite"></div>
         <svg aria-hidden="true" viewBox="0 0 400 400" preserveAspectRatio="none" style="position:absolute;top:0;height:100%;left:-2.1%;width:104.2%;max-width:none;transform:translateZ(-70px);opacity:.75">
@@ -253,7 +253,7 @@
 
         <div style="position:absolute;inset:0;transform:translateZ(10px);background:rgba(255,255,255,.045);backdrop-filter:blur(12px);border:0;overflow:hidden">
           <div style="position:absolute;inset:0;background:radial-gradient(70% 50% at 82% 0%,rgba(140,198,63,.12),transparent 66%);pointer-events:none"></div>
-          <image-slot id="hero-instrument" style="position:absolute;top:50%;right:max(clamp(20px,2.8vw,44px), (100vw - 1200px) * .45);width:min(56%,520px);aspect-ratio:1;height:auto;transform:translateY(-50%)" src="assets/hero-instrument.webp?v=4" shape="rect" fit="contain" placeholder="Drop a photo or render of your total station / RTK rover. A cut-out image works best"></image-slot>
+          <image-slot id="hero-instrument" style="position:absolute;top:50%;right:clamp(20px,3vw,52px);width:min(50%,560px);aspect-ratio:1;height:auto;transform:translateY(-50%)" src="assets/hero-instrument.webp?v=5" shape="rect" fit="contain" placeholder="Drop a photo or render of your total station / RTK rover. A cut-out image works best"></image-slot>
             <div aria-hidden="true" data-hero-scrim="1" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(96deg,rgba(5,8,7,.9) 0%,rgba(5,8,7,.7) 40%,rgba(5,8,7,.24) 70%,rgba(5,8,7,0) 92%)"></div>
           <div style="position:absolute;inset:0;pointer-events:none">
             <div style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-left:2px solid #8cc63f;border-top:2px solid #8cc63f"></div>
@@ -278,18 +278,18 @@
           </div>
         </div>
 
-        <div data-anim="zoom" style="--d:1000ms;position:absolute;top:clamp(96px,15vh,142px);right:clamp(30px,4.4vw,58px);max-width:min(60%,290px);transform:translateZ(clamp(0px,(100vw - 720px) * .5,120px));background:rgba(7,10,9,.84);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
+        <div data-anim="zoom" style="--d:1000ms;position:absolute;top:clamp(96px,15vh,142px);right:clamp(22px,2.6vw,40px);max-width:min(60%,290px);transform:translateZ(clamp(0px,(100vw - 720px) * .34,72px));background:rgba(7,10,9,.84);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#9aa39a">Instrument</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8cc63f">ROBOTIC / RTK</div>
         </div>
-        <div data-anim="zoom" style="--d:1120ms;position:absolute;bottom:clamp(78px,11vh,116px);right:clamp(30px,4.4vw,58px);max-width:min(72%,300px);transform:translateZ(clamp(0px,(100vw - 720px) * .5,150px));background:rgba(7,10,9,.84);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
+        <div data-anim="zoom" style="--d:1120ms;position:absolute;bottom:clamp(64px,8.5vh,96px);right:clamp(22px,2.6vw,40px);max-width:min(72%,300px);transform:translateZ(clamp(0px,(100vw - 720px) * .34,82px));background:rgba(7,10,9,.84);backdrop-filter:blur(12px);border:1px solid rgba(140,198,63,.3);border-radius:16px;padding:10px 14px;box-shadow:0 18px 40px rgba(0,0,0,.5)">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#9aa39a">Positional accuracy</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8cc63f">CENTIMETRE LEVEL</div>
         </div>
       </div>
     </div>
-    <div ref="{{ heroInner }}" style="position:relative;width:100%;margin:0 auto;padding:clamp(24px,3.4vw,52px) calc(clamp(16px,3vw,40px) + max(clamp(20px,2.8vw,44px), (100vw - 1200px) * .45)) clamp(34px,5vw,74px);min-height:clamp(500px,calc(84vh - 62px),818px);display:grid;grid-template-columns:minmax(0,580px);justify-content:start;align-content:center;will-change:transform">
-      <div style="max-width:580px">
+    <div ref="{{ heroInner }}" style="position:relative;width:100%;margin:0 auto;padding:clamp(24px,3.4vw,52px) max(clamp(16px,3vw,40px),calc((100vw - 1560px) / 2)) clamp(30px,4vw,58px);min-height:clamp(500px,calc(84vh - 62px),818px);display:grid;grid-template-columns:minmax(0,620px);justify-content:start;align-content:center;will-change:transform">
+      <div style="max-width:620px">
         <div data-anim="fall" style="--d:60ms;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(140,198,63,.32);border-radius:999px;padding:8px 15px;margin-bottom:clamp(14px,2.2vw,22px)">
           <span style="width:7px;height:7px;border-radius:50%;background:#8cc63f;display:inline-block;animation:pulse 2.6s ease-in-out infinite"></span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a9b3aa">RTK satellite survey · Idukki, Kerala</span>
@@ -317,7 +317,7 @@
       </div>
     </div>
 
-    <div data-stagger="70" data-stagger-base="1200" style="position:relative;width:100%;margin:0 auto;padding:0 calc(clamp(16px,3vw,40px) + max(clamp(20px,2.8vw,44px), (100vw - 1200px) * .45)) clamp(12px,1.8vw,24px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#9aa39a">
+    <div data-stagger="70" data-stagger-base="1200" style="position:relative;width:100%;margin:0 auto;padding:0 max(clamp(16px,3vw,40px),calc((100vw - 1560px) / 2)) clamp(10px,1.4vw,18px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#9aa39a">
       <span data-anim="rise" style="color:#8cc63f">● GNSS / RTK</span>
       <span data-anim="rise">Robotic total station</span>
       <span data-anim="rise">Boundary</span>
@@ -392,7 +392,7 @@
       </div>
       <div data-anim="curtain" data-figure="1" style="--d:180ms;position:relative;aspect-ratio:4/5;min-height:300px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:rgba(10,14,12,.5);box-shadow:0 26px 60px rgba(255,255,255,.1)">
         <div data-par="-0.06" style="position:absolute;inset:-8%;will-change:transform">
-          <image-slot id="tech-rover" src="assets/tech-rover.webp" shape="rect" fit="cover" placeholder="Drop a photo of the RTK rover / total station in the field"></image-slot>
+          <image-slot id="tech-rover" src="assets/tech-rover.webp?v=5" shape="rect" fit="cover" placeholder="Drop a photo of the RTK rover / total station in the field"></image-slot>
         </div>
         <div data-chip="1" style="position:absolute;top:14px;left:14px;pointer-events:none;background:rgba(6,9,8,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#8cc63f">● RTK FIX</div>
         <div data-chip="1" style="position:absolute;bottom:14px;right:14px;pointer-events:none;background:rgba(6,9,8,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#a9b3aa">CM-LEVEL ACCURACY</div>
@@ -502,7 +502,7 @@
         </h2>
         <div data-anim="curtain" style="--d:480ms;margin-top:26px;position:relative;aspect-ratio:3/2;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:rgba(10,14,12,.5);box-shadow:0 26px 60px rgba(255,255,255,.1)">
           <div data-par="-0.05" style="position:absolute;inset:-7%;will-change:transform">
-            <image-slot id="about-team" src="assets/about-team.webp" shape="rect" fit="cover" placeholder="Drop a team or field photo"></image-slot>
+            <image-slot id="about-team" src="assets/about-team.webp?v=5" shape="rect" fit="cover" placeholder="Drop a team or field photo"></image-slot>
           </div>
         </div>
       </div>
@@ -725,7 +725,7 @@
         <div data-anim="rise">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
             <span style="width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(140,198,63,.09)">
-              <img src="assets/uprise-logo.webp" alt="Uprise Land Survey Company logo" style="width:82%;height:82%;object-fit:contain">
+              <img src="assets/uprise-logo.webp?v=5" alt="Uprise Land Survey Company logo" style="width:82%;height:82%;object-fit:contain">
             </span>
             <span style="font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff">Uprise Surveyor</span>
           </div>
@@ -1241,13 +1241,13 @@ class Component extends DCLogic {
   renderVals() {
     const wa = (this.props.whatsapp ?? '919745220712').replace(/[^0-9]/g, '');
     const svc = [
-      { no: '01', title: 'Digital boundary survey', body: 'Property limits determined against survey control. Corners marked on the ground, extents defensible on paper.', keys: 'CORNERS · EXTENTS', slot: 'cap-boundary', src: 'assets/cap-boundary.webp', ph: 'Drop a boundary survey photo' },
-      { no: '02', title: 'Contour & topographic survey', body: 'Ground levels, features and contours captured as a working surface model for design and drainage.', keys: 'LEVELS · CONTOURS', slot: 'cap-contour', src: 'assets/cap-contour.webp', ph: 'Drop a contour / topographic survey photo' },
-      { no: '03', title: 'Construction layout', body: 'Setting out of grids, foundations, roads and structures directly from the approved drawings.', keys: 'SETTING OUT · GRID', slot: 'cap-layout', src: 'assets/cap-layout.webp', ph: 'Drop a setting-out photo' },
-      { no: '04', title: 'GPS / GNSS survey', body: 'RTK satellite positioning for fast, centimetre-level coordinates across open ground.', keys: 'RTK · BASE · ROVER', slot: 'cap-gnss', src: 'assets/cap-gnss.webp', ph: 'Drop an RTK rover photo' },
-      { no: '05', title: 'Robotic total station survey', body: 'Angle and distance observation where tree cover, structure or tolerance demands optical work.', keys: 'TRAVERSE · CONTROL', slot: 'cap-ts', src: 'assets/cap-ts.webp', ph: 'Drop a total station photo' },
-      { no: '06', title: 'Digital mapping', body: 'Field data drafted into clean, layered CAD deliverables ready for design and approval.', keys: 'CAD · LAYERS', slot: 'cap-map', src: 'assets/cap-map.webp', ph: 'Drop a map or CAD output' },
-      { no: '07', title: 'Property measurement', body: 'Area computation and measurement for sale, subdivision, valuation or record.', keys: 'AREA · SUBDIVISION', slot: 'cap-property', src: 'assets/cap-property.webp', ph: 'Drop a property measurement photo' }
+      { no: '01', title: 'Digital boundary survey', body: 'Property limits determined against survey control. Corners marked on the ground, extents defensible on paper.', keys: 'CORNERS · EXTENTS', slot: 'cap-boundary', src: 'assets/cap-boundary.webp?v=5', ph: 'Drop a boundary survey photo' },
+      { no: '02', title: 'Contour & topographic survey', body: 'Ground levels, features and contours captured as a working surface model for design and drainage.', keys: 'LEVELS · CONTOURS', slot: 'cap-contour', src: 'assets/cap-contour.webp?v=5', ph: 'Drop a contour / topographic survey photo' },
+      { no: '03', title: 'Construction layout', body: 'Setting out of grids, foundations, roads and structures directly from the approved drawings.', keys: 'SETTING OUT · GRID', slot: 'cap-layout', src: 'assets/cap-layout.webp?v=5', ph: 'Drop a setting-out photo' },
+      { no: '04', title: 'GPS / GNSS survey', body: 'RTK satellite positioning for fast, centimetre-level coordinates across open ground.', keys: 'RTK · BASE · ROVER', slot: 'cap-gnss', src: 'assets/cap-gnss.webp?v=5', ph: 'Drop an RTK rover photo' },
+      { no: '05', title: 'Robotic total station survey', body: 'Angle and distance observation where tree cover, structure or tolerance demands optical work.', keys: 'TRAVERSE · CONTROL', slot: 'cap-ts', src: 'assets/cap-ts.webp?v=5', ph: 'Drop a total station photo' },
+      { no: '06', title: 'Digital mapping', body: 'Field data drafted into clean, layered CAD deliverables ready for design and approval.', keys: 'CAD · LAYERS', slot: 'cap-map', src: 'assets/cap-map.webp?v=5', ph: 'Drop a map or CAD output' },
+      { no: '07', title: 'Property measurement', body: 'Area computation and measurement for sale, subdivision, valuation or record.', keys: 'AREA · SUBDIVISION', slot: 'cap-property', src: 'assets/cap-property.webp?v=5', ph: 'Drop a property measurement photo' }
     ];
     this.svcData = svc;
 
@@ -1414,10 +1414,10 @@ class Component extends DCLogic {
         { label: 'CAD drafting', note: 'Field data into layered drawings' }
       ],
       projects: [
-        { no: '01', slot: 'proj-1', src: 'assets/proj-1.webp', title: 'Topographic survey', meta: 'Contours · Site levels', ph: 'Drop a topographic survey photo' },
-        { no: '02', slot: 'proj-2', src: 'assets/proj-2.webp', title: 'Construction setout', meta: 'Layout · Grid marking', ph: 'Drop a setting-out photo' },
-        { no: '03', slot: 'proj-3', src: 'assets/proj-3.webp', title: 'Boundary demarcation', meta: 'Corners · Property limits', ph: 'Drop a boundary survey photo' },
-        { no: '04', slot: 'proj-4', src: 'assets/proj-4.webp', title: 'Site mapping', meta: 'Digital map · CAD output', ph: 'Drop a map or CAD output' }
+        { no: '01', slot: 'proj-1', src: 'assets/proj-1.webp?v=5', title: 'Topographic survey', meta: 'Contours · Site levels', ph: 'Drop a topographic survey photo' },
+        { no: '02', slot: 'proj-2', src: 'assets/proj-2.webp?v=5', title: 'Construction setout', meta: 'Layout · Grid marking', ph: 'Drop a setting-out photo' },
+        { no: '03', slot: 'proj-3', src: 'assets/proj-3.webp?v=5', title: 'Boundary demarcation', meta: 'Corners · Property limits', ph: 'Drop a boundary survey photo' },
+        { no: '04', slot: 'proj-4', src: 'assets/proj-4.webp?v=5', title: 'Site mapping', meta: 'Digital map · CAD output', ph: 'Drop a map or CAD output' }
       ],
       steps: [
         { no: '01', title: 'Brief', body: 'Site, purpose and the deliverable you need are agreed before mobilising.' },
