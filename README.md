@@ -6,6 +6,7 @@ Single-page site for Uprise Land Surveying Company, Vazhithala, Thodupuzha, Iduk
 
 ```
 index.html        the whole site (markup + logic)
+index-light.html  the light-theme version of the same page (the moon/sun button in the navbar switches between them)
 terrain-field.js  WebGL2 terrain background (required by index.html)
 support.js        runtime required by index.html
 image-slot.js     image placeholder component
