@@ -61,7 +61,7 @@
   precision highp float;
   in float vH; in float vD; in vec2 vP; in float vWater; in float vS;
   uniform vec3 uInk, uAccent;
-  uniform float uMode, uContour, uSweep, uFade, uAlpha, uParcel, uBand;
+  uniform float uMode, uContour, uSweep, uFade, uAlpha, uParcel, uBand, uLight;
   out vec4 o;
   void main(){
     float fog = clamp(1.0 - (vD - 1.2) / uFade, 0.0, 1.0);
@@ -73,21 +73,28 @@
       float gb = abs(fract(vH * uContour) - 0.5) * 2.0;   // strata / contour banding on the ground
       c = mix(c, c * (0.62 + 0.85 * step(0.70, gb)), uBand);
       c += uAccent * uBand * smoothstep(0.88, 1.0, gb) * 0.22;
-      c = mix(c, vec3(0.06, 0.10, 0.11), vWater * 0.8);
+      if (uLight > 0.001){                          // paper ground: darker with elevation
+        vec3 l = mix(vec3(0.955, 0.955, 0.940), vec3(0.705, 0.725, 0.680), smoothstep(0.02, 0.90, vH));
+        l = mix(l, l * (0.90 + 0.10 * step(0.70, gb)), uBand);
+        l = mix(l, mix(l, uAccent, 0.35), uBand * smoothstep(0.88, 1.0, gb));
+        c = mix(c, l, uLight);
+      }
+      c = mix(c, mix(vec3(0.06, 0.10, 0.11), vec3(0.72, 0.80, 0.84), uLight), vWater * 0.8);
     } else {                                        // wire / points
       float band = abs(fract(vH * uContour) - 0.5) * 2.0;
       float line = smoothstep(0.55, 1.0, band);
       c = mix(uInk * 3.4, uAccent, 0.3 + 0.6 * line);
+      c = mix(c, mix(vec3(0.40, 0.43, 0.38), uAccent, 0.25 + 0.7 * line), uLight);
       float parcel = max(abs(fract(vP.x * 2.2) - 0.5), abs(fract(vP.y * 2.2) - 0.5));
       c = mix(c, uAccent, uParcel * smoothstep(0.44, 0.5, parcel) * 0.5);
       a *= 0.22 + 0.78 * line;
-      c = mix(c, vec3(0.42, 0.72, 0.86), vWater * 0.55);
+      c = mix(c, mix(vec3(0.42, 0.72, 0.86), vec3(0.30, 0.52, 0.66), uLight), vWater * 0.55);
     }
     float d = abs(vS - uSweep);                     // lidar sweep
     float scan = exp(-d * d * 9.0);
-    c += uAccent * scan * (uMode < 0.5 ? 0.16 : 0.85);
+    c += mix(uAccent, uAccent * 0.55, uLight) * scan * (uMode < 0.5 ? 0.16 : 0.85);
     a += scan * (uMode < 0.5 ? 0.0 : 0.25);
-    o = vec4(c * fog, clamp(a * fog, 0.0, 1.0));
+    o = vec4(c * mix(fog, 1.0, uLight * 0.55), clamp(a * fog, 0.0, 1.0));
   }`;
 
   /* Environment presets. Each names a different place, a different viewpoint and a
@@ -127,13 +134,23 @@
   const norm = a => { const l = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / l, a[1] / l, a[2] / l]; };
 
   class TerrainField extends HTMLElement {
+    static get observedAttributes() { return ['theme']; }
+    attributeChangedCallback(name) { if (name === 'theme' && this.ready) this.applyTheme(); }
+    applyTheme() {
+      this.light = this.getAttribute('theme') === 'light';
+      this.style.background = this.light
+        ? 'radial-gradient(120% 62% at 50% 44%, rgba(63,107,18,.07), transparent 62%), linear-gradient(180deg, #f7f7f3 0%, #f1f2ec 44%, #e9ebe3 100%)'
+        : 'radial-gradient(120% 62% at 50% 46%, rgba(140,198,63,.075), transparent 60%), linear-gradient(180deg, #050706 0%, #080b0a 38%, #0a0e0c 100%)';
+      this.dirty = true;
+    }
     connectedCallback() {
       if (this.ready) return;
       this.ready = true;
       this.style.display = 'block';
       this.style.position = 'absolute';
       this.style.inset = '0';
-      this.style.background = 'radial-gradient(120% 62% at 50% 46%, rgba(140,198,63,.075), transparent 60%), linear-gradient(180deg, #050706 0%, #080b0a 38%, #0a0e0c 100%)';
+      this.light = this.getAttribute('theme') === 'light';
+      this.applyTheme();
       this.canvas = document.createElement('canvas');
       Object.assign(this.canvas.style, { position: 'absolute', inset: '0', width: '100%', height: '100%', display: 'block' });
       this.appendChild(this.canvas);
@@ -147,7 +164,7 @@
       if (!this.prog) { this.fallback(); return; }
       this.u = {};
       ['uProj', 'uView', 'uTime', 'uFreq', 'uAmp', 'uRidge', 'uTerrace', 'uBlocky', 'uWater', 'uWarp',
-        'uDrift', 'uOrigin', 'uInk', 'uAccent', 'uMode', 'uContour', 'uSweep', 'uFade', 'uAlpha', 'uParcel', 'uBand', 'uPt']
+        'uDrift', 'uOrigin', 'uInk', 'uAccent', 'uMode', 'uContour', 'uSweep', 'uFade', 'uAlpha', 'uParcel', 'uBand', 'uPt', 'uLight']
         .forEach(n => this.u[n] = gl.getUniformLocation(this.prog, n));
 
       this.mesh();
@@ -179,7 +196,9 @@
 
     fallback() {
       this.canvas.remove();
-      this.style.background = 'radial-gradient(120% 80% at 70% 0%, rgba(140,198,63,.10), transparent 62%), #07090a';
+      this.style.background = this.light
+        ? 'radial-gradient(120% 80% at 70% 0%, rgba(63,107,18,.08), transparent 62%), #f2f3ed'
+        : 'radial-gradient(120% 80% at 70% 0%, rgba(140,198,63,.10), transparent 62%), #07090a';
     }
 
     build(vs, fs) {
@@ -295,8 +314,11 @@
       gl.uniform2f(this.u.uOrigin, s.ox, s.oy + (this.reduced.matches ? 0 : t * 0.035));
       gl.uniform1f(this.u.uSweep, this.sweep);
       gl.uniform1f(this.u.uFade, 6.4);
+      gl.uniform1f(this.u.uLight, this.light ? 1 : 0);
       gl.uniform3f(this.u.uInk, 0.085, 0.105, 0.098);
-      const ac = this.getAttribute('accent') || '#8cc63f';
+      const ac = this.light
+        ? (this.getAttribute('accent-light') || '#3f6b12')
+        : (this.getAttribute('accent') || '#8cc63f');
       const rgb = [1, 3, 5].map(i => parseInt(ac.substr(i, 2), 16) / 255);
       gl.uniform3f(this.u.uAccent, rgb[0], rgb[1], rgb[2]);
 
