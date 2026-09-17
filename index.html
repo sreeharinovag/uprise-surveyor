@@ -156,6 +156,10 @@
     --c130: #14180f;
     --c131: transparent;
     --v24: transparent;
+    --v30: #8cc63f;
+    --v31: rgba(5,8,7,.55);
+    --v32: #060908;
+    --v33: #14180f;
     --v25: none;
     --v26: rgba(5,8,7,.9);
     --v27: rgba(5,8,7,.7);
@@ -352,6 +356,10 @@
     --vp1: 24%;
     --vp2: 38%;
     --vp3: 48%;
+    --v30: #35590f;
+    --v31: rgba(255,255,255,.72);
+    --v32: #f8f9f5;
+    --v33: #f7f7f3;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; overflow-x: clip; }
@@ -406,6 +414,25 @@
   [data-anim="rule"].in { transform: scaleX(1) }
 
   @keyframes drift { to { stroke-dashoffset: -1600 } }
+  [data-flow-arrow] {                      /* horizontal: centred in the gap, on the badge row */
+    display: block;
+    top: 50%;
+    left: calc(-1 * clamp(32px,3.4vw,48px) / 2 - 12px);
+    transform: translateY(-50%);
+  }
+  @media (max-width: 1180px) {
+    [data-flow-grid] { grid-template-columns: repeat(3, minmax(0,1fr)) !important }
+    [data-step-wrap]:nth-child(4) [data-flow-arrow] { display: none }
+  }
+  @media (max-width: 700px) {               /* vertical: arrows turn to point down */
+    [data-flow-grid] { grid-template-columns: 1fr !important; gap: clamp(30px,5vw,40px) !important }
+    [data-step-wrap]:nth-child(4) [data-flow-arrow] { display: block }
+    [data-flow-arrow] {
+      top: calc(-1 * clamp(30px,5vw,40px) / 2 - 6px);
+      left: calc(clamp(16px,1.5vw,20px) + 15px - 12px);
+      transform: rotate(90deg);
+    }
+  }
   @keyframes pulse { 0%,100% { opacity: .85; transform: scale(1) } 50% { opacity: .28; transform: scale(1.45) } }
   @keyframes sweepY { 0% { top: 6% } 100% { top: 94% } }
   @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(6px) } }
@@ -483,8 +510,8 @@
   }
 
   @media (max-width: 820px) { [data-why-h] { white-space: normal !important; font-size: clamp(25px,5.4vw,34px) !important; max-width: 20ch !important } }
-  @media (max-width: 900px) { [data-why-grid] { grid-template-columns: repeat(2, minmax(0,1fr)) !important } }
-  @media (max-width: 560px) { [data-why-grid] { grid-template-columns: 1fr !important } }
+  @media (max-width: 820px) { [data-why-row] { grid-template-columns: clamp(58px,9vw,80px) minmax(0,1fr) !important; row-gap: 10px !important }
+    [data-why-row] > p { grid-column: 2 !important } }
   </style>
 </helmet>
 
@@ -799,18 +826,24 @@
     <div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:clamp(20px,3.6vw,52px) clamp(16px,3vw,40px) clamp(34px,6.4vw,104px)">
       <span data-anim="fall" data-eyebrow="1" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--c15);margin-bottom:14px">04 / Method</span>
       <h2 data-anim="curtain" style="--d:120ms;margin:0 0 clamp(20px,3.6vw,52px);font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em;color:var(--c6)">How a job runs</h2>
-      <div style="position:relative;height:1px;background:var(--c78)">
-        <div ref="{{ methodProgress }}" style="position:absolute;left:0;top:0;height:1px;width:0;background:var(--c129);box-shadow:0 0 12px var(--c79)"></div>
-      </div>
-      <div data-stagger="150" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(22px,2.6vw,38px)">
+      <div data-flow="1" data-stagger="120" data-flow-grid="1" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(32px,3.4vw,48px)">
         <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
-          <div data-anim="rise" data-step-card="1" style="position:relative;padding:22px 0 0;border-top:1px solid var(--c80);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1)" style-hover="transform:translateY(-4px)">
-            <span aria-hidden="true" style="position:absolute;top:-4px;left:0;width:7px;height:7px;background:var(--c129)"></span>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--c23);margin-bottom:14px">{{ st.no }}</div>
-            <h3 style="margin:0 0 9px;font-weight:600;font-size:clamp(16px,1.35vw,18.5px);letter-spacing:-.012em;color:var(--c6)">{{ st.title }}</h3>
-            <p style="margin:0;color:var(--c81);font-size:14.5px;max-width:30ch">{{ st.body }}</p>
+          <div data-step-wrap="1" style="position:relative;display:flex">
+            <sc-if value="{{ st.notFirst }}" hint-placeholder-val="{{ true }}">
+              <span data-flow-arrow="1" aria-hidden="true" style="position:absolute;width:24px;height:12px">
+                <svg viewBox="0 0 24 12" width="24" height="12" style="display:block;overflow:visible"><path d="M0 6 H15" fill="none" stroke="var(--c129)" stroke-width="1.8" stroke-linecap="square"></path><path d="M14 1.8 L21 6 L14 10.2 Z" fill="var(--c129)"></path></svg>
+            </span>
+            </sc-if>
+            <div data-anim="rise" data-step-card="1" style="position:relative;flex:1 1 auto;display:flex;flex-direction:column;gap:12px;padding:clamp(16px,1.5vw,20px);border:1px solid var(--c80);background:var(--v31);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1),border-color .4s ease" style-hover="transform:translateY(-4px);border-color:var(--c129)">
+            <span style="display:inline-grid;place-items:center;width:30px;height:30px;background:var(--c129);color:var(--v33);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.06em">{{ st.n }}</span>
+            <h3 style="margin:0;font-weight:600;font-size:clamp(16px,1.35vw,18.5px);letter-spacing:-.012em;color:var(--c6)">{{ st.title }}</h3>
+              <p style="margin:0;color:var(--c81);font-size:14px;line-height:1.56;text-wrap:pretty">{{ st.body }}</p>
+            </div>
           </div>
         </sc-for>
+      </div>
+      <div aria-hidden="true" style="position:relative;height:1px;margin-top:clamp(22px,2.6vw,36px);background:var(--c78)">
+        <div ref="{{ methodProgress }}" style="position:absolute;left:0;top:0;height:1px;width:var(--p,0%);background:var(--c129);box-shadow:0 0 12px var(--c79)"></div>
       </div>
     </div>
     <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:106%;margin-left:-3%;height:clamp(28px,5.2vw,86px)">
@@ -822,14 +855,12 @@
     <div style="width:100%;max-width:1240px;margin:0 auto;padding:clamp(18px,3.2vw,50px) clamp(16px,3vw,40px) clamp(34px,6.4vw,104px)">
       <span data-anim="fall" data-eyebrow="1" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--c23);margin-bottom:14px">05 / Why Uprise Surveyor</span>
       <h2 data-anim="wipe" style="--d:120ms;margin:0 0 clamp(20px,3.6vw,50px);font-weight:700;font-size:clamp(25px,3.2vw,42px);letter-spacing:-.03em;max-width:none;white-space:nowrap;font-size:min(clamp(25px,3.2vw,40px),3.35vw)" data-why-h="1">Built around precision and speed</h2>
-      <div data-stagger="130" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(20px,2.6vw,44px);border-top:1px solid var(--c80)" data-why-grid="1">
+      <div data-stagger="130" style="display:flex;flex-direction:column;border-top:2px solid var(--c1)" data-why-grid="1">
         <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4">
-          <div data-anim="lift" style="position:relative;display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,2vw,24px);align-items:start;padding:clamp(20px,2.4vw,30px) 6px;border-bottom:1px solid var(--c80);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1),padding-left .45s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="padding-left:18px;background:var(--c83)">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--c15);padding-top:4px">{{ r.no }}</span>
-            <div>
-              <h3 style="margin:0 0 7px;font-weight:600;font-size:clamp(17px,1.5vw,20px);letter-spacing:-.018em;color:var(--c1)">{{ r.title }}</h3>
-              <p style="margin:0;font-size:14.5px;color:var(--c46);max-width:40ch">{{ r.body }}</p>
-            </div>
+          <div data-anim="lift" data-why-row="1" style="position:relative;display:grid;grid-template-columns:clamp(72px,7vw,116px) minmax(0,1.05fr) minmax(0,1fr);gap:0 clamp(18px,2.4vw,40px);align-items:baseline;padding:clamp(22px,3vw,40px) 0;border-bottom:1px solid var(--c80);transition:opacity 1s cubic-bezier(.16,.84,.28,1),transform .55s cubic-bezier(.16,.84,.28,1),background .4s ease" style-hover="background:var(--c83)">
+            <span data-why-no="1" style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(30px,3.6vw,54px);line-height:.82;letter-spacing:-.04em;color:var(--v30)">{{ r.no }}</span>
+            <h3 style="margin:0;font-weight:700;font-size:clamp(20px,2.3vw,31px);line-height:1.08;letter-spacing:-.032em;color:var(--c1);text-wrap:pretty">{{ r.title }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.62;color:var(--c46);max-width:46ch;text-wrap:pretty">{{ r.body }}</p>
           </div>
         </sc-for>
       </div>
@@ -1375,7 +1406,7 @@ class Component extends DCLogic {
         if (this.methodGrid) this.methodGrid.style.transform = 'translateY(' + (r.top * -0.06).toFixed(1) + 'px)';
         if (this.methodProgress) {
           const p = Math.max(0, Math.min(1, (window.innerHeight * 0.85 - r.top) / (r.height * 0.7)));
-          this.methodProgress.style.width = (p * 100).toFixed(1) + '%';
+          this.methodProgress.style.setProperty('--p', (p * 100).toFixed(1) + '%');
         }
       }
 
@@ -1784,8 +1815,8 @@ class Component extends DCLogic {
         { no: '02', title: 'Control', body: 'Reference points established and checked so every measurement shares one frame.' },
         { no: '03', title: 'Capture', body: 'Field observation by RTK or total station, recorded as coded survey data.' },
         { no: '04', title: 'Process', body: 'Data reduced, drafted and checked against control and independent measurements.' },
-        { no: '05', title: 'Deliver', body: 'Drawings and coordinate data issued in the formats your team works in.' }
-      ],
+        { no: '05', title: 'Deliver', body: 'Drawings and coordinate data issued in the formats your team works in.', last: true }
+      ].map((st, i) => Object.assign({ n: String(i + 1), notFirst: i > 0 }, st)),
       reasons: [
         { no: '01', title: 'Highly accurate measurements', body: 'RTK positioning resolves points to centimetre level in the field, not back at the desk.' },
         { no: '02', title: 'New technology, modern equipment', body: 'Current satellite and optical instruments, maintained and checked before every job.' },
