@@ -161,6 +161,8 @@
     --v32: #060908;
     --v33: #14180f;
     --v34: rgba(140,198,63,.07);
+    --v35: rgba(3,5,4,.72);
+    --v36: #070b09;
     --v25: none;
     --v26: rgba(5,8,7,.9);
     --v27: rgba(5,8,7,.7);
@@ -362,6 +364,8 @@
     --v32: #f8f9f5;
     --v33: #f7f7f3;
     --v34: rgba(63,107,18,.07);
+    --v35: rgba(23,26,20,.42);
+    --v36: #ffffff;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; overflow-x: clip; }
@@ -415,7 +419,34 @@
   }
   [data-anim="rule"].in { transform: scaleX(1) }
 
+
+  /* survey reticle cursor — a ring marks anything interactive */
+  @media (hover: hover) and (pointer: fine) {
+    body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='none' stroke='%238cc63f' stroke-width='1.1'%3E%3Cpath d='M13 1.5v6.5M13 18v6.5M1.5 13h6.5M18 13h6.5'/%3E%3C/g%3E%3Ccircle cx='13' cy='13' r='1.5' fill='%238cc63f'/%3E%3C/svg%3E") 13 13, crosshair }
+    a, button, [role="button"], summary, label, select, [data-svc-row], [data-step-card] { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='none' stroke='%238cc63f' stroke-width='1.1'%3E%3Cpath d='M13 1.5v6.5M13 18v6.5M1.5 13h6.5M18 13h6.5'/%3E%3C/g%3E%3Ccircle cx='13' cy='13' r='1.5' fill='%238cc63f'/%3E%3Ccircle cx='13' cy='13' r='5.8' fill='none' stroke='%238cc63f' stroke-width='1.1' opacity='.75'/%3E%3C/svg%3E") 13 13, pointer !important }
+    input, textarea { cursor: text !important }
+    :root[data-theme="light"] body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='none' stroke='%233f6b12' stroke-width='1.1'%3E%3Cpath d='M13 1.5v6.5M13 18v6.5M1.5 13h6.5M18 13h6.5'/%3E%3C/g%3E%3Ccircle cx='13' cy='13' r='1.5' fill='%233f6b12'/%3E%3C/svg%3E") 13 13, crosshair }
+    :root[data-theme="light"] a,
+    :root[data-theme="light"] button,
+    :root[data-theme="light"] [role="button"],
+    :root[data-theme="light"] summary,
+    :root[data-theme="light"] label,
+    :root[data-theme="light"] select,
+    :root[data-theme="light"] [data-svc-row],
+    :root[data-theme="light"] [data-step-card] { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='none' stroke='%233f6b12' stroke-width='1.1'%3E%3Cpath d='M13 1.5v6.5M13 18v6.5M1.5 13h6.5M18 13h6.5'/%3E%3C/g%3E%3Ccircle cx='13' cy='13' r='1.5' fill='%233f6b12'/%3E%3Ccircle cx='13' cy='13' r='5.8' fill='none' stroke='%233f6b12' stroke-width='1.1' opacity='.75'/%3E%3C/svg%3E") 13 13, pointer !important }
+    :root[data-theme="light"] input,
+    :root[data-theme="light"] textarea { cursor: text !important }
+    :root [disabled], :root[data-theme="light"] [disabled] { cursor: not-allowed !important }
+  }
   @keyframes drift { to { stroke-dashoffset: -1600 } }
+  @keyframes legalIn { from { transform: translateX(100%) } to { transform: translateX(0) } }
+  @keyframes legalUp { from { transform: translateY(100%) } to { transform: translateY(0) } }
+  [data-legal-panel] { animation: legalIn .46s cubic-bezier(.16,.84,.28,1) }
+  @media (max-width: 620px) {
+    [data-legal-wrap] { align-items: flex-end !important }
+    [data-legal-panel] { height: 90% !important; width: 100% !important; border-left: 0 !important; border-top: 1px solid var(--c80); box-shadow: 0 -30px 80px var(--c4) !important; animation-name: legalUp }
+  }
+  @media (prefers-reduced-motion: reduce) { [data-legal-panel] { animation: none } }
   [data-flow-arrow] {                      /* horizontal: centred in the gap, on the badge row */
     display: block;
     top: 50%;
@@ -1150,6 +1181,8 @@
           <span style="font-size:14.5px;color:var(--c55)">Construction layout</span>
           <span style="font-size:14.5px;color:var(--c55)">Digital mapping</span>
           <span style="font-size:14.5px;color:var(--c55)">Property measurement</span>
+          <button type="button" onClick="{{ openTerms }}" style="font-size:14.5px;color:var(--c81);background:transparent;border:0;padding:0;text-align:left;cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding-top:13px;border-top:1px solid var(--c102);transition:color .35s ease" style-hover="color:var(--c15)"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M7 17 17 7M9 7h8v8"></path></svg>Terms of use</button>
+          <button type="button" onClick="{{ openPrivacy }}" style="font-size:14.5px;color:var(--c81);background:transparent;border:0;padding:0;text-align:left;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:color .35s ease" style-hover="color:var(--c15)"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" style="flex:none"><path d="M7 17 17 7M9 7h8v8"></path></svg>Privacy policy</button>
         </div>
         <div data-anim="rise" style="display:flex;flex-direction:column;gap:9px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--c103);margin-bottom:6px">Direct</span>
@@ -1172,6 +1205,34 @@
       </div>
     </div>
   </footer>
+
+  <sc-if value="{{ legalOpen }}" hint-placeholder-val="{{ false }}">
+    <div data-legal-wrap="1" role="dialog" aria-modal="true" aria-label="{{ legalTitle }}" style="position:fixed;inset:0;z-index:300;display:flex;align-items:stretch;justify-content:flex-end">
+      <button type="button" aria-label="Close" onClick="{{ closeLegal }}" style="position:absolute;inset:0;border:0;padding:0;background:var(--v35);backdrop-filter:blur(3px);cursor:pointer"></button>
+      <div data-legal-panel="1" style="position:relative;width:min(100%,560px);height:100%;display:flex;flex-direction:column;background:var(--v36);border-left:1px solid var(--c80);box-shadow:-30px 0 90px var(--c4)">
+        <div style="flex:0 0 auto;display:flex;align-items:flex-start;gap:16px;padding:clamp(20px,2.6vw,30px) clamp(18px,2.6vw,34px) 16px;border-bottom:1px solid var(--c80)">
+          <div style="flex:1 1 auto;min-width:0">
+            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--c103);margin-bottom:8px">{{ legalKicker }}</span>
+            <h2 style="margin:0;font-weight:700;font-size:clamp(20px,2.4vw,27px);letter-spacing:-.026em;color:var(--c6)">{{ legalTitle }}</h2>
+          </div>
+          <button type="button" onClick="{{ closeLegal }}" aria-label="Close" style="flex:0 0 auto;width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--c80);background:transparent;color:var(--c81);cursor:pointer;transition:border-color .35s ease,color .35s ease" style-hover="border-color:var(--c129);color:var(--c129)">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+          </button>
+        </div>
+        <div style="flex:1 1 auto;overflow-y:auto;padding:clamp(18px,2.4vw,28px) clamp(18px,2.6vw,34px) clamp(24px,3vw,38px);-webkit-overflow-scrolling:touch">
+          <sc-for list="{{ legalBody }}" as="sec" hint-placeholder-count="4">
+            <div style="margin-bottom:22px">
+              <h3 style="margin:0 0 8px;font-weight:600;font-size:15.5px;letter-spacing:-.008em;color:var(--c6)">{{ sec.h }}</h3>
+              <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="2">
+                <p style="margin:0 0 9px;font-size:14.5px;line-height:1.66;color:var(--c81);text-wrap:pretty">{{ para }}</p>
+              </sc-for>
+            </div>
+          </sc-for>
+          <p style="margin:6px 0 0;padding-top:14px;border-top:1px solid var(--c80);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c103)">Last updated {{ legalDate }}</p>
+        </div>
+      </div>
+    </div>
+  </sc-if>
 </div>
 
 </x-dc>
@@ -1180,9 +1241,24 @@ class Component extends DCLogic {
   mq = window.matchMedia('(min-width: 1040px)');       // desktop nav fits from here
   mqWide = window.matchMedia('(min-width: 1500px)');
   mqCta = window.matchMedia('(min-width: 1210px)');   // CTA pill needs this much room
-  state = { menu: false, sent: false, waSend: '', light: (() => { try { return document.documentElement.getAttribute('data-theme') === 'light'; } catch (e) { return false; } })(), errs: {}, cap: { a: 3 + Math.floor(Math.random() * 6), b: 2 + Math.floor(Math.random() * 6) } };
+  state = { menu: false, sent: false, legal: null, waSend: '', light: (() => { try { return document.documentElement.getAttribute('data-theme') === 'light'; } catch (e) { return false; } })(), errs: {}, cap: { a: 3 + Math.floor(Math.random() * 6), b: 2 + Math.floor(Math.random() * 6) } };
+
+  openLegal(which) {
+    this.setState({ legal: which });
+    document.body.style.overflow = which ? 'hidden' : '';
+    if (which) requestAnimationFrame(() => {
+      const btn = document.querySelector('[data-legal-panel] button');
+      if (btn) btn.focus();
+    });
+  }
+
+  termsText = [{"h":"Who we are","ps":["Uprise Land Surveying Company (\"Uprise Surveyor\", \"we\") is a land surveying practice based at Vazhithala, Thodupuzha, Idukki, Kerala, India. These terms cover your use of this website and any enquiry you send through it."]},{"h":"Using this site","ps":["The content here — service descriptions, project examples, equipment details and turnaround indications — is provided for general information. It is not a survey report, a valuation, or advice you should act on without a commissioned survey.","You may not copy, republish or reuse the text, photographs or drawings on this site without our written permission."]},{"h":"Enquiries and quotations","ps":["Submitting the contact form does not create a contract. We will respond with scope, price and programme; work begins only once that is agreed in writing.","Indicative durations shown on this site assume normal site access, reasonable weather and availability of existing records. Actual programme is confirmed in the quotation."]},{"h":"Survey work","ps":["Deliverables, accuracy class, coordinate system and format are defined per job in the quotation or appointment. Boundary opinions are based on available records and physical evidence at the time of survey and do not constitute a legal determination of title.","Data we issue relates to the site conditions on the date of observation. We are not responsible for changes on site after that date."]},{"h":"Liability","ps":["We take care that this site is accurate, but we give no warranty that it is complete or current, and we are not liable for loss arising from reliance on website content alone. Liability for commissioned survey work is governed by the terms of that appointment."]},{"h":"Changes and governing law","ps":["We may update these terms; the version published here at the time of your visit applies. These terms are governed by the laws of India, and disputes fall to the courts at Idukki, Kerala."]},{"h":"Contact","ps":["Questions about these terms: upriselandsurveying@gmail.com or +91 97452 20712."]}];
+
+  privacyText = [{"h":"What this covers","ps":["This policy explains what we do with personal information you give us through this website. Uprise Land Surveying Company, Vazhithala, Thodupuzha, Idukki, Kerala, is responsible for that information."]},{"h":"What we collect","ps":["Only what you type into the contact form: your name, your phone number or email, the site location, the type of survey you need, and your message.","We do not run analytics, advertising or tracking cookies on this site. We do not collect your location, and we do not build a profile of your visit."]},{"h":"Why we hold it","ps":["To answer your enquiry, prepare a quotation, and carry out any survey you commission. We also keep records of completed work as a normal business record."]},{"h":"Who sees it","ps":["Our own team. Your enquiry reaches us over WhatsApp, so it passes through WhatsApp’s service under their terms. We do not sell your information, and we do not share it with anyone else for marketing."]},{"h":"How long we keep it","ps":["Enquiries that do not become jobs are deleted within two years. Records relating to completed surveys are kept for as long as needed for professional and statutory purposes."]},{"h":"Your choices","ps":["You can ask us what we hold about you, ask us to correct it, or ask us to delete it. Write to upriselandsurveying@gmail.com and we will respond within 30 days. If you ask us to delete an enquiry we are acting on, we may need to pause that work."]},{"h":"Security","ps":["Enquiry details are held on our own devices and business accounts, protected by passwords and device locks. No transmission over the internet is completely secure; we ask you not to send documents you consider sensitive through the contact form."]},{"h":"Contact","ps":["Any privacy question: upriselandsurveying@gmail.com or +91 97452 20712."]}];
 
   componentDidMount() {
+    this.onLegalKey = (e) => { if (e.key === 'Escape' && this.state.legal) this.openLegal(null); };
+    window.addEventListener('keydown', this.onLegalKey);
     try { this.mount(); } catch (err) { console.error('mount failed', err); }
   }
 
@@ -1634,6 +1710,8 @@ class Component extends DCLogic {
     if (this.raf) cancelAnimationFrame(this.raf);
     if (this.cloudRaf) cancelAnimationFrame(this.cloudRaf);
     if (this.mq) this.mq.removeEventListener('change', this.applyMq);
+    if (this.onLegalKey) window.removeEventListener('keydown', this.onLegalKey);
+    document.body.style.overflow = '';
     if (this.mqWide) this.mqWide.removeEventListener('change', this.applyMq);
     if (this.mqCta) this.mqCta.removeEventListener('change', this.applyMq);
     window.removeEventListener('scroll', this.onScroll);
@@ -1845,6 +1923,14 @@ class Component extends DCLogic {
         if (tf) tf.setAttribute('theme', light ? 'light' : 'dark');
         this.setState({ light: light });
       },
+      legalOpen: !!this.state.legal,
+      legalKicker: this.state.legal === 'privacy' ? 'Privacy' : 'Terms',
+      legalTitle: this.state.legal === 'privacy' ? 'Privacy policy' : 'Terms of use',
+      legalDate: '17 September 2026',
+      legalBody: this.state.legal === 'privacy' ? this.privacyText : this.termsText,
+      openTerms: () => this.openLegal('terms'),
+      openPrivacy: () => this.openLegal('privacy'),
+      closeLegal: () => this.openLegal(null),
       waSend: this.state.waSend || ('https://wa.me/' + wa),
       year: new Date().getFullYear(),
       nav: [
