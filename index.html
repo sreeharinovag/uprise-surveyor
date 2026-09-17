@@ -391,7 +391,6 @@
   /* ---- motion system ---------------------------------------------------- */
   [data-anim] {
     opacity: 0;
-    will-change: transform, opacity, filter, clip-path;
     transition:
       opacity 1s cubic-bezier(.16,.84,.28,1),
       transform 1.15s cubic-bezier(.16,.84,.28,1),
@@ -1500,26 +1499,43 @@ class Component extends DCLogic {
       });
     };
 
+    // One reveal path for both the observer and the rect sweep. will-change is
+    // granted only for the transition window — leaving it on every [data-anim]
+    // permanently promotes dozens of layers and makes scrolling stutter.
+    this.reveal = (el) => {
+      if (el.classList.contains('in')) return;
+      el.style.willChange = 'transform, opacity, filter, clip-path';
+      el.classList.add('in');
+      setTimeout(() => { el.style.willChange = 'auto'; }, 2800);
+    };
+
     this.io = new IntersectionObserver((es) => {
-      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); this.io.unobserve(e.target); } });
+      es.forEach(e => { if (e.isIntersecting) { this.reveal(e.target); this.io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
 
     // Rect-based sweep: authoritative reveal check. A self-clipping element
     // (word/curtain/wipe) can report an empty intersection rect, so the
-    // observer alone cannot be trusted to un-clip it.
+    // observer alone cannot be trusted to un-clip it. Works off a cached
+    // pending list so a scroll frame never re-queries the whole document.
+    this.pending = [];
     this.sweep = () => {
-      const vh = window.innerHeight || 800;
-      this.q('[data-anim]').forEach(el => {
-        if (el.classList.contains('in')) return;
-        const r = el.getBoundingClientRect();
-        if (r.top < vh * 0.94) el.classList.add('in');
-      });
+      if (!this.pending.length) return;
+      const vh = window.innerHeight || 800, hit = [];
+      for (let i = this.pending.length - 1; i >= 0; i--) {
+        const el = this.pending[i];
+        if (!el.isConnected || el.classList.contains('in')) { this.pending.splice(i, 1); continue; }
+        if (el.getBoundingClientRect().top < vh * 0.94) { hit.push(el); this.pending.splice(i, 1); }
+      }
+      for (let i = 0; i < hit.length; i++) this.reveal(hit[i]);
     };
 
     this.scan = () => {
       this.applyStagger();
-      this.q('[data-anim]').forEach(el => {
+      const all = this.q('[data-anim]');
+      this.pending = [];
+      all.forEach(el => {
         if (!el.dataset.obs) { el.dataset.obs = '1'; this.io.observe(el); }
+        if (!el.classList.contains('in')) this.pending.push(el);
       });
       this.sweep();
     };
@@ -1553,48 +1569,75 @@ class Component extends DCLogic {
 
     this.sections = ['capabilities', 'technology', 'field', 'method', 'about', 'contact'];
     this.scrollY = window.scrollY;
-    this.onScroll = () => {
-      this.scrollY = window.scrollY;
+    this.chromeState = {};
+
+    // Scroll work is coalesced into one animation frame and split into a read
+    // pass then a write pass, so no scroll event forces a synchronous relayout.
+    this.chrome = () => {
+      this.scrollRaf = 0;
+      const y = this.scrollY = window.scrollY;
+
+      /* ---- reads ---- */
       if (this.sweep) this.sweep();
-      const shrunk = this.scrollY > 60;
-      this.readout();
-
-      if (this.capsule) {
-        this.capsule.style.padding = shrunk ? '5px 8px 5px 10px' : '7px 9px 7px 12px';
-        this.capsule.style.boxShadow = shrunk ? '0 8px 26px var(--c125)' : '0 14px 38px var(--c4)';
-        this.capsule.style.maxWidth = shrunk ? '1240px' : 'none';
-        this.capsule.style.margin = '0 auto';
+      let act = null;
+      for (let i = 0; i < this.sections.length; i++) {
+        const el = document.getElementById(this.sections[i]);
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        if (r.top <= 150 && r.bottom > 150) act = this.sections[i];
       }
-      if (this.mark) { const s = shrunk ? '40px' : '46px'; this.mark.style.width = s; this.mark.style.height = s; }
-      if (this.wordmark) {
-        const hide = shrunk && this.mq.matches;
-        this.wordmark.style.maxWidth = hide ? '0px' : '200px';
-        this.wordmark.style.opacity = hide ? '0' : '1';
-      }
-
       const doc = document.documentElement;
       const scrollable = Math.max(1, doc.scrollHeight - window.innerHeight);
-      const progress = Math.min(1, Math.max(0, this.scrollY / scrollable));
-      if (this.toTop) {
-        const show = this.scrollY > 520;
-        this.toTop.style.opacity = show ? '1' : '0';
-        this.toTop.style.transform = show ? 'none' : 'translateY(18px) scale(.9)';
-        this.toTop.style.pointerEvents = show ? 'auto' : 'none';
+
+      /* ---- writes ---- */
+      const st = this.chromeState;
+      const shrunk = y > 60;
+      this.readout();
+
+      if (st.shrunk !== shrunk) {
+        st.shrunk = shrunk;
+        if (this.capsule) {
+          this.capsule.style.padding = shrunk ? '5px 8px 5px 10px' : '7px 9px 7px 12px';
+          this.capsule.style.boxShadow = shrunk ? '0 8px 26px var(--c125)' : '0 14px 38px var(--c4)';
+          this.capsule.style.maxWidth = shrunk ? '1240px' : 'none';
+          this.capsule.style.margin = '0 auto';
+        }
+        if (this.mark) { const s = shrunk ? '40px' : '46px'; this.mark.style.width = s; this.mark.style.height = s; }
       }
-      if (this.toTopRing) this.toTopRing.style.strokeDashoffset = (69.1 * (1 - progress)).toFixed(2);
+      if (this.wordmark) {
+        const hide = shrunk && this.mq.matches;
+        if (st.hide !== hide) {
+          st.hide = hide;
+          this.wordmark.style.maxWidth = hide ? '0px' : '200px';
+          this.wordmark.style.opacity = hide ? '0' : '1';
+        }
+      }
 
-      let act = null;
-      this.sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) { const r = el.getBoundingClientRect(); if (r.top <= 150 && r.bottom > 150) act = id; }
-      });
+      if (this.toTop) {
+        const show = y > 520;
+        if (st.show !== show) {
+          st.show = show;
+          this.toTop.style.opacity = show ? '1' : '0';
+          this.toTop.style.transform = show ? 'none' : 'translateY(18px) scale(.9)';
+          this.toTop.style.pointerEvents = show ? 'auto' : 'none';
+        }
+      }
+      if (this.toTopRing) {
+        const progress = Math.min(1, Math.max(0, y / scrollable));
+        this.toTopRing.style.strokeDashoffset = (69.1 * (1 - progress)).toFixed(2);
+      }
+
       if (act !== this.activeSection) { this.activeSection = act; this.movePill(); }
+    };
 
+    this.onScroll = () => {
+      this.scrollY = window.scrollY;
       if (!this.reduced.matches && this.start) this.start();
+      if (!this.scrollRaf) this.scrollRaf = requestAnimationFrame(this.chrome);
     };
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', () => { this.movePill(); this.onScroll(); this.syncRail(); });
-    this.onScroll();
+    this.chrome();
 
     // ---- cursor-driven instrument + unified scroll transforms --------------
     this.scrollYaw = 0;
@@ -1686,8 +1729,21 @@ class Component extends DCLogic {
         if (Math.abs(d) > 0.015) { c[key] += d * k; moving = true; } else { c[key] = t[key]; }
       });
 
-      const y = this.scrollY;
+      const y = this.scrollY, vh = window.innerHeight;
+
+      /* ---- read pass: every measurement taken before any style is written,
+         so the frame costs one layout instead of one per element. ---- */
       const hero = this.heroRoot ? this.heroRoot.getBoundingClientRect() : null;
+      const parRects = this.pars.map(p => p.el.getBoundingClientRect());
+      if (!this.methodEl) this.methodEl = document.getElementById('method');
+      const m = this.methodEl;
+      const mRect = m ? m.getBoundingClientRect() : null;
+      let stepRects = null;
+      if (mRect && this.stepCards && this.stepCards.length) {
+        stepRects = this.stepCards.map(el => el.getBoundingClientRect());
+      }
+
+      /* ---- write pass ---- */
       if (hero) {
         const p = Math.max(0, Math.min(1, -hero.top / (hero.height || 1)));
         this.scrollYaw = p * 11;
@@ -1707,45 +1763,43 @@ class Component extends DCLogic {
       if (this.seam1) this.seam1.style.transform = 'translateY(' + (y * 0.035).toFixed(1) + 'px)';
       if (this.seam2) this.seam2.style.transform = 'translateY(' + (y * -0.018).toFixed(1) + 'px)';
 
-      this.pars.forEach(p => {
-        const r = p.el.getBoundingClientRect();
-        const mid = r.top + r.height / 2 - window.innerHeight / 2;
+      this.pars.forEach((p, i) => {
+        const r = parRects[i];
+        const mid = r.top + r.height / 2 - vh / 2;
         p.el.style.transform = 'translate3d(0,' + (-mid * p.k).toFixed(1) + 'px,0)';
       });
 
-      const m = document.getElementById('method');
-      if (m) {
-        const r = m.getBoundingClientRect();
+      if (mRect) {
+        const r = mRect;
         if (this.methodGrid) this.methodGrid.style.transform = 'translateY(' + (r.top * -0.06).toFixed(1) + 'px)';
         if (this.methodProgress) {
-          const p = Math.max(0, Math.min(1, (window.innerHeight * 0.85 - r.top) / (r.height * 0.7)));
+          const p = Math.max(0, Math.min(1, (vh * 0.85 - r.top) / (r.height * 0.7)));
           this.methodProgress.style.setProperty('--p', (p * 100).toFixed(1) + '%');
         }
-        if (this.stepCards && this.stepCards.length) {
+        if (stepRects) {
           const n = this.stepCards.length;
-          const first = this.stepCards[0].getBoundingClientRect();
-          const second = this.stepCards[1] ? this.stepCards[1].getBoundingClientRect() : first;
+          const first = stepRects[0];
+          const second = stepRects[1] || first;
           const sameRow = Math.abs(second.top - first.top) < 8;
-          const line = window.innerHeight * 0.45;
+          const line = vh * 0.45;
           let best = -1;
           if (sameRow) {
             // cards sit side by side: step through them as the row travels past the reading line
-            const span = Math.max(1, first.height + window.innerHeight * 0.5);
-            const t = (line - first.top) / span;
-            if (t > 0) best = Math.min(n - 1, Math.floor(t * n));
+            const span = Math.max(1, first.height + vh * 0.5);
+            const tt = (line - first.top) / span;
+            if (tt > 0) best = Math.min(n - 1, Math.floor(tt * n));
           } else {
             let bestD = Infinity;
-            this.stepCards.forEach((el, k) => {
-              const b = el.getBoundingClientRect();
-              if (b.bottom < 0 || b.top > window.innerHeight) return;
+            stepRects.forEach((b, k2) => {
+              if (b.bottom < 0 || b.top > vh) return;
               const d = Math.abs(b.top + b.height / 2 - line);
-              if (d < bestD) { bestD = d; best = k; }
+              if (d < bestD) { bestD = d; best = k2; }
             });
           }
           if (best !== this.activeStep) {
             this.activeStep = best;
-            this.stepCards.forEach((el, k) => {
-              if (k === best) el.setAttribute('data-on', '1'); else el.removeAttribute('data-on');
+            this.stepCards.forEach((el, k2) => {
+              if (k2 === best) el.setAttribute('data-on', '1'); else el.removeAttribute('data-on');
             });
           }
         }
@@ -1923,6 +1977,7 @@ class Component extends DCLogic {
     document.body.style.overflow = '';
     if (this.mqWide) this.mqWide.removeEventListener('change', this.applyMq);
     if (this.mqCta) this.mqCta.removeEventListener('change', this.applyMq);
+    if (this.scrollRaf) cancelAnimationFrame(this.scrollRaf);
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onResizeCloud);
     window.removeEventListener('pointermove', this.onMove);
