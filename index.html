@@ -368,7 +368,8 @@
     --v36: #ffffff;
   }
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; overflow-x: clip; }
+  html { scroll-behavior: smooth; overflow-x: clip; scrollbar-width: none; -ms-overflow-style: none; }
+  html::-webkit-scrollbar, body::-webkit-scrollbar { width: 0; height: 0; }
   body { margin: 0; width: 100%; max-width: 100%; background: var(--c112); color: var(--c1); font-family: Archivo, system-ui, sans-serif; overflow-x: hidden; overflow-x: clip; }
   img, svg, canvas, video, image-slot { max-width: 100%; }
   a { color: var(--c15); text-decoration: none; }
