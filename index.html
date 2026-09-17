@@ -439,6 +439,7 @@
     :root [disabled], :root[data-theme="light"] [disabled] { cursor: not-allowed !important }
   }
 
+  :root[data-locked] [data-navbar] { position: fixed !important; top: 0; left: 0; right: 0 }
   /* footer links share the Sections hover */
   [data-foot-link] { transition: color .35s ease, padding-left .4s cubic-bezier(.16,.84,.28,1) !important }
   [data-foot-link]:hover, [data-foot-link]:focus-visible { color: var(--c6) !important; padding-left: 14px !important }
@@ -447,15 +448,19 @@
   }
   @media (max-width: 720px) {
     [data-foot-grid] { grid-template-columns: 1fr !important; gap: 0 !important; padding: clamp(14px,3vw,24px) 0 !important }
-    [data-foot-col] { padding: 20px 0 22px; border-top: 1px solid var(--c102) }
+    [data-foot-col] { padding: 13px 0 15px; border-top: 1px solid var(--c102) }
     [data-foot-col]:first-child { padding-top: 0; border-top: 0 }
     [data-foot-col] p { max-width: 42ch !important }
+    [data-foot-col] a[href^="#"] { padding: 3px 0 !important }
+    [data-foot-col]:nth-child(3) { gap: 4px !important }
+    [data-foot-col]:nth-child(4) { gap: 6px !important }
+    [data-foot-col] button { margin-top: 11px !important; padding-top: 10px !important }
     [data-foot-col]:nth-child(2), [data-foot-col]:nth-child(3) {
       display: grid !important; grid-template-columns: 1fr 1fr; column-gap: clamp(12px,3vw,20px) !important; row-gap: 2px !important;
     }
     [data-foot-col] [data-foot-head] { grid-column: 1 / -1 }
     [data-foot-col] button { grid-column: 1 / -1 }
-    [data-foot-head] { margin-bottom: 12px !important }
+    [data-foot-head] { margin-bottom: 9px !important }
     [data-foot-col] a[href^="mailto"] span { word-break: normal !important; overflow-wrap: anywhere }
   }
 
@@ -511,6 +516,14 @@
     [data-flow-time] { grid-column: 2 / -1; grid-row: 3; margin-top: 3px !important; padding-top: 8px !important }
     [data-flow-arrow] { top: -25px; left: 50%; margin-left: -9px; transform: rotate(90deg) scale(.75) }
   }
+  /* hero easter egg: hovering the crosshair runs a satellite acquisition */
+  [data-hero-copy] { transition: opacity .45s ease }
+  :root[data-bench-on] [data-hero-copy] { opacity: .1 }
+  [data-bench-hit] { border-radius: 50%; transition: box-shadow .4s ease }
+  [data-bench-hit]:hover { box-shadow: 0 0 0 1px rgba(140,198,63,.45), 0 0 26px rgba(140,198,63,.22) }
+  [data-bench-hit]:focus-visible { box-shadow: 0 0 0 2px #8cc63f, 0 0 30px rgba(140,198,63,.4) }
+  [data-bench-hit]:focus-visible { outline: none }
+  :root[data-bench-on] [data-lock-overlay] { opacity: 1 !important; pointer-events: auto !important }
   @keyframes pulse { 0%,100% { opacity: .85; transform: scale(1) } 50% { opacity: .28; transform: scale(1.45) } }
   @keyframes sweepY { 0% { top: 6% } 100% { top: 94% } }
   @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(6px) } }
@@ -600,7 +613,7 @@
   </div>
 
 
-  <div style="position:sticky;top:0;z-index:95;isolation:isolate;padding:clamp(10px,1.2vw,16px) clamp(16px,3vw,40px);pointer-events:none">
+  <div data-navbar="1" style="position:sticky;top:0;z-index:95;isolation:isolate;padding:clamp(10px,1.2vw,16px) clamp(16px,3vw,40px);pointer-events:none">
     <div ref="{{ capsule }}" style="pointer-events:auto;width:100%;background:linear-gradient(100deg,var(--c2),var(--c3));border-radius:999px;box-shadow:0 14px 38px var(--c4);border:1px solid var(--c5);display:flex;align-items:center;gap:16px;padding:7px 9px 7px 12px;transition:padding .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease,max-width .7s cubic-bezier(.16,.84,.28,1),background .6s ease">
       <a href="#top" style="display:flex;align-items:center;gap:clamp(7px,2.6vw,11px);flex:0 1 auto;min-width:0;color:var(--c6)">
         <span ref="{{ mark }}" style="width:clamp(38px,12vw,46px);height:clamp(38px,12vw,46px);border-radius:50%;background:#fff;aspect-ratio:1;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:width .6s cubic-bezier(.16,.84,.28,1),height .6s cubic-bezier(.16,.84,.28,1),box-shadow .6s ease">
@@ -653,7 +666,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:16px 12px 6px">
           <a href="tel:+919745220712" onClick="{{ closeMenu }}" style="display:flex;flex-direction:column;gap:3px;background:var(--c26);border:1px solid var(--c27);color:var(--c1);padding:14px 16px;border-radius:20px;transition:background .35s ease" style-hover="background:var(--c28)">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--c23)">Call</span>
-            <span style="font-weight:600;font-size:14px;white-space:nowrap">97452 20712</span>
+            <span style="font-weight:600;font-size:14px;white-space:nowrap">+91 97452 20712</span>
           </a>
           <a href="{{ waLink }}" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="display:flex;flex-direction:column;gap:3px;background:#8cc63f;color:#16200c;padding:14px 16px;border-radius:20px;transition:background .35s ease" style-hover="background:var(--c29)">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,32,12,.86)">WhatsApp</span>
@@ -709,7 +722,7 @@
             <div style="position:absolute;bottom:12px;left:12px;width:22px;height:22px;border-left:2px solid var(--c42);border-bottom:2px solid var(--c42)"></div>
             <div style="position:absolute;bottom:12px;right:12px;width:22px;height:22px;border-right:2px solid var(--c42);border-bottom:2px solid var(--c42)"></div>
             <div style="position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c43),transparent);animation:sweepY 10s ease-in-out infinite alternate"></div>
-            <div ref="{{ reticle }}" style="position:absolute;left:50%;top:50%;width:clamp(72px,26%,120px);aspect-ratio:1;transform:translate(-50%,-50%);will-change:transform">
+            <div ref="{{ reticle }}" data-reticle="1" style="position:absolute;left:50%;top:50%;width:clamp(72px,26%,120px);aspect-ratio:1;transform:translate(-50%,-50%);will-change:transform">
               <div style="position:absolute;inset:28%;border:1px solid var(--c44);border-radius:50%"></div>
               <div style="position:absolute;left:0;right:0;top:50%;height:1px;background:var(--c45)"></div>
               <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--c45)"></div>
@@ -737,7 +750,7 @@
       </div>
     </div>
     <div ref="{{ heroInner }}" style="position:relative;width:100%;margin:0 auto;padding:clamp(24px,3.4vw,52px) calc(clamp(16px,3vw,40px) + max(clamp(20px,2.8vw,44px), (100vw - 1200px) * .14)) clamp(28px,4vw,58px);min-height:clamp(500px,calc(84vh - 62px),818px);display:grid;grid-template-columns:minmax(0,640px);justify-content:start;align-content:center;will-change:transform">
-      <div style="max-width:640px">
+      <div data-hero-copy="1" style="max-width:640px">
         <div data-anim="fall" style="--d:60ms;display:inline-flex;align-items:center;gap:10px;background:var(--c21);border:1px solid var(--c5);border-radius:999px;padding:8px 15px;margin-bottom:clamp(14px,2.2vw,22px)">
           <span style="width:7px;height:7px;border-radius:50%;background:var(--c129);display:inline-block;animation:pulse 2.6s ease-in-out infinite"></span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--c46)">RTK satellite survey · Idukki, Kerala</span>
@@ -763,6 +776,11 @@
           </sc-for>
         </div>
       </div>
+    </div>
+
+    <div style="position:absolute;top:0;bottom:clamp(40px,5.4vh,64px);left:clamp(16px,3vw,40px);right:clamp(16px,3vw,40px);z-index:2;pointer-events:none">
+        <div data-bench-hit="1" ref="{{ benchHit }}" style="position:absolute;left:50%;top:50%;width:clamp(84px,28%,132px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:auto;will-change:transform">
+        </div>
     </div>
 
     <div data-stagger="70" data-stagger-base="1200" style="position:relative;width:100%;margin:0 auto;padding:0 calc(clamp(16px,3vw,40px) + max(clamp(20px,2.8vw,44px), (100vw - 1200px) * .14)) clamp(10px,1.4vw,18px);display:flex;flex-wrap:wrap;gap:8px 24px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--c23)">
@@ -1134,6 +1152,21 @@
     <span ref="{{ hudElev }}">EL 000.0 M</span>
   </div>
 
+  <div data-lock-overlay="1" ref="{{ lockOverlay }}" aria-hidden="true" style="position:fixed;inset:0;z-index:200;pointer-events:none;opacity:0;transition:opacity .45s ease;background:radial-gradient(58% 58% at 50% 50%,rgba(3,6,4,.66),rgba(3,6,4,.94))">
+    <canvas ref="{{ lockCanvas }}" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+    <div style="position:absolute;top:clamp(16px,3vw,38px);left:clamp(16px,3vw,38px);display:flex;flex-direction:column;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8cc63f">
+      <span>Satellite acquisition</span>
+      <span style="color:rgba(238,242,238,.62);letter-spacing:.18em">GPS · GLONASS · GALILEO</span>
+    </div>
+    <div style="position:absolute;top:clamp(16px,3vw,38px);right:clamp(16px,3vw,38px);text-align:right;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(238,242,238,.62)">
+      SATS <span ref="{{ lockSats }}" style="color:#8cc63f;font-size:13px;letter-spacing:.1em">00</span> / 18
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:clamp(18px,4vw,46px);display:flex;flex-direction:column;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;text-align:center;padding:0 16px">
+      <span ref="{{ lockCoords }}" style="font-size:clamp(13px,1.5vw,19px);letter-spacing:.14em;color:#eef2ee">09.9667°N  076.7000°E</span>
+      <span ref="{{ lockStatus }}" style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(238,242,238,.62)">Acquiring constellation</span>
+    </div>
+  </div>
+
   <button ref="{{ toTop }}" type="button" onClick="{{ scrollTop }}" aria-label="Back to top" style="position:fixed;right:clamp(16px,2.4vw,32px);bottom:clamp(16px,2.4vw,32px);z-index:90;width:52px;height:52px;border-radius:50%;border:1px solid var(--c93);background:var(--c98);backdrop-filter:blur(12px);color:var(--c6);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px var(--c99);opacity:0;transform:translateY(18px) scale(.9);pointer-events:none;transition:opacity .5s ease,transform .6s cubic-bezier(.16,.84,.28,1),background .35s ease,border-color .35s ease" style-hover="background:#8cc63f;border-color:var(--c42);color:#14180f">
     <svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;overflow:visible">
       <circle cx="12" cy="12" r="11" fill="none" stroke="var(--c111)" stroke-width="1.5" stroke-dasharray="69.1" stroke-dashoffset="69.1" transform="rotate(-90 12 12)" ref="{{ toTopRing }}"></circle>
@@ -1265,11 +1298,35 @@ class Component extends DCLogic {
   state = { menu: false, sent: false, legal: null, waSend: '', light: (() => { try { return document.documentElement.getAttribute('data-theme') === 'light'; } catch (e) { return false; } })(), errs: {}, cap: { a: 3 + Math.floor(Math.random() * 6), b: 2 + Math.floor(Math.random() * 6) } };
 
   openLegal(which) {
+    const b = document.body, r = document.documentElement;
+    if (which) {
+      this.lockY = window.scrollY;                 // hold the page where it is while the drawer is open
+      b.style.position = 'fixed';
+      b.style.top = -this.lockY + 'px';
+      b.style.left = '0';
+      b.style.right = '0';
+      b.style.width = '100%';
+      b.style.overflow = 'hidden';
+      r.setAttribute('data-locked', '1');          // the sticky nav needs pinning while there is no scroll
+    } else {
+      r.removeAttribute('data-locked');
+      b.style.position = '';
+      b.style.top = '';
+      b.style.left = '';
+      b.style.right = '';
+      b.style.width = '';
+      b.style.overflow = '';
+      if (typeof this.lockY === 'number') {
+        const prev = r.style.scrollBehavior;       // restore instantly: the page is set to smooth scrolling
+        r.style.scrollBehavior = 'auto';
+        window.scrollTo(0, this.lockY);
+        r.style.scrollBehavior = prev;
+      }
+    }
     this.setState({ legal: which });
-    document.body.style.overflow = which ? 'hidden' : '';
     if (which) requestAnimationFrame(() => {
       const btn = document.querySelector('[data-legal-panel] button');
-      if (btn) btn.focus();
+      if (btn) btn.focus({ preventScroll: true });
     });
   }
 
@@ -1277,8 +1334,135 @@ class Component extends DCLogic {
 
   privacyText = [{"h":"What this covers","ps":["This policy explains what we do with personal information you give us through this website. Uprise Land Surveying Company, Vazhithala, Thodupuzha, Idukki, Kerala, is responsible for that information."]},{"h":"What we collect","ps":["Only what you type into the contact form: your name, your phone number or email, the site location, the type of survey you need, and your message.","We do not run analytics, advertising or tracking cookies on this site. We do not collect your location, and we do not build a profile of your visit."]},{"h":"Why we hold it","ps":["To answer your enquiry, prepare a quotation, and carry out any survey you commission. We also keep records of completed work as a normal business record."]},{"h":"Who sees it","ps":["Our own team. Your enquiry reaches us over WhatsApp, so it passes through WhatsApp’s service under their terms. We do not sell your information, and we do not share it with anyone else for marketing."]},{"h":"How long we keep it","ps":["Enquiries that do not become jobs are deleted within two years. Records relating to completed surveys are kept for as long as needed for professional and statutory purposes."]},{"h":"Your choices","ps":["You can ask us what we hold about you, ask us to correct it, or ask us to delete it. Write to upriselandsurveying@gmail.com and we will respond within 30 days. If you ask us to delete an enquiry we are acting on, we may need to pause that work."]},{"h":"Security","ps":["Enquiry details are held on our own devices and business accounts, protected by passwords and device locks. No transmission over the internet is completely secure; we ask you not to send documents you consider sensitive through the contact form."]},{"h":"Contact","ps":["Any privacy question: upriselandsurveying@gmail.com or +91 97452 20712."]}];
 
+  /* Satellite acquisition: 18 birds fly in from beyond the frame, lock onto the
+     centre one at a time, and the readout resolves to a fixed position. */
+  startLock() {
+    document.documentElement.setAttribute('data-bench-on', '1');
+    if (this.lockRaf) return;
+    const n = 18;
+    this.sats = Array.from({ length: n }, (_, i) => {
+      const a = (i / n) * Math.PI * 2 + Math.random() * 0.3;
+      return {
+        prn: 'G' + String(i + 2).padStart(2, '0'),
+        a: a,
+        orbit: 0.30 + (i % 3) * 0.085,
+        wobble: 0.5 + Math.random(),
+        at: 320 + i * 96 + Math.random() * 60,     // ms until this one locks
+        p: 0
+      };
+    });
+    this.lockT0 = performance.now();
+    if (this.reduced.matches) { this.lockT0 -= 2600; }
+    const step = (now) => {
+      if (!document.documentElement.hasAttribute('data-bench-on')) { this.lockRaf = 0; return; }
+      this.drawLock(now - this.lockT0);
+      this.lockRaf = requestAnimationFrame(step);
+    };
+    this.lockRaf = requestAnimationFrame(step);
+  }
+
+  stopLock() {
+    document.documentElement.removeAttribute('data-bench-on');
+    if (this.lockRaf) { cancelAnimationFrame(this.lockRaf); this.lockRaf = 0; }
+  }
+
+  drawLock(t) {
+    const cv = this.lockCanvas;
+    if (!cv) return;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const w = cv.clientWidth, h = cv.clientHeight;
+    if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    const g = cv.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h);
+    const cx = w / 2, cy = h / 2, R = Math.min(w, h);
+    const lime = '#8cc63f';
+
+    g.save();
+    g.translate(cx, cy);
+    g.strokeStyle = 'rgba(140,198,63,.16)';
+    g.lineWidth = 1;
+    for (const r of [0.30, 0.385, 0.47]) {                 // orbital shells
+      g.beginPath();
+      g.ellipse(0, 0, R * r, R * r * 0.42, t * 0.00004, 0, Math.PI * 2);
+      g.stroke();
+    }
+    g.restore();
+
+    let locked = 0;
+    for (const s of this.sats) {
+      const k = Math.max(0, Math.min(1, (t - s.at) / 620));
+      const e = 1 - Math.pow(1 - k, 3);
+      s.p = e;
+      if (k >= 1) locked++;
+      const ang = s.a + t * 0.00013 * s.wobble;
+      const far = R * 1.15, near = R * s.orbit;
+      const rad = far + (near - far) * e;
+      const x = cx + Math.cos(ang) * rad, y = cy + Math.sin(ang) * rad * 0.62;
+      if (e <= 0) continue;
+
+      if (k >= 1) {                                        // signal line, with a travelling pulse
+        g.strokeStyle = 'rgba(140,198,63,.34)';
+        g.lineWidth = 1;
+        g.beginPath(); g.moveTo(x, y); g.lineTo(cx, cy); g.stroke();
+        const q = ((t - s.at) / 900) % 1;
+        g.fillStyle = lime;
+        g.beginPath();
+        g.arc(x + (cx - x) * q, y + (cy - y) * q, 1.8, 0, Math.PI * 2);
+        g.fill();
+      }
+
+      g.globalAlpha = 0.35 + 0.65 * e;
+      g.fillStyle = lime;
+      g.beginPath(); g.arc(x, y, 3.1, 0, Math.PI * 2); g.fill();
+      g.strokeStyle = 'rgba(140,198,63,.5)';
+      g.beginPath(); g.arc(x, y, 7 - 4 * e, 0, Math.PI * 2); g.stroke();
+      if (k > 0.5) {
+        g.globalAlpha = (k - 0.5) * 2;
+        g.fillStyle = 'rgba(238,242,238,.82)';
+        g.font = '10px "IBM Plex Mono", monospace';
+        g.fillText(s.prn, x + 10, y + 3.5);
+      }
+      g.globalAlpha = 1;
+    }
+
+    const all = locked >= this.sats.length;
+    g.strokeStyle = all ? lime : 'rgba(140,198,63,.55)';   // centre reticle
+    g.lineWidth = all ? 1.6 : 1;
+    g.beginPath();
+    g.moveTo(cx - 26, cy); g.lineTo(cx - 8, cy);
+    g.moveTo(cx + 8, cy); g.lineTo(cx + 26, cy);
+    g.moveTo(cx, cy - 26); g.lineTo(cx, cy - 8);
+    g.moveTo(cx, cy + 8); g.lineTo(cx, cy + 26);
+    g.stroke();
+    g.beginPath(); g.arc(cx, cy, 15, 0, Math.PI * 2); g.stroke();
+    if (all) {
+      const ring = ((t - this.sats[this.sats.length - 1].at - 620) / 1100) % 1;
+      g.globalAlpha = 1 - ring;
+      g.beginPath(); g.arc(cx, cy, 15 + ring * R * 0.22, 0, Math.PI * 2); g.stroke();
+      g.globalAlpha = 1;
+    }
+    g.fillStyle = lime;
+    g.beginPath(); g.arc(cx, cy, 3, 0, Math.PI * 2); g.fill();
+
+    if (this.lockSats) this.lockSats.textContent = String(locked).padStart(2, '0');
+    if (this.lockStatus) {
+      this.lockStatus.textContent = all ? '● RTK fix · position held' : 'Acquiring constellation';
+      this.lockStatus.style.color = all ? lime : 'rgba(238,242,238,.62)';
+    }
+    if (this.lockCoords) {
+      this.lockCoords.textContent = all
+        ? '09.9667°N  076.7000°E   EL 39.9 M'
+        : (9.9 + Math.random() * 0.12).toFixed(4) + '°N  ' + (76.6 + Math.random() * 0.15).toFixed(4) + '°E';
+    }
+  }
+
   componentDidMount() {
-    this.onLegalKey = (e) => { if (e.key === 'Escape' && this.state.legal) this.openLegal(null); };
+    this.onLegalKey = (e) => {
+      if (e.key !== 'Escape') return;
+      if (this.state.legal) this.openLegal(null);
+      if (document.documentElement.hasAttribute('data-bench-on')) this.stopLock();
+    };
     window.addEventListener('keydown', this.onLegalKey);
     try { this.mount(); } catch (err) { console.error('mount failed', err); }
   }
@@ -1731,7 +1915,11 @@ class Component extends DCLogic {
     if (this.raf) cancelAnimationFrame(this.raf);
     if (this.cloudRaf) cancelAnimationFrame(this.cloudRaf);
     if (this.mq) this.mq.removeEventListener('change', this.applyMq);
+    if (this.lockRaf) cancelAnimationFrame(this.lockRaf);
+    document.documentElement.removeAttribute('data-bench-on');
     if (this.onLegalKey) window.removeEventListener('keydown', this.onLegalKey);
+    document.body.style.position = '';
+    document.body.style.top = '';
     document.body.style.overflow = '';
     if (this.mqWide) this.mqWide.removeEventListener('change', this.applyMq);
     if (this.mqCta) this.mqCta.removeEventListener('change', this.applyMq);
@@ -1803,6 +1991,29 @@ class Component extends DCLogic {
       cloud: (el) => { this.cloud = el; },
       machine: (el) => { this.machine = el; },
       reticle: (el) => { this.reticle = el; },
+      benchHit: (el) => {
+        this.benchHit = el;
+        if (!el || el.dataset.wired) return;
+        el.dataset.wired = '1';
+        el.style.cursor = 'pointer';
+        el.setAttribute('role', 'button');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('aria-label', 'Run a satellite acquisition');
+        el.removeAttribute('aria-hidden');
+        const open = (e) => { e.preventDefault(); this.startLock(); };
+        el.addEventListener('click', open);
+        el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') open(e); });
+      },
+      lockCanvas: (el) => { this.lockCanvas = el; },
+      lockOverlay: (el) => {
+        this.lockOverlay = el;
+        if (!el || el.dataset.wired) return;
+        el.dataset.wired = '1';
+        el.addEventListener('click', () => this.stopLock());
+      },
+      lockSats: (el) => { this.lockSats = el; },
+      lockCoords: (el) => { this.lockCoords = el; },
+      lockStatus: (el) => { this.lockStatus = el; },
       hzRef: (el) => { this.hzRef = el; },
       vRef: (el) => { this.vRef = el; },
       seam1: (el) => { this.seam1 = el; },
